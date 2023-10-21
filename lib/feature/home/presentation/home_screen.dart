@@ -121,9 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           )
         ],
-      ),
-
-      // popular
+      ), // popular
       TargetFocus(
         identify: "popular-key",
         keyTarget: popularKey,
@@ -225,9 +223,7 @@ class _HomeScreenState extends State<HomeScreen> {
               style: TextStyle(color: Colors.red),
             )),
           ),
-        ),
-
-        /////////////////////////
+        ), /////////////////////////
         Positioned(
           top: 20,
           right: 200,

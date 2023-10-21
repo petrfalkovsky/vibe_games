@@ -42,7 +42,6 @@ class ForYouDestinationWidget extends StatelessWidget {
                         specialForYou[index].asset,
                       ),
                       fit: BoxFit.cover,
-                      alignment: Alignment.center,
                     ),
                   ),
                 ),
