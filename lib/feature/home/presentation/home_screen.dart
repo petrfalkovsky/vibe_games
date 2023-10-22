@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:vibe_games/core/route/app_route_name.dart';
@@ -18,11 +20,11 @@ class _HomeScreenState extends State<HomeScreen> {
   TutorialCoachMark? tutorialCoachMark;
   List<TargetFocus> targets = [];
 
-  GlobalKey profileKey = GlobalKey();
-  GlobalKey notificationKey = GlobalKey();
-  GlobalKey searchKey = GlobalKey();
-  GlobalKey popularKey = GlobalKey();
-  GlobalKey specialKey = GlobalKey();
+  GlobalKey mapKey = GlobalKey();
+  GlobalKey sneakerKey = GlobalKey();
+  GlobalKey speedometerKey = GlobalKey();
+  GlobalKey gpsKey = GlobalKey();
+  GlobalKey microKey = GlobalKey();
 
   @override
   void initState() {
@@ -51,17 +53,42 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void initTarget() {
     targets = [
-      // profile
+      // карта
       TargetFocus(
-        identify: "profile-key",
-        keyTarget: profileKey,
+        identify: "map-key",
+        keyTarget: mapKey,
         contents: [
           TargetContent(
             align: ContentAlign.bottom,
             builder: (context, controller) {
               return CoachmarkDesc(
-                text:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu odio sed tortor sagittis eleifend. Proin purus nisi, interdum eget tincidunt nec, gravida ullamcorper tortor.",
+                textWidget: RichText(
+                  text: const TextSpan(
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: "Миникарта",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      TextSpan(
+                        text:
+                            " помогает \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nориентироваться в пространстве. ",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF9876C1),
+                        ),
+                      ),
+                      TextSpan(
+                        text: "Нажатие откроет меню паузы.",
+                        style: TextStyle(
+                          color: Colors.blue,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 onNext: () {
                   controller.next();
                 },
@@ -73,19 +100,25 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-
-      // notification
+      // кроссовок
       TargetFocus(
-        identify: "notification-key",
-        keyTarget: notificationKey,
+        identify: "sneaker-key",
+        keyTarget: sneakerKey,
         color: AppColor.black,
+        shape: ShapeLightFocus.Circle,
         contents: [
           TargetContent(
-            align: ContentAlign.bottom,
+            align: ContentAlign.left,
             builder: (context, controller) {
               return CoachmarkDesc(
-                text:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu odio sed tortor sagittis eleifend. Proin purus nisi, interdum eget tincidunt nec, gravida ullamcorper tortor.",
+                textWidget: CustomTextWidget(
+                  text:
+                      "Миникарта помогает ориентироваться в пространстве. Нажатие откроет меню паузы.",
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold, // Сделать текст жирным
+                    color: Colors.red, // Изменить цвет текста
+                  ),
+                ),
                 onNext: () {
                   controller.next();
                 },
@@ -97,43 +130,25 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-
-      // search
+      // спидометр
       TargetFocus(
-        identify: "search-key",
-        keyTarget: searchKey,
+        identify: "speedometer-key",
+        keyTarget: speedometerKey,
         color: AppColor.black,
-        shape: ShapeLightFocus.RRect,
+        shape: ShapeLightFocus.Circle,
         contents: [
           TargetContent(
             align: ContentAlign.bottom,
             builder: (context, controller) {
               return CoachmarkDesc(
-                text:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu odio sed tortor sagittis eleifend. Proin purus nisi, interdum eget tincidunt nec, gravida ullamcorper tortor.",
-                onNext: () {
-                  controller.next();
-                },
-                onSkip: () {
-                  controller.skip();
-                },
-              );
-            },
-          )
-        ],
-      ), // popular
-      TargetFocus(
-        identify: "popular-key",
-        keyTarget: popularKey,
-        color: AppColor.black,
-        shape: ShapeLightFocus.RRect,
-        contents: [
-          TargetContent(
-            align: ContentAlign.top,
-            builder: (context, controller) {
-              return CoachmarkDesc(
-                text:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu odio sed tortor sagittis eleifend. Proin purus nisi, interdum eget tincidunt nec, gravida ullamcorper tortor.",
+                textWidget: CustomTextWidget(
+                  text:
+                      "Миникарта помогает ориентироваться в пространстве. Нажатие откроет меню паузы.",
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold, // Сделать текст жирным
+                    color: Colors.red, // Изменить цвет текста
+                  ),
+                ),
                 onNext: () {
                   controller.next();
                 },
@@ -145,20 +160,55 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-
-      /// special for you
+      // gps
       TargetFocus(
-        identify: "special-key",
-        keyTarget: specialKey,
+        identify: "gps-key",
+        keyTarget: gpsKey,
         color: AppColor.black,
-        shape: ShapeLightFocus.RRect,
+        shape: ShapeLightFocus.Circle,
         contents: [
           TargetContent(
-            align: ContentAlign.top,
+            align: ContentAlign.left,
             builder: (context, controller) {
               return CoachmarkDesc(
-                text:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu odio sed tortor sagittis eleifend. Proin purus nisi, interdum eget tincidunt nec, gravida ullamcorper tortor.",
+                textWidget: CustomTextWidget(
+                  text:
+                      "Миникарта помогает ориентироваться в пространстве. Нажатие откроет меню паузы.",
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold, // Сделать текст жирным
+                    color: Colors.red, // Изменить цвет текста
+                  ),
+                ),
+                onNext: () {
+                  controller.next();
+                },
+                onSkip: () {
+                  controller.skip();
+                },
+              );
+            },
+          )
+        ],
+      ),
+      // микрофон
+      TargetFocus(
+        identify: "micro-key",
+        keyTarget: microKey,
+        color: AppColor.black,
+        shape: ShapeLightFocus.Circle,
+        contents: [
+          TargetContent(
+            align: ContentAlign.bottom,
+            builder: (context, controller) {
+              return CoachmarkDesc(
+                textWidget: CustomTextWidget(
+                  text:
+                      "Миникарта помогает ориентироваться в пространстве. Нажатие откроет меню паузы.",
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold, // Сделать текст жирным
+                    color: Colors.red, // Изменить цвет текста
+                  ),
+                ),
                 next: "Finish",
                 onNext: () {
                   /// save state
@@ -192,82 +242,84 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
 
-        ////////////////////////////////////////////////////////////////////////////////////
+        // карта
         Positioned(
-          top: 20,
-          right: 10,
+          top: 8,
+          left: 30,
           child: Container(
-            key: profileKey,
-            height: 176,
-            width: 176,
-            child: const Center(
-                child: Text(
-              'Карта',
-              style: TextStyle(color: Colors.red),
-            )),
+            key: mapKey,
+            height: 240,
+            width: 240,
+            // child: const Center(
+            //     child: Text(
+            //   'Карта',
+            //   style: TextStyle(color: Colors.red),
+            // )),
           ),
         ),
-        ///////////////////////////////////////////////////////////////
 
+        // кроссовок
         Positioned(
-          top: 20,
-          right: 100,
+          bottom: 60,
+          right: 150,
           child: Container(
-            color: Colors.amber,
-            key: notificationKey,
-            height: 176,
-            width: 176,
-            child: const Center(
-                child: Text(
-              'Башмак',
-              style: TextStyle(color: Colors.red),
-            )),
-          ),
-        ), /////////////////////////
-        Positioned(
-          top: 20,
-          right: 200,
-          child: Container(
-            color: Colors.pink,
-            key: popularKey,
-            height: 176,
-            width: 176,
-            child: const Center(
-                child: Text(
-              'Спидометр',
-              style: TextStyle(color: Colors.red),
-            )),
+            key: sneakerKey,
+            height: 150,
+            width: 150,
+            // child: const Center(
+            //     child: Text(
+            //   'Кроссовок',
+            //   style: TextStyle(color: Colors.red),
+            // )),
           ),
         ),
-        /////////////////////////
+
+        // спидометр
         Positioned(
-          top: 20,
-          right: 300,
+          top: 246,
+          left: 104,
           child: Container(
-            color: Colors.black,
-            key: searchKey,
-            height: 176,
-            width: 176,
-            child: const Center(
-                child: Text(
-              'Спидометр',
-              style: TextStyle(color: Colors.red),
-            )),
+            key: speedometerKey,
+            height: 120,
+            width: 120,
+            // child: const Center(
+            //     child: Text(
+            //   'Спидометр',
+            //   style: TextStyle(color: Colors.red),
+            // )),
           ),
         ),
+
+        // gps
         Positioned(
-          top: 20,
-          right: 400,
+          top: 250,
+          right: 460,
           child: Container(
-            color: Colors.green,
-            key: specialKey,
+            key: gpsKey,
             height: 176,
             width: 176,
-            child: const Center(
-                child: Text(
-              'Спидометр',
-              style: TextStyle(color: Colors.red),
-            )),
+            // child: const Center(
+            //     child: Text(
+            //   'GPS',
+            //   style: TextStyle(color: Colors.red),
+            // )),
+          ),
+        ),
+
+        // микрофон
+        Positioned(
+          top: 280,
+          right: 255,
+          child: Container(
+            // color: Colors.green,
+            key: microKey,
+            height: 120,
+            width: 120,
+            // child: const Center(
+            //     child: Text(
+            //   'Микрофон',
+            //   style: TextStyle(color: Colors.red),
+            // )),
           ),
         ),
       ],
@@ -275,17 +327,32 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
+class CustomTextWidget extends StatelessWidget {
+  final String text;
+  final TextStyle style;
+
+  CustomTextWidget({required this.text, required this.style});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: style,
+    );
+  }
+}
+
 class CoachmarkDesc extends StatefulWidget {
   const CoachmarkDesc({
     super.key,
-    required this.text,
+    required this.textWidget,
     this.skip = "Skip",
     this.next = "Next",
     this.onSkip,
     this.onNext,
   });
 
-  final String text;
+  final Widget textWidget;
   final String skip;
   final String next;
   final void Function()? onSkip;
@@ -329,33 +396,42 @@ class _CoachmarkDescState extends State<CoachmarkDesc>
       child: Container(
         padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
-          color: Colors.purple,
+          gradient: const LinearGradient(
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            colors: [Colors.white, Color(0xFF482575)],
+          ),
           borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+            color: Colors.white,
+            width: 2.0,
+          ),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              widget.text,
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            const SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                TextButton(
-                  onPressed: widget.onSkip,
-                  child: Text(widget.skip),
-                ),
-                const SizedBox(width: 16),
-                ElevatedButton(
-                  onPressed: widget.onNext,
-                  child: Text(widget.next),
-                ),
-              ],
-            )
-          ],
+        child: IntrinsicHeight(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Expanded(
+                child: widget.textWidget,
+              ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextButton(
+                    onPressed: widget.onSkip,
+                    child: Text(widget.skip),
+                  ),
+                  const SizedBox(width: 16),
+                  ElevatedButton(
+                    onPressed: widget.onNext,
+                    child: Text(widget.next),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
