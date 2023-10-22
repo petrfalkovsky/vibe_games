@@ -1,11 +1,5 @@
-// ignore_for_file: sized_box_for_whitespace
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:vibe_games/core/route/app_route_name.dart';
 import 'package:vibe_games/core/theme/app_color.dart';
-import 'package:vibe_games/feature/home/presentation/widget/for_you_destination_widget.dart';
-import 'package:vibe_games/feature/home/presentation/widget/popular_destination_widget.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,7 +10,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // Coachmart properties
   TutorialCoachMark? tutorialCoachMark;
   List<TargetFocus> targets = [];
 
@@ -444,7 +437,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Positioned(
           top: 8,
           left: 30,
-          child: Container(
+          child: SizedBox(
             key: mapKey,
             height: 240,
             width: 240,
@@ -460,7 +453,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Positioned(
           bottom: 60,
           right: 150,
-          child: Container(
+          child: SizedBox(
             key: sneakerKey,
             height: 150,
             width: 150,
@@ -476,7 +469,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Positioned(
           top: 246,
           left: 104,
-          child: Container(
+          child: SizedBox(
             key: speedometerKey,
             height: 120,
             width: 120,
@@ -492,7 +485,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Positioned(
           top: 250,
           right: 460,
-          child: Container(
+          child: SizedBox(
             key: gpsKey,
             height: 176,
             width: 176,
@@ -508,7 +501,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Positioned(
           top: 280,
           right: 255,
-          child: Container(
+          child: SizedBox(
             // color: Colors.green,
             key: microKey,
             height: 120,
@@ -529,7 +522,7 @@ class CustomTextWidget extends StatelessWidget {
   final String text;
   final TextStyle style;
 
-  CustomTextWidget({required this.text, required this.style});
+  const CustomTextWidget({super.key, required this.text, required this.style});
 
   @override
   Widget build(BuildContext context) {

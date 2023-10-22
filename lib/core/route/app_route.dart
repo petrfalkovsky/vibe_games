@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vibe_games/feature/detail_destionation/presentation/detail_destination_screen.dart';
 import 'package:vibe_games/feature/get_started/presentation/get_started_screen.dart';
 import 'package:vibe_games/feature/home/presentation/home_screen.dart';
 import '/core/route/app_route_name.dart';
@@ -17,22 +16,6 @@ class AppRoute {
         return PageRouteBuilder(
           settings: settings,
           pageBuilder: (_, __, ___) => const HomeScreen(),
-          transitionDuration: const Duration(milliseconds: 400),
-          transitionsBuilder: (_, animation, __, child) {
-            return SlideTransition(
-              position: Tween<Offset>(
-                begin: const Offset(1, 0),
-                end: Offset.zero,
-              ).animate(animation),
-              child: child,
-            );
-          },
-        );
-
-      case AppRouteName.detailDestination:
-        return PageRouteBuilder(
-          settings: settings,
-          pageBuilder: (_, __, ___) => const DetailDestinationScreen(),
           transitionDuration: const Duration(milliseconds: 400),
           transitionsBuilder: (_, animation, __, child) {
             return SlideTransition(
