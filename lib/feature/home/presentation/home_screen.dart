@@ -55,64 +55,84 @@ class _HomeScreenState extends State<HomeScreen> {
     targets = [
       // карта
       TargetFocus(
+        color: AppColor.black,
         paddingFocus: 20,
         identify: "map-key",
         keyTarget: mapKey,
+        shape: ShapeLightFocus.RRect,
+        radius: 30.0,
         contents: [
           TargetContent(
-            align: ContentAlign.bottom,
+            align: ContentAlign.right,
             builder: (context, controller) {
-              return CoachmarkDesc(
-                textWidget: RichText(
-                  text: const TextSpan(
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: "Миникарта",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
+              return Padding(
+                padding: const EdgeInsets.only(top: 200),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      width: 300,
+                      padding: const EdgeInsets.only(
+                          top: 15, bottom: 18, right: 15, left: 15),
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: [Color(0xFF644F80), Color(0xFF482575)],
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
                           color: Colors.white,
+                          width: 2.0,
                         ),
                       ),
-                      TextSpan(
-                        text: " помогает ориентироваться в пространстве. ",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF9876C1),
+                      child: RichText(
+                        text: const TextSpan(
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: "Миникарта ",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                            TextSpan(
+                              text: "помогает \n",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF9876C1),
+                              ),
+                            ),
+                            TextSpan(
+                              text: "ориентироваться в пространстве",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                            TextSpan(
+                              text: ".\nНажатие ",
+                              style: TextStyle(
+                                color: Color(0xFF9876C1),
+                              ),
+                            ),
+                            TextSpan(
+                              text: "откроет меню паузы",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      TextSpan(
-                        text:
-                            "ориентироваться в пространстве. Нажатие откроет меню паузы.",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                      TextSpan(
-                        text: ". Нажатие ",
-                        style: TextStyle(
-                          color: Color(0xFF9876C1),
-                        ),
-                      ),
-                      TextSpan(
-                        text: "откроет меню паузы.",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                onNext: () {
-                  controller.next();
-                },
-                onSkip: () {
-                  controller.skip();
-                },
               );
             },
           )
         ],
       ),
+
       // кроссовок
       TargetFocus(
         identify: "sneaker-key",
@@ -123,42 +143,68 @@ class _HomeScreenState extends State<HomeScreen> {
           TargetContent(
             align: ContentAlign.left,
             builder: (context, controller) {
-              return Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  Container(
-                    width: 200,
-                    padding: const EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                        colors: [Color(0xFF644F80), Color(0xFF482575)],
+              return Padding(
+                padding: const EdgeInsets.only(top: 100),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    Container(
+                      width: 200,
+                      padding: const EdgeInsets.only(
+                          top: 15, bottom: 18, right: 15, left: 15),
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: [Color(0xFF644F80), Color(0xFF482575)],
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 2.0,
+                        ),
                       ),
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Colors.white,
-                        width: 2.0,
+                      child: RichText(
+                        text: const TextSpan(
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: "Сделай ",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF9876C1),
+                              ),
+                            ),
+                            TextSpan(
+                              text: "прыжок ",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                            TextSpan(
+                              text: "на ",
+                              style: TextStyle(
+                                color: Color(0xFF9876C1),
+                              ),
+                            ),
+                            TextSpan(
+                              text: "двойной тап ",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                            TextSpan(
+                              text: "по кнопке",
+                              style: TextStyle(
+                                color: Color(0xFF9876C1),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    child: const Text(
-                      "Titulo lorem ipsum",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 20.0,
-                      ),
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 10.0),
-                    child: Text(
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar tortor eget maximus iaculis.",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               );
             },
           )
@@ -174,21 +220,74 @@ class _HomeScreenState extends State<HomeScreen> {
           TargetContent(
             align: ContentAlign.right,
             builder: (context, controller) {
-              return CoachmarkDesc(
-                textWidget: CustomTextWidget(
-                  text:
-                      "Миникарта помогает ориентироваться в пространстве. Нажатие откроет меню паузы.",
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold, // Сделать текст жирным
-                    color: Colors.red, // Изменить цвет текста
-                  ),
+              return Padding(
+                padding: const EdgeInsets.only(top: 80),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      width: 360,
+                      padding: const EdgeInsets.only(
+                          top: 15, bottom: 18, right: 15, left: 15),
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: [Color(0xFF644F80), Color(0xFF482575)],
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 2.0,
+                        ),
+                      ),
+                      child: RichText(
+                        text: const TextSpan(
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: "Это ",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF9876C1),
+                              ),
+                            ),
+                            TextSpan(
+                              text: "спидометр",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                            TextSpan(
+                              text: ". Он показывает текущую ",
+                              style: TextStyle(
+                                color: Color(0xFF9876C1),
+                              ),
+                            ),
+                            TextSpan(
+                              text: "\nскорость и пробег авто",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                            TextSpan(
+                              text: ", а так же индикаторы  ",
+                              style: TextStyle(
+                                color: Color(0xFF9876C1),
+                              ),
+                            ),
+                            TextSpan(
+                              text: "\nповоротников, фар, зажигания и дверей",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                onNext: () {
-                  controller.next();
-                },
-                onSkip: () {
-                  controller.skip();
-                },
               );
             },
           )
@@ -204,21 +303,55 @@ class _HomeScreenState extends State<HomeScreen> {
           TargetContent(
             align: ContentAlign.left,
             builder: (context, controller) {
-              return CoachmarkDesc(
-                textWidget: CustomTextWidget(
-                  text:
-                      "Миникарта помогает ориентироваться в пространстве. Нажатие откроет меню паузы.",
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold, // Сделать текст жирным
-                    color: Colors.red, // Изменить цвет текста
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(top: 140),
+                    child: Container(
+                      width: 180,
+                      padding: const EdgeInsets.only(
+                          top: 15, bottom: 18, right: 15, left: 15),
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: [Color(0xFF644F80), Color(0xFF482575)],
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 2.0,
+                        ),
+                      ),
+                      child: RichText(
+                        text: const TextSpan(
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: "Нажмите сюда",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                            TextSpan(
+                              text: ", \nчтобы открыть",
+                              style: TextStyle(
+                                color: Color(0xFF9876C1),
+                              ),
+                            ),
+                            TextSpan(
+                              text: "GPS",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-                onNext: () {
-                  controller.next();
-                },
-                onSkip: () {
-                  controller.skip();
-                },
+                ],
               );
             },
           )
@@ -234,25 +367,56 @@ class _HomeScreenState extends State<HomeScreen> {
           TargetContent(
             align: ContentAlign.left,
             builder: (context, controller) {
-              return CoachmarkDesc(
-                textWidget: CustomTextWidget(
-                  text:
-                      "Миникарта помогает ориентироваться в пространстве. Нажатие откроет меню паузы.",
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold, // Сделать текст жирным
-                    color: Colors.red, // Изменить цвет текста
-                  ),
+              return Padding(
+                padding: const EdgeInsets.only(top: 70),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    Container(
+                      width: 200,
+                      padding: const EdgeInsets.only(
+                          top: 15, bottom: 18, right: 15, left: 15),
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: [Color(0xFF644F80), Color(0xFF482575)],
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 2.0,
+                        ),
+                      ),
+                      child: RichText(
+                        text: const TextSpan(
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: "Можешь выключить ",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF9876C1),
+                              ),
+                            ),
+                            TextSpan(
+                              text: "микрофон, ",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                            TextSpan(
+                              text: "\nесли хочешь =)",
+                              style: TextStyle(
+                                color: Color(0xFF9876C1),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                next: "Finish",
-                onNext: () {
-                  /// save state
-                  /// local storage
-                  controller.next();
-                  debugPrint("Save to Local Strage");
-                },
-                onSkip: () {
-                  controller.skip();
-                },
               );
             },
           )
