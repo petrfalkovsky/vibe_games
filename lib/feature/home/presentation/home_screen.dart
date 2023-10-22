@@ -55,6 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
     targets = [
       // карта
       TargetFocus(
+        paddingFocus: 20,
         identify: "map-key",
         keyTarget: mapKey,
         contents: [
@@ -73,17 +74,29 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       TextSpan(
-                        text:
-                            " помогает \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nориентироваться в пространстве. ",
+                        text: " помогает ориентироваться в пространстве. ",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Color(0xFF9876C1),
                         ),
                       ),
                       TextSpan(
-                        text: "Нажатие откроет меню паузы.",
+                        text:
+                            "ориентироваться в пространстве. Нажатие откроет меню паузы.",
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.white,
+                        ),
+                      ),
+                      TextSpan(
+                        text: ". Нажатие ",
+                        style: TextStyle(
+                          color: Color(0xFF9876C1),
+                        ),
+                      ),
+                      TextSpan(
+                        text: "откроет меню паузы.",
+                        style: TextStyle(
+                          color: Colors.white,
                         ),
                       ),
                     ],
@@ -110,21 +123,42 @@ class _HomeScreenState extends State<HomeScreen> {
           TargetContent(
             align: ContentAlign.left,
             builder: (context, controller) {
-              return CoachmarkDesc(
-                textWidget: CustomTextWidget(
-                  text:
-                      "Миникарта помогает ориентироваться в пространстве. Нажатие откроет меню паузы.",
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold, // Сделать текст жирным
-                    color: Colors.red, // Изменить цвет текста
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  Container(
+                    width: 200,
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                        colors: [Color(0xFF644F80), Color(0xFF482575)],
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 2.0,
+                      ),
+                    ),
+                    child: const Text(
+                      "Titulo lorem ipsum",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 20.0,
+                      ),
+                    ),
                   ),
-                ),
-                onNext: () {
-                  controller.next();
-                },
-                onSkip: () {
-                  controller.skip();
-                },
+                  const Padding(
+                    padding: EdgeInsets.only(top: 10.0),
+                    child: Text(
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar tortor eget maximus iaculis.",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ],
               );
             },
           )
@@ -138,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
         shape: ShapeLightFocus.Circle,
         contents: [
           TargetContent(
-            align: ContentAlign.bottom,
+            align: ContentAlign.right,
             builder: (context, controller) {
               return CoachmarkDesc(
                 textWidget: CustomTextWidget(
@@ -198,7 +232,7 @@ class _HomeScreenState extends State<HomeScreen> {
         shape: ShapeLightFocus.Circle,
         contents: [
           TargetContent(
-            align: ContentAlign.bottom,
+            align: ContentAlign.left,
             builder: (context, controller) {
               return CoachmarkDesc(
                 textWidget: CustomTextWidget(
@@ -350,6 +384,7 @@ class CoachmarkDesc extends StatefulWidget {
     this.next = "Next",
     this.onSkip,
     this.onNext,
+    this.containerWidth,
   });
 
   final Widget textWidget;
@@ -357,6 +392,7 @@ class CoachmarkDesc extends StatefulWidget {
   final String next;
   final void Function()? onSkip;
   final void Function()? onNext;
+  final double? containerWidth;
 
   @override
   State<CoachmarkDesc> createState() => _CoachmarkDescState();
@@ -399,7 +435,7 @@ class _CoachmarkDescState extends State<CoachmarkDesc>
           gradient: const LinearGradient(
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
-            colors: [Colors.white, Color(0xFF482575)],
+            colors: [Color(0xFF644F80), Color(0xFF482575)],
           ),
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
@@ -407,31 +443,32 @@ class _CoachmarkDescState extends State<CoachmarkDesc>
             width: 2.0,
           ),
         ),
-        child: IntrinsicHeight(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Expanded(
-                child: widget.textWidget,
-              ),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TextButton(
-                    onPressed: widget.onSkip,
-                    child: Text(widget.skip),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            widget.textWidget,
+            const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  onPressed: widget.onSkip,
+                  child: Text(
+                    widget.skip,
+                    style: const TextStyle(color: Colors.white),
                   ),
-                  const SizedBox(width: 16),
-                  ElevatedButton(
-                    onPressed: widget.onNext,
-                    child: Text(widget.next),
+                ),
+                const SizedBox(width: 16),
+                ElevatedButton(
+                  onPressed: widget.onNext,
+                  child: Text(
+                    widget.next,
+                    style: const TextStyle(color: Colors.white),
                   ),
-                ],
-              )
-            ],
-          ),
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
