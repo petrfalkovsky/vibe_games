@@ -8,9 +8,18 @@ abstract class AppColors {
   static _AccentColors accent = const _AccentColors(
     0xFFFEFEFF,
     <int, Color>{
-      1: Color(0xFF1DB9DD),
-      2: Color(0xFF8784D3),
-      3: Color(0xFF083039)
+      // кнопки, элементы таблоиов всяких
+      1: Color(0xFF482575),
+      // сердечки всякие
+      2: Color(0xFFFF2E9F),
+      // чашки всякие
+      3: Color(0xFFF6980B),
+      // воздух например
+      4: Color(0xFF00D1FF),
+      // неактивный элемент
+      5: Color(0xFFA1A1A1),
+      // зеленое что-то, типа микрофона
+      6: Color(0xFF267B2F),
     },
   );
 

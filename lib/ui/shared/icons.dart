@@ -11,6 +11,11 @@ class AppIcons {
 
   /// использовать свг иконки
   /// AppIcons.svgWidget(AppIcons.map, width: 26),
+  /// новые
+  static const micOff = '$_basePathIcons/mic_off.svg';
+  static const mic = '$_basePathIcons/mic.svg';
+
+  /// старые
   static const add = '$_basePathIcons/add_icon.svg';
   static const remove = '$_basePathIcons/remove_icon.svg';
   static const arrowDown = '$_basePathIcons/arrow_down.svg';

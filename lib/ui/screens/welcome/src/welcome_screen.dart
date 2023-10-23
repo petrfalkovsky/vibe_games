@@ -8,8 +8,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' hide Trans;
 import 'package:vibe_games/ui/router/routing.dart';
-import 'package:vibe_games/ui/screens/auth/src/welcome_controller.dart';
+import 'package:vibe_games/ui/screens/welcome/src/welcome_controller.dart';
+import 'package:vibe_games/ui/screens/welcome/welcome.dart';
 import 'package:vibe_games/ui/shared/all_shared.dart';
+import 'package:vibe_games/ui/shared/button_animator.dart';
 import 'package:vibe_games/ui/shared/constants/app_colors.dart';
 import 'package:vibe_games/ui/shared/constants/assets.dart';
 import 'package:vibe_games/ui/shared/widgets/std_button.dart';
@@ -33,12 +35,30 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
             children: [
               const _BackgroundImage(),
               SafeArea(
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(24.0),
-                    child: Column(
-                      children: const [],
-                    ),
+                child: Padding(
+                  padding: const EdgeInsets.all(24.0),
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          ButtonAnimator(childWidget: const MicrophoneButton()),
+                        ],
+                      ),
+                      const Spacer(),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: const [
+                          Text('data'),
+                        ],
+                      ),
+                      const Spacer(),
+                      Column(
+                        children: const [
+                          Text('data'),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ),
