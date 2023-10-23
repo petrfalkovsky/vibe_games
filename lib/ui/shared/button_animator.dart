@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ButtonAnimator extends StatefulWidget {
-  Widget childWidget;
-  Function? onTap;
-  ButtonAnimator({required this.childWidget, this.onTap, super.key});
+  final Widget childWidget;
+  final Function? onTap;
+  const ButtonAnimator({required this.childWidget, this.onTap, super.key});
 
   @override
   ButtonAnimatorState createState() => ButtonAnimatorState();
@@ -47,7 +47,7 @@ class ButtonAnimatorState extends State<ButtonAnimator> {
   }
 
   void _handlePointerDown(PointerDownEvent event) {
-    if (this.mounted) {
+    if (mounted) {
       setState(() {
         _scale = 0.9;
       });
@@ -55,7 +55,7 @@ class ButtonAnimatorState extends State<ButtonAnimator> {
   }
 
   void _handlePointerUp(PointerUpEvent event) {
-    if (this.mounted) {
+    if (mounted) {
       setState(() {
         _scale = 1.0;
       });

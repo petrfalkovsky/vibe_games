@@ -16,7 +16,7 @@ class AnimatedProgressBar extends StatefulWidget {
     Key? key,
     this.currentValue = 0,
     this.maxValue = 100,
-    this.size = 30,
+    this.size = 9,
     this.animatedDuration = const Duration(milliseconds: 300),
     this.direction = Axis.horizontal,
     this.verticalDirection = VerticalDirection.down,

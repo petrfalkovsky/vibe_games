@@ -39,7 +39,7 @@ abstract class AppColors {
       // secondary
       2: Color(0xFFA0A0A1),
       // не активный текст
-      3: Color(0xFF526E74),
+      3: Color(0xFF7F669E),
       // secondaryTwo
       4: Color(0xFFBDBCDE),
     },
@@ -55,8 +55,10 @@ abstract class AppColors {
   static _BackgroundColors background = const _BackgroundColors(
     0xFFF9F9FA,
     <int, Color>{
-      1: Color(0xFF101113),
-      2: Color(0xFF8784D3),
+      // светло-фиолетовый
+      1: Color(0xFF482575),
+      // темно-фиолетовый
+      2: Color(0xFF341161),
       3: Color(0xFF5A57AC),
       4: Color(0xFF101113),
       5: Colors.transparent,

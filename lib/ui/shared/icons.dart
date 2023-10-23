@@ -14,6 +14,11 @@ class AppIcons {
   /// новые
   static const micOff = '$_basePathIcons/mic_off.svg';
   static const mic = '$_basePathIcons/mic.svg';
+  static const star = '$_basePathIcons/star.svg';
+  static const statusBarFrame = '$_basePathIcons/status_bar_frame.svg';
+  static const heart = '$_basePathIcons/heart.svg';
+  static const cup = '$_basePathIcons/cup.svg';
+  static const o2 = '$_basePathIcons/o_2.svg';
 
   /// старые
   static const add = '$_basePathIcons/add_icon.svg';
@@ -35,7 +40,6 @@ class AppIcons {
   static const selectionChosen = '$_basePathIcons/selection_chosen.svg';
   static const selectionFree = '$_basePathIcons/selection_free.svg';
   static const settings = '$_basePathIcons/settings.svg';
-  static const star = '$_basePathIcons/star.svg';
   static const tickSquare = '$_basePathIcons/tick_square.svg';
   static const cart = '$_basePathIcons/cart.svg';
   static const run = '$_basePathIcons/run.svg';
