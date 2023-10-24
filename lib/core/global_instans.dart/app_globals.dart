@@ -3,18 +3,21 @@ library my_app.globals;
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
-// import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
-// import 'package:hive/hive.dart';
-// import 'package:vibe_games/data/storage/hive/src/token_storage.dart';
-// import 'package:vibe_games/ui/screens/walking/walking.dart';
+// методы для перевода пикселей в dp
+double sdp(BuildContext context, double dp) {
+  double width = MediaQuery.of(context).size.width;
+  return (dp / 300) * width;
+}
 
-/// сюда можно добавлять глобальные переменные
-
-/// импортируем акссес токен из мэйн контроллера
-// final mainController = Get.find<WalkingController>();
-// final accessToken = mainController.accessToken;
-// final refreshToken = mainController.refreshToken;
+double sdpPX(BuildContext context, double px) {
+  double width = MediaQuery.of(context).size.width;
+  double height = MediaQuery.of(context).size.height;
+  if (width < height) {
+    return (px * 0.29166 / 300) * width;
+  } else {
+    return (px * 0.29166 / 300) * height;
+  }
+}
 
 // метод для обработки ошибок
 // общий метод данных и обработки ошибок

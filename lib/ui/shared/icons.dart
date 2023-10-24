@@ -19,6 +19,12 @@ class AppIcons {
   static const heart = '$_basePathIcons/heart.svg';
   static const cup = '$_basePathIcons/cup.svg';
   static const o2 = '$_basePathIcons/o_2.svg';
+  static const sheeld = '$_basePathIcons/sheeld.svg';
+  static const rub = '$_basePathIcons/rub.svg';
+  static const leftPartOfStatusbar =
+      '$_basePathIcons/left_part_of_statusbar_container.svg';
+  static const rightPartOfStatusbar =
+      '$_basePathIcons/right_part_of_statusbar_container.svg';
 
   /// старые
   static const add = '$_basePathIcons/add_icon.svg';
@@ -69,6 +75,7 @@ class AppIcons {
   static const coinLarge = '$_basePathImg/coin_rm.png';
   static const speedArrow = '$_basePathImg/speed_arrow.png';
   static const connectionLost = '$_basePathImg/connection_lost.png';
+  static const backStatusBar = '$_basePathImg/back_status_bar.png';
 
   static Widget svgWidget(String path,
       {double? width, double? height, Color? color}) {
