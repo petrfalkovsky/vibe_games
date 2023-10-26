@@ -55,15 +55,15 @@ class _UpperStatusBarState extends State<UpperStatusBar> {
                             ),
                             Padding(
                               padding: EdgeInsets.only(
-                                  top: sdpPX(context, 22),
-                                  left: sdpPX(context, 13)),
+                                  top: sdpPX(context, 21),
+                                  left: sdpPX(context, 12.6)),
                               child: Text(
                                 '5',
                                 style: TextStyle(
-                                  color: AppColors.text,
-                                  fontSize: sdpPX(context, 16),
-                                  fontWeight: FontWeight.bold,
-                                ),
+                                    color: AppColors.text,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: sdpPX(context, 17),
+                                    fontFamily: 'TTNorms'),
                               ),
                             ),
                           ],
@@ -97,7 +97,7 @@ class _UpperStatusBarState extends State<UpperStatusBar> {
                               ),
                               sdpPX(context, 8).w,
                               BalanceStatusBar(
-                                text: '1234567891',
+                                text: '2 000 000 000 000',
                                 fontSize: sdpPX(context, 27.5),
                               ),
                               sdpPX(context, 4).w,
@@ -120,51 +120,6 @@ class _UpperStatusBarState extends State<UpperStatusBar> {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class BalanceStatusBar extends StatelessWidget {
-  final String text;
-  final double fontSize;
-
-  const BalanceStatusBar({
-    Key? key,
-    required this.text,
-    required this.fontSize,
-  }) : super(key: key);
-
-  double calculateFontSize() {
-    if (text.length > 25) {
-      return 12.0;
-    } else if (text.length > 21) {
-      return 16.0;
-    } else if (text.length > 18) {
-      return 20.0;
-    } else {
-      return 26.0;
-    }
-  }
-
-  String formatText() {
-    if (text.length > 25) {
-      return '${text.substring(0, 23)}..';
-    } else {
-      return text;
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    String formattedText = formatText();
-
-    return Text(
-      formattedText,
-      style: TextStyle(
-        color: AppColors.text[1],
-        fontWeight: FontWeight.bold,
-        fontSize: fontSize,
       ),
     );
   }

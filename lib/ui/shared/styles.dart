@@ -2,77 +2,71 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class AppStyles {
-  static const avenirBlackOblique = 'Avenir BlackOblique';
-  static const avenirBook = 'Avenir Book';
+  static const ttNorms = 'TTNorms';
 
   static const largeTitle = TextStyle(
     fontSize: 72,
-    fontFamily: avenirBlackOblique,
+    fontFamily: ttNorms,
   );
 
   static const title = TextStyle(
     fontSize: 32,
-    fontFamily: avenirBlackOblique,
+    fontFamily: ttNorms,
   );
 
   static const title2 = TextStyle(
     fontSize: 28,
-    fontFamily: avenirBlackOblique,
+    fontFamily: ttNorms,
     fontWeight: FontWeight.w600,
   );
 
   static const headline = TextStyle(
     fontSize: 20,
-    fontFamily: avenirBlackOblique,
+    fontFamily: ttNorms,
     fontWeight: FontWeight.w600,
   );
 
   static const body = TextStyle(
     fontSize: 16,
-    fontFamily: avenirBlackOblique,
+    fontFamily: ttNorms,
     fontWeight: FontWeight.w600,
   );
 
   static const plainText = TextStyle(
     fontSize: 16,
-    fontFamily: avenirBlackOblique,
+    fontFamily: ttNorms,
   );
 
   static const plainTextMedium = TextStyle(
     fontSize: 14,
-    fontFamily: avenirBlackOblique,
+    fontFamily: ttNorms,
   );
 
   static const plainTextSmall = TextStyle(
     fontSize: 12,
-    fontFamily: avenirBlackOblique,
-  );
-
-  static const caption = TextStyle(
-    fontSize: 12,
-    fontFamily: avenirBook,
+    fontFamily: ttNorms,
   );
 
   static const text22 = TextStyle(
     fontSize: 22,
-    fontFamily: avenirBlackOblique,
+    fontFamily: ttNorms,
   );
 
   static const text24 = TextStyle(
     fontSize: 24,
-    fontFamily: avenirBlackOblique,
+    fontFamily: ttNorms,
   );
   static const text30 = TextStyle(
     fontSize: 30,
-    fontFamily: avenirBlackOblique,
+    fontFamily: ttNorms,
   );
   static const input = TextStyle(
     fontSize: 16,
-    fontFamily: avenirBlackOblique,
+    fontFamily: ttNorms,
   );
   static const button = TextStyle(
     fontSize: 16,
-    fontFamily: avenirBlackOblique,
+    fontFamily: ttNorms,
   );
 }
 

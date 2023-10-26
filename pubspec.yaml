@@ -93,19 +93,17 @@ flutter:
     - assets/fonts/
   
   fonts:
-  - family: Avenir BlackOblique
+  - family: TTNorms
     fonts:
-      - asset: assets/fonts/Avenir_BlackOblique/Avenir-BlackOblique.ttf
+      - asset: assets/fonts/TTNorms/TTNorms-Light.ttf
+        weight: 100
+      - asset: assets/fonts/TTNorms/TTNorms-Regular.ttf
         style: normal
-        # weight: 600
-      # - asset: assets/fonts/SF-UI-Display-Semibold.ttf
-      #   style: normal
-      #   weight: 500
-      - asset: assets/fonts/Avenir_BlackOblique/Avenir-Light-Oblique.ttf
-        style: normal
-        weight: 400
-  - family: Avenir Book
-    fonts:
-      - asset: assets/fonts/Avenir_Book/Avenir-Book.ttf
-        style: normal
-        # weight: 700
+      - asset: assets/fonts/TTNorms/TTNorms-Medium.ttf
+        weight: 200
+      - asset: assets/fonts/TTNorms/TTNorms-Bold.ttf
+        weight: 300
+      - asset: assets/fonts/TTNorms/TTNorms-ExtraBold.ttf
+        weight: 400       
+      - asset: assets/fonts/TTNorms/TTNorms-Black.ttf
+        weight: 500           

@@ -6,54 +6,54 @@ abstract class AppTextTheme {
 
   static AppTextTheme get fromPlatform => const BaseAppTextTheme();
 
-  /// Font: SF UI Display
+  /// Font: TTNorms
   String get fontFamily;
 
-  /// H1 Bold Montserrat 44.5
+  /// H1 Bold TTNorms 44.5
   TextStyle get h0_0;
 
-  /// H1 Bold Montserrat 28
+  /// H1 Bold TTNorms 28
   TextStyle get h1_0;
 
-  /// H1 SemiBold SF UI Display 24
+  /// H1 SemiBold TTNorms 24
   TextStyle get h1_1;
 
-  /// B1 Bold SF UI Display 17
+  /// B1 Bold TTNorms 17
   TextStyle get b1_0;
 
-  /// B1 Medium SF UI Display 17
+  /// B1 Medium TTNorms 17
   TextStyle get b1;
 
-  /// B1 SF UI Display 17
+  /// B1 TTNorms 17
   TextStyle get b1_1;
 
-  /// B1 Regular SF UI Display 17
+  /// B1 Regular TTNorms 17
   TextStyle get b1_2;
 
-  /// B2 SemiBold SF UI Display 15
+  /// B2 SemiBold TTNorms 15
   TextStyle get b2_0;
 
-  /// B2 Regular SF UI Display 15
+  /// B2 Regular TTNorms 15
   TextStyle get b2_1;
 
-  /// B3 Medium SF UI Display 13
+  /// B3 Medium TTNorms 13
   TextStyle get b3_0;
 
-  /// B3 Regular SF UI Display 13
+  /// B3 Regular TTNorms 13
   TextStyle get b3_1;
 
-  /// Caption-Mob Regular SF UI Display 13
+  /// Caption-Mob Regular TTNorms 13
   TextStyle get captionMob;
 
-  /// Manrope Regular SF UI Display 13
-  TextStyle get manrope;
+  /// TTNorms Regular TTNorms 13
+  TextStyle get TTNorms;
 }
 
 class BaseAppTextTheme extends AppTextTheme {
   const BaseAppTextTheme();
 
   @override
-  String get fontFamily => 'SF UI Display';
+  String get fontFamily => 'TTNorms';
 
   @override
   TextStyle get h0_0 => AppTextStyles.h0Bold;
@@ -92,7 +92,7 @@ class BaseAppTextTheme extends AppTextTheme {
   TextStyle get captionMob => AppTextStyles.captionMob;
 
   @override
-  TextStyle get manrope => AppTextStyles.manrope;
+  TextStyle get TTNorms => AppTextStyles.TTNorms;
 }
 
 extension ThemeX on ThemeData {
