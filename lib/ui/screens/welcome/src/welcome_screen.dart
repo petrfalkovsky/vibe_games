@@ -41,7 +41,24 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
                   children: [
                     // контейнер для верхней части cтатус бара
                     const UpperStatusBar(),
-                    // конейнер для нижней части статус бара
+                    // контейнер для нижней части cтатус бара
+                    SizedBox(
+                      width: 200,
+                      child: AnimatedProgressBar2(
+                        icon: Transform.translate(
+                          offset: const Offset(-28, 0),
+                          child: AppIcons.svgWidget(
+                            AppIcons.leftPartProgressBar,
+                            height: 9,
+                            color: Colors.black,
+                          ),
+                        ),
+                        size: 9,
+                        progressColor: Colors.black,
+                        backgroundColor: Colors.white,
+                        currentValue: 40,
+                      ),
+                    ),
                     Positioned(
                       top: sdpPX(context, 58),
                       right: sdpPX(context, 11),
@@ -53,10 +70,8 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
                               child: Stack(
                             children: [
                               /// контейнер
-                              AppIcons.svgWidget(
-                                AppIcons.statusBarFrame,
-                                width: sdpPX(context, 343),
-                              ),
+                              AppIcons.svgWidget(AppIcons.statusBarFrame,
+                                  width: sdpPX(context, 370)),
 
                               /// розовый
                               Positioned(
@@ -68,7 +83,7 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
                                         width: sdpPX(context, 26)),
                                     sdpPX(context, 11).w,
                                     SizedBox(
-                                      width: sdpPX(context, 253),
+                                      width: sdpPX(context, 280),
                                       child: AnimatedProgressBar2(
                                         icon: Transform.translate(
                                           offset:
@@ -113,9 +128,9 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
                                                     0
                                                 ?
                                                 // ширина, если синий и серый виджеты скрыты
-                                                sdpPX(context, 253)
+                                                sdpPX(context, 280)
                                                 // ширина по дефолту
-                                                : sdpPX(context, 99.5),
+                                                : sdpPX(context, 113),
                                             child: AnimatedProgressBar2(
                                               icon: Transform.translate(
                                                 offset: Offset(
@@ -156,7 +171,7 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
                                             ),
                                             sdpPX(context, 11).w,
                                             SizedBox(
-                                              width: sdpPX(context, 99.5),
+                                              width: sdpPX(context, 113),
                                               child: AnimatedProgressBar2(
                                                 icon: Transform.translate(
                                                   offset: Offset(
@@ -198,7 +213,7 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
                                                 height: sdpPX(context, 26)),
                                             sdpPX(context, 11).w,
                                             SizedBox(
-                                              width: sdpPX(context, 99.5),
+                                              width: sdpPX(context, 113),
                                               child: AnimatedProgressBar2(
                                                 icon: Transform.translate(
                                                   offset: Offset(
