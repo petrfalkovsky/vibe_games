@@ -34,45 +34,80 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
             const _BackgroundImage(),
             SafeArea(
               child: Padding(
-                padding: const EdgeInsets.all(24.0),
+                padding: EdgeInsets.all(sdpPX(context, 24)),
                 child: Stack(
                   children: [
                     // второй контейнер для верхней части cтатус бара
                     const UpperStatusBar(),
                     // контейнер для нижней части cтатус бара
                     Positioned(
-                      top: 57,
-                      right: 63.4,
+                      top: sdpPX(context, 58),
+                      right: sdpPX(context, 11),
                       child: GestureDetector(
                         onTap: controller.toggleVisibleHealthSheeld,
                         child: SizedBox(
                             child: Stack(
                           children: [
-                            AppIcons.svgWidget(AppIcons.statusBarFrame),
+                            /// контейнер
+                            AppIcons.svgWidget(AppIcons.statusBarFrame,
+                                width: sdpPX(context, 370)),
+
+                            /// розовый
                             Positioned(
-                              top: 44,
-                              right: 31,
+                              top: sdpPX(context, 15),
+                              right: sdpPX(context, 23),
+                              child: Row(
+                                children: [
+                                  AppIcons.svgWidget(AppIcons.heart,
+                                      width: sdpPX(context, 26)),
+                                  sdpPX(context, 11).w,
+                                  SizedBox(
+                                    width: sdpPX(context, 280),
+
+                                    /// розовый
+                                    child: AnimatedProgressBar(
+                                      size: sdpPX(context, 10.5),
+                                      currentValue: 60,
+                                      backgroundColor: AppColors.accent[2]
+                                              ?.withOpacity(0.2) ??
+                                          Colors.transparent,
+                                      progressColor: AppColors.accent[2] ??
+                                          Colors.transparent,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                            /// желтый, синий, серый виджеты
+                            Positioned(
+                              top: sdpPX(context, 44),
+                              right: sdpPX(context, 31),
                               child: Row(
                                 children: [
                                   // желтый виджет
                                   Padding(
-                                    padding: const EdgeInsets.only(
-                                      top: 4,
-                                      bottom: 4,
-                                      left: 0,
+                                    padding: EdgeInsets.only(
+                                      top: sdpPX(context, 4),
+                                      bottom: sdpPX(context, 4),
                                     ),
                                     child: Row(
                                       children: [
                                         AppIcons.svgWidget(AppIcons.cup,
-                                            width: 26),
-                                        12.w,
+                                            width: sdpPX(context, 26)),
+                                        sdpPX(context, 12).w,
                                         SizedBox(
                                           width: controller
                                                       .currentState.value ==
                                                   0
-                                              ? 250 // ширина, если синий и серый виджеты скрыты
-                                              : 98, // ширина по дефолту
+                                              ?
+                                              // ширина, если синий и серый виджеты скрыты
+                                              sdpPX(context, 280)
+                                              // ширина по дефолту
+                                              : sdpPX(context, 113),
                                           child: AnimatedProgressBar(
+                                            size: sdpPX(context, 10.5),
+                                            // наполненность прогресса
                                             currentValue: 30,
                                             backgroundColor: AppColors.accent[3]
                                                     ?.withOpacity(0.2) ??
@@ -90,16 +125,21 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
                                   Visibility(
                                     visible: controller.currentState.value == 1,
                                     child: Padding(
-                                      padding: const EdgeInsets.only(left: 17),
+                                      padding: EdgeInsets.only(
+                                        left: sdpPX(context, 17),
+                                      ),
                                       child: Row(
                                         children: [
-                                          AppIcons.svgWidget(AppIcons.o2,
-                                              width: 26),
-                                          11.w,
+                                          AppIcons.svgWidget(
+                                            AppIcons.o2,
+                                            width: sdpPX(context, 26),
+                                          ),
+                                          sdpPX(context, 11).w,
                                           SizedBox(
-                                            width: 98,
+                                            width: sdpPX(context, 113),
                                             child: AnimatedProgressBar(
-                                              currentValue: 80,
+                                              size: sdpPX(context, 10.5),
+                                              currentValue: sdpPX(context, 80),
                                               backgroundColor: AppColors
                                                       .accent[4]
                                                       ?.withOpacity(0.2) ??
@@ -118,17 +158,19 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
                                   Visibility(
                                     visible: controller.currentState.value == 2,
                                     child: Padding(
-                                      padding: const EdgeInsets.only(left: 17),
+                                      padding: EdgeInsets.only(
+                                          left: sdpPX(context, 17)),
                                       child: Row(
                                         children: [
-                                          3.w,
+                                          sdpPX(context, 3).w,
                                           AppIcons.svgWidget(AppIcons.sheeld,
-                                              height: 26),
-                                          11.w,
+                                              height: sdpPX(context, 26)),
+                                          sdpPX(context, 12).w,
                                           SizedBox(
-                                            width: 98,
+                                            width: sdpPX(context, 113),
                                             child: AnimatedProgressBar(
-                                              currentValue: 80,
+                                              size: sdpPX(context, 10.5),
+                                              currentValue: sdpPX(context, 80),
                                               backgroundColor: AppColors
                                                       .accent[5]
                                                       ?.withOpacity(0.2) ??
@@ -145,46 +187,14 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
                                 ],
                               ),
                             ),
-                            Positioned(
-                              top: 15,
-                              right: 23,
-                              child: Row(
-                                children: [
-                                  AppIcons.svgWidget(AppIcons.heart, width: 26),
-                                  11.w,
-                                  SizedBox(
-                                    width: 250,
-
-                                    /// розовый
-                                    child: AnimatedProgressBar(
-                                      currentValue: 60,
-                                      backgroundColor: AppColors.accent[2]
-                                              ?.withOpacity(0.2) ??
-                                          Colors.transparent,
-                                      progressColor: AppColors.accent[2] ??
-                                          Colors.transparent,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
                           ],
                         )),
                       ),
                     ),
-                    // // микрофон
-                    Row(
-                      children: [
-                        Column(
-                          children: [
-                            200.h,
-                            const ButtonAnimator(
-                              childWidget: MicrophoneButton(),
-                            ),
-                          ],
-                        ),
-                        const Spacer(),
-                      ],
+
+                    /// микрофон
+                    const ButtonAnimator(
+                      childWidget: MicrophoneButton(),
                     ),
                   ],
                 ),
@@ -209,25 +219,6 @@ class _BackgroundImage extends StatelessWidget {
       fit: BoxFit.fill,
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
-    );
-  }
-}
-
-class _Title extends StatelessWidget {
-  const _Title({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 200,
-      child: Text(
-        maxLines: 2,
-        'welcome_to'.tr(),
-        style: AppStyles.headline.andColor(AppColors.accent),
-        textAlign: TextAlign.center,
-      ),
     );
   }
 }

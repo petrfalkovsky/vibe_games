@@ -97,8 +97,8 @@ class _UpperStatusBarState extends State<UpperStatusBar> {
                               ),
                               sdpPX(context, 8).w,
                               BalanceStatusBar(
-                                text: '2 000 000 000 000',
-                                fontSize: sdpPX(context, 27.5),
+                                text: '200 000 000',
+                                fontSize: sdpPX(context, 24),
                               ),
                               sdpPX(context, 4).w,
                             ],

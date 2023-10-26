@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/shared/all_shared.dart';
 import 'package:vibe_games/ui/shared/constants/app_colors.dart';
 
@@ -29,7 +30,7 @@ class _MicrophoneButtonState extends State<MicrophoneButton> {
         ),
         border: Border.all(
           color: AppColors.accent[5] ?? Colors.transparent,
-          width: 2.0,
+          width: sdpPX(context, 2),
         ),
       );
     } else if (buttonState == 1) {
@@ -45,7 +46,7 @@ class _MicrophoneButtonState extends State<MicrophoneButton> {
         ),
         border: Border.all(
           color: AppColors.accent,
-          width: 2.0,
+          width: sdpPX(context, 2),
         ),
       );
     } else if (buttonState == 2) {
@@ -61,7 +62,7 @@ class _MicrophoneButtonState extends State<MicrophoneButton> {
         ),
         border: Border.all(
           color: AppColors.accent[5] ?? Colors.transparent,
-          width: 2.0,
+          width: sdpPX(context, 2),
         ),
       );
     }
@@ -69,13 +70,19 @@ class _MicrophoneButtonState extends State<MicrophoneButton> {
     return GestureDetector(
       onTap: toggleMicrophone,
       child: Container(
-        width: 105,
-        height: 105,
+        width: sdpPX(context, 105),
+        height: sdpPX(context, 105),
         decoration: buttonDecoration,
         child: Center(
           child: (buttonState == 2)
-              ? AppIcons.svgWidget(AppIcons.micOff, height: 50)
-              : AppIcons.svgWidget(AppIcons.mic, height: 44),
+              ? AppIcons.svgWidget(
+                  AppIcons.micOff,
+                  height: sdpPX(context, 50),
+                )
+              : AppIcons.svgWidget(
+                  AppIcons.mic,
+                  height: sdpPX(context, 44),
+                ),
         ),
       ),
     );
