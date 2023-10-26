@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:vibe_games/ui/shared/constants/app_text_style.dart';
 

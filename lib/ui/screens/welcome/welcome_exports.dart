@@ -4,3 +4,4 @@ export 'src/welcome_screen.dart';
 export 'widgets/microphone_button.dart';
 export 'widgets/status_bar/upper/upper.dart';
 export 'widgets/status_bar/upper/balance.dart';
+export 'widgets/status_bar/lower/lower.dart';
