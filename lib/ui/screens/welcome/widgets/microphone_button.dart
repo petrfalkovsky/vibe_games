@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/shared/all_shared.dart';
+import 'package:vibe_games/ui/shared/button_animator.dart';
 import 'package:vibe_games/ui/shared/constants/app_colors.dart';
 
 class MicrophoneButton extends StatefulWidget {
@@ -67,22 +68,24 @@ class _MicrophoneButtonState extends State<MicrophoneButton> {
       );
     }
 
-    return GestureDetector(
-      onTap: toggleMicrophone,
-      child: Container(
-        width: sdpPX(context, 105),
-        height: sdpPX(context, 105),
-        decoration: buttonDecoration,
-        child: Center(
-          child: (buttonState == 2)
-              ? AppIcons.svgWidget(
-                  AppIcons.micOff,
-                  height: sdpPX(context, 50),
-                )
-              : AppIcons.svgWidget(
-                  AppIcons.mic,
-                  height: sdpPX(context, 44),
-                ),
+    return ButtonAnimator(
+      childWidget: GestureDetector(
+        onTap: toggleMicrophone,
+        child: Container(
+          width: sdpPX(context, 105),
+          height: sdpPX(context, 105),
+          decoration: buttonDecoration,
+          child: Center(
+            child: (buttonState == 2)
+                ? AppIcons.svgWidget(
+                    AppIcons.micOff,
+                    height: sdpPX(context, 50),
+                  )
+                : AppIcons.svgWidget(
+                    AppIcons.mic,
+                    height: sdpPX(context, 44),
+                  ),
+          ),
         ),
       ),
     );

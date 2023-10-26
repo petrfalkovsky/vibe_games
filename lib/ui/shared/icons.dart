@@ -25,6 +25,10 @@ class AppIcons {
       '$_basePathIcons/left_part_of_statusbar_container.svg';
   static const rightPartOfStatusbar =
       '$_basePathIcons/right_part_of_statusbar_container.svg';
+  static const leftPartProgressBar =
+      '$_basePathIcons/left_part_progress_bar.svg';
+  static const rightPartProgressBar =
+      '$_basePathIcons/right_part_progress_bar.svg';
 
   /// старые
   static const add = '$_basePathIcons/add_icon.svg';
@@ -58,6 +62,10 @@ class AppIcons {
 
   /// использовать пнг изображения
   /// Image.asset(AppIcons.monoJogger),
+  // новые
+  static const backStatusBar = '$_basePathImg/back_status_bar.png';
+
+  // старые
   static const logo = '$_basePathImg/logo.png';
   static const jogger_2 = '$_basePathImg/jogger_2.png';
   static const joggerColored = '$_basePathImg/jogger_colored.png';
@@ -75,7 +83,6 @@ class AppIcons {
   static const coinLarge = '$_basePathImg/coin_rm.png';
   static const speedArrow = '$_basePathImg/speed_arrow.png';
   static const connectionLost = '$_basePathImg/connection_lost.png';
-  static const backStatusBar = '$_basePathImg/back_status_bar.png';
 
   static Widget svgWidget(String path,
       {double? width, double? height, Color? color}) {
