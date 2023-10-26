@@ -28,42 +28,40 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
 
   @override
   Widget buildWidget(BuildContext context) {
-    return Obx(
-      () => Scaffold(
-        body: Stack(
-          children: [
-            const _BackgroundImage(),
-            SafeArea(
-              child: Padding(
-                padding: EdgeInsets.only(
-                    top: sdpPX(context, 20), right: sdpPX(context, 22)),
-                child: Stack(
-                  children: [
-                    // контейнер для верхней части cтатус бара
-                    const Positioned(
-                      right: 0,
-                      child: UpperStatusBar(),
+    return Scaffold(
+      body: Stack(
+        children: [
+          const _BackgroundImage(),
+          SafeArea(
+            child: Padding(
+              padding: EdgeInsets.only(
+                  top: sdpPX(context, 20), right: sdpPX(context, 22)),
+              child: Stack(
+                children: [
+                  // контейнер для верхней части cтатус бара
+                  const Positioned(
+                    right: 0,
+                    child: UpperStatusBar(),
+                  ),
+                  // контейнер для нижней части cтатус бара
+                  Positioned(
+                    top: sdpPX(context, 58),
+                    right: sdpPX(context, 11),
+                    child: LowerStatusBar(
+                      controller: controller,
                     ),
-                    // контейнер для нижней части cтатус бара
-                    Positioned(
-                      top: sdpPX(context, 58),
-                      right: sdpPX(context, 11),
-                      child: LowerStatusBar(
-                        controller: controller,
-                      ),
-                    ),
-                    // кнопка микрофон
-                    Positioned(
-                      top: sdpPX(context, 360),
-                      right: sdpPX(context, 310),
-                      child: const MicrophoneButton(),
-                    ),
-                  ],
-                ),
+                  ),
+                  // кнопка микрофон
+                  Positioned(
+                    top: sdpPX(context, 360),
+                    right: sdpPX(context, 310),
+                    child: const MicrophoneButton(),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
