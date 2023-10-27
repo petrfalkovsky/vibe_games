@@ -69,7 +69,7 @@ class _MicrophoneButtonState extends State<MicrophoneButton> {
     }
 
     return ButtonAnimator(
-      childWidget: GestureDetector(
+      child: GestureDetector(
         onTap: toggleMicrophone,
         child: Container(
           width: sdpPX(context, 105),

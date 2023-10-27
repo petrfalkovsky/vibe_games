@@ -38,6 +38,34 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
                   top: sdpPX(context, 20), right: sdpPX(context, 22)),
               child: Stack(
                 children: [
+                  Positioned(top: 500, child: MyAnimatedContainer()),
+                  // кнопка со слайдером под картой
+                  Positioned(
+                    top: sdpPX(context, 332),
+                    left: sdpPX(context, 47),
+                    child: Row(
+                      children: [
+                        SliderButton(
+                          icon: AppIcons.svgWidget(AppIcons.avatar, width: 26),
+                        ),
+                        sdpPX(context, 16).w,
+                        SliderButton(
+                          icon: AppIcons.svgWidget(AppIcons.radial, width: 34),
+                        ),
+                        sdpPX(context, 16).w,
+                        SliderButton(
+                          icon: AppIcons.svgWidget(AppIcons.pad, width: 34),
+                        ),
+                        sdpPX(context, 16).w,
+                        // кнопка будет открывать список справа, просто чтобы посмотреть длинну
+                        const SliderButton(
+                          icon: Icon(Icons.plus_one,
+                              color: Colors.white, size: 34),
+                        ),
+                      ],
+                    ),
+                  ),
+
                   // контейнер для верхней части cтатус бара
                   const Positioned(
                     right: 0,

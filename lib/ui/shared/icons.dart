@@ -29,6 +29,18 @@ class AppIcons {
       '$_basePathIcons/left_part_progress_bar.svg';
   static const rightPartProgressBar =
       '$_basePathIcons/right_part_progress_bar.svg';
+  static const pad = '$_basePathIcons/pad.svg';
+  static const parashute = '$_basePathIcons/parashute.svg';
+  static const matreshka = '$_basePathIcons/matreshka.svg';
+  static const stop = '$_basePathIcons/stop.svg';
+  static const cross = '$_basePathIcons/cross.svg';
+  static const trash = '$_basePathIcons/trash.svg';
+  static const point = '$_basePathIcons/point.svg';
+  static const car = '$_basePathIcons/car.svg';
+  static const cart = '$_basePathIcons/cart.svg';
+  static const radial = '$_basePathIcons/radial.svg';
+  static const crown = '$_basePathIcons/crown.svg';
+  static const avatar = '$_basePathIcons/avatar.svg';
 
   /// старые
   static const add = '$_basePathIcons/add_icon.svg';
@@ -51,7 +63,6 @@ class AppIcons {
   static const selectionFree = '$_basePathIcons/selection_free.svg';
   static const settings = '$_basePathIcons/settings.svg';
   static const tickSquare = '$_basePathIcons/tick_square.svg';
-  static const cart = '$_basePathIcons/cart.svg';
   static const run = '$_basePathIcons/run.svg';
   static const podium = '$_basePathIcons/podium.svg';
   static const sneaker = '$_basePathIcons/sneaker.svg';
@@ -73,7 +84,6 @@ class AppIcons {
   static const welcomeScreenBg = '$_basePathImg/welcome_screen_bg.png';
   static const splashScreen = '$_basePathImg/splash_screen_bg.png';
   static const disabledJogger = '$_basePathImg/mono_jogger.png';
-  static const avatar = '$_basePathImg/avatar.png';
   static const pair = '$_basePathImg/sneakers_pair.png';
   static const outIcon = '$_basePathImg/out.png';
   static const inIcon = '$_basePathImg/in.png';

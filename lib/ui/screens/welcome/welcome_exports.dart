@@ -1,7 +1,9 @@
 export 'src/welcome_controller.dart';
 export 'src/welcome_service.dart';
 export 'src/welcome_screen.dart';
-export 'widgets/microphone_button.dart';
+export 'widgets/buttons/microphone_button.dart';
 export 'widgets/status_bar/upper/upper.dart';
 export 'widgets/status_bar/upper/balance.dart';
 export 'widgets/status_bar/lower/lower.dart';
+export 'widgets/buttons/slider_button.dart';
+export 'widgets/buttons/animated_slider.dart';
