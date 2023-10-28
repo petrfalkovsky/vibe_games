@@ -7,3 +7,5 @@ export 'widgets/status_bar/upper/balance.dart';
 export 'widgets/status_bar/lower/lower.dart';
 export 'widgets/buttons/slider_button.dart';
 export 'widgets/buttons/animated_slider.dart';
+export 'widgets/horizonyal_expansion_tile.dart';
+export 'widgets/expansion_tile_2.dart';

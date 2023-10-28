@@ -1,53 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:vibe_games/ui/screens/welcome/welcome_exports.dart';
+import 'package:vibe_games/ui/shared/constants/app_colors.dart';
 
-class MyAnimatedContainer extends StatefulWidget {
+class MyExpansionPanel extends StatefulWidget {
+  const MyExpansionPanel({super.key});
+
   @override
-  _MyAnimatedContainerState createState() => _MyAnimatedContainerState();
+  State<MyExpansionPanel> createState() => _MyExpansionPanelState();
 }
 
-class _MyAnimatedContainerState extends State<MyAnimatedContainer> {
-  bool isExpanded = false;
+class _MyExpansionPanelState extends State<MyExpansionPanel> {
+  bool _isExpanded = false;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        GestureDetector(
-          onTap: () {
-            setState(() {
-              isExpanded = !isExpanded;
-            });
-          },
-          child: Container(
-            color: Colors.blue,
-            padding: const EdgeInsets.all(8.0),
-            child: const Text(
-              'Нажмите,         чтобы              свернуть/развернуть',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ),
-        ConstrainedBox(
-          constraints: isExpanded
-              ? const BoxConstraints()
-              : const BoxConstraints(maxHeight: 0),
-          child: AnimatedCrossFade(
-            firstChild: Container(
-              color: Colors.green,
-              padding: const EdgeInsets.all(16.0),
-              child: const Text(
-                'Этот контейнер может сворачиваться \n\n\n\n\n и разворачиваться на высоту контента внутри.',
-                style: TextStyle(color: Colors.white),
+    return SizedBox(
+      width: 100,
+      child: Column(
+        children: <Widget>[
+          ExpansionTile2(
+            collapsedIconColor: Colors.transparent,
+            iconColor: Colors.transparent,
+            leading: null,
+            backgroundColor: AppColors.background[1]?.withOpacity(0.3),
+            title: const Text(''),
+            onExpansionChanged: (bool isExpanded) {
+              setState(() {
+                _isExpanded = isExpanded;
+              });
+            },
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Transform.rotate(
+                  angle: -11,
+                  child: Expanded(
+                    child: Row(
+                      children: [
+                        const Text('Скрытое содержимое/n/n/n/n/n/n панели'),
+                      ],
+                    ),
+                  ),
+                ),
               ),
-            ),
-            secondChild: Container(),
-            crossFadeState: isExpanded
-                ? CrossFadeState.showFirst
-                : CrossFadeState.showSecond,
-            duration: const Duration(milliseconds: 300),
+            ],
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -6,9 +6,18 @@ class WelcomeController extends StatexController {
   RxBool isVisibleStar = true.obs;
   RxInt currentState = 0.obs;
 
+  RxInt openedState = 0.obs;
+  RxInt closedState = 100.obs;
+  RxBool isOpen = true.obs;
+
   // сюда можно передавать методы, если нужно чтобы при открытии экрана срабатывали
   // ignore: empty_constructor_bodies
   WelcomeController() {}
+
+  // метод открывает инфо окно у кнопки с раскрывашкой
+  void toggleIsOpen() {
+    isOpen.value = !isOpen.value;
+  }
 
   // метод меняет видимость виджета звездочки при нажатии на верхнюю часть статус бала
   void toggleAreaVisibility() {
