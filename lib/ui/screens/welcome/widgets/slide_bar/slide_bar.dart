@@ -18,7 +18,7 @@ class SideBar extends StatelessWidget {
       final isSideBarOpened = _sideBarController.isSidebarOpened.value;
 
       return AnimatedPositioned(
-        duration: const Duration(milliseconds: 200),
+        duration: const Duration(milliseconds: 250),
         top: 0,
         bottom: 0,
         left: isSideBarOpened ? 0 : screenWidth - 45,
@@ -29,7 +29,6 @@ class SideBar extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                sdpPX(context, 900).w,
                 customContent ?? Container(),
               ],
             ),

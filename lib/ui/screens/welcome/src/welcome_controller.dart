@@ -7,7 +7,8 @@ class WelcomeController extends StatexController {
   RxInt currentState = 0.obs;
 
   RxInt openedState = 0.obs;
-  RxInt closedState = 100.obs;
+  // можно регилировать длинну выдвигающегося инфо окна
+  RxInt closedState = 70.obs;
   RxBool isOpen = true.obs;
 
   final RxBool isPositionedVisible = true.obs;
