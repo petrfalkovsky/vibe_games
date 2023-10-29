@@ -11,6 +11,8 @@ import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/router/routing.dart';
 import 'package:vibe_games/ui/screens/welcome/src/welcome_controller.dart';
 import 'package:vibe_games/ui/screens/welcome/welcome_exports.dart';
+import 'package:vibe_games/ui/screens/welcome/widgets/slide_bar/slide_bar.dart';
+import 'package:vibe_games/ui/screens/welcome/widgets/slide_bar/slide_bar_controller.dart';
 import 'package:vibe_games/ui/shared/all_shared.dart';
 import 'package:vibe_games/ui/shared/button_animator.dart';
 import 'package:vibe_games/ui/shared/constants/app_colors.dart';
@@ -30,10 +32,82 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
   @override
   Widget buildWidget(BuildContext context) {
     final controller = Get.find<WelcomeController>();
+    final sideBarController = Get.put(SideBarController());
+
     return Scaffold(
       body: Stack(
         children: [
           const _BackgroundImage(),
+
+          Positioned(
+            top: 300,
+            right: -60,
+            child: GestureDetector(
+              onTap: () {
+                sideBarController.toggleSidebar();
+              },
+              child: Visibility(
+                visible: true,
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        AppColors.background[4] ?? Colors.transparent,
+                        AppColors.background[3] ?? Colors.transparent,
+                      ],
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.topCenter,
+                    ),
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(
+                      color: AppColors.background[1] ?? Colors.transparent,
+                      width: 1,
+                    ),
+                  ),
+                  transform: Matrix4.skewX(-0.2),
+                  width: 100,
+                  height: 92,
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    height: 30,
+                    transform: Matrix4.skewX(0.2),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 13, right: 13),
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        color: AppColors.accent,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SideBar(
+            customContent: Container(
+              height: 200,
+              width: 200,
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              color: const Color(0xFF262AAA),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const Text(
+                    "Sidebar example",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () => sideBarController.toggleSidebar(),
+                    child: const Text('кнопка'),
+                  ),
+                ],
+              ),
+            ),
+          ),
 
           /// из анимаейтед пробуем сделать
           Obx(
