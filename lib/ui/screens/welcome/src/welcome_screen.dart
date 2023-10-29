@@ -39,55 +39,78 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
         children: [
           const _BackgroundImage(),
 
-          Positioned(
-            top: 300,
-            right: -60,
-            child: GestureDetector(
-              onTap: () {
-                sideBarController.toggleSidebar();
-              },
-              child: Visibility(
-                visible: true,
-                child: Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        AppColors.background[4] ?? Colors.transparent,
-                        AppColors.background[3] ?? Colors.transparent,
-                      ],
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
-                    ),
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(
-                      color: AppColors.background[1] ?? Colors.transparent,
-                      width: 1,
-                    ),
-                  ),
-                  transform: Matrix4.skewX(-0.2),
-                  width: 100,
-                  height: 92,
-                  alignment: Alignment.centerLeft,
-                  child: Container(
-                    height: 30,
-                    transform: Matrix4.skewX(0.2),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 13, right: 13),
-                      child: Icon(
-                        Icons.arrow_back_ios,
-                        color: AppColors.accent,
+          /// кнопка для слайдбара
+          GestureDetector(
+            onTap: () {
+              sideBarController.toggleSidebar();
+              // Переключение видимости в зависимости от состояния
+              controller.togglePositionedVisibility();
+            },
+            child: Obx(
+              () => Visibility(
+                visible: controller.isPositionedVisible.value,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    sdpPX(context, 628).h,
+                    Transform.translate(
+                      offset: const Offset(15, 0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              AppColors.background[2] ?? Colors.transparent,
+                              AppColors.background[3] ?? Colors.transparent,
+                            ],
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        transform: Matrix4.skewX(-0.2),
+                        width: 30,
+                        height: sdpPX(context, 88),
+                        alignment: Alignment.centerLeft,
+                        child: Container(
+                          transform: Matrix4.skewX(0.2),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Icon(
+                              Icons.arrow_back_ios,
+                              color: AppColors.accent,
+                              size: sdpPX(context, 28.5),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                    Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            AppColors.background[2] ?? Colors.transparent,
+                            AppColors.background[3] ?? Colors.transparent,
+                          ],
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                        ),
+                      ),
+                      width: 10,
+                      height: sdpPX(context, 88),
+                      alignment: Alignment.centerLeft,
+                    ),
+                  ],
                 ),
               ),
             ),
           ),
+
+          /// слайдбар
           SideBar(
             customContent: Container(
-              height: 200,
-              width: 200,
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              height: sdpPX(context, 300),
+              width: sdpPX(context, 300),
+              padding: EdgeInsets.symmetric(horizontal: sdpPX(context, 20)),
               color: const Color(0xFF262AAA),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -100,8 +123,12 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
                       fontWeight: FontWeight.w800,
                     ),
                   ),
+                  50.h,
                   TextButton(
-                    onPressed: () => sideBarController.toggleSidebar(),
+                    onPressed: () {
+                      sideBarController.toggleSidebar();
+                      controller.togglePositionedVisibility();
+                    },
                     child: const Text('кнопка'),
                   ),
                 ],

@@ -60,7 +60,7 @@ abstract class AppColors {
       // темно-фиолетовый
       2: Color(0xFF341161),
       // светло-фиолетовый для гражиента кнопок
-      3: Color(0xFF8336B8),
+      3: Color(0xFF8336B9),
       // темно-фиолетовый для гражиента кнопок
       4: Color(0xFF492675),
       5: Colors.transparent,

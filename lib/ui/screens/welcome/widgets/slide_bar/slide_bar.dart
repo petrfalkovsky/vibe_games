@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/shared/ext.dart';
 import 'slide_bar_controller.dart';
 
@@ -22,16 +23,15 @@ class SideBar extends StatelessWidget {
         bottom: 0,
         left: isSideBarOpened ? 0 : screenWidth - 45,
         right: isSideBarOpened ? 0 : -screenWidth,
-        child: Stack(
+        child: Column(
           children: <Widget>[
-            Expanded(
-              child: Row(
-                children: [
-                  860.w,
-                  customContent ??
-                      Container(), // Вставка пользовательского контента
-                ],
-              ),
+            sdpPX(context, 50).h,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                sdpPX(context, 900).w,
+                customContent ?? Container(),
+              ],
             ),
           ],
         ),

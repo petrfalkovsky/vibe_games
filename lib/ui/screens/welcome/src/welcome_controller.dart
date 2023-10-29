@@ -10,9 +10,15 @@ class WelcomeController extends StatexController {
   RxInt closedState = 100.obs;
   RxBool isOpen = true.obs;
 
+  final RxBool isPositionedVisible = true.obs;
+
   // сюда можно передавать методы, если нужно чтобы при открытии экрана срабатывали
   // ignore: empty_constructor_bodies
   WelcomeController() {}
+
+  void togglePositionedVisibility() {
+    isPositionedVisible.value = !isPositionedVisible.value;
+  }
 
   // метод открывает инфо окно у кнопки с раскрывашкой
   void toggleIsOpen() {
