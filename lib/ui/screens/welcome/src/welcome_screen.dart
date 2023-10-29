@@ -52,7 +52,7 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    sdpPX(context, 628).h,
+                    sdpPX(context, 428).h,
                     Transform.translate(
                       offset: const Offset(15, 0),
                       child: Container(
@@ -136,7 +136,7 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
             ),
           ),
 
-          /// из анимаейтед пробуем сделать
+          /// кнопка с выдвигающимся инфо
           Obx(
             () => Positioned(
               top: 400,

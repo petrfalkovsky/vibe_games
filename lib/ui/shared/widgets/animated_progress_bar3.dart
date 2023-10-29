@@ -101,13 +101,12 @@ class _AnimatedProgressBar3State extends State<AnimatedProgressBar3>
     Color progressColor = widget.progressColor;
 
     if (widget.changeColorValue != null) {
-      final _colorTween = ColorTween(
+      final colorTween = ColorTween(
         begin: widget.progressColor,
         end: widget.changeProgressColor,
       );
 
-      progressColor =
-          _colorTween.transform(_animation.value / widget.maxValue)!;
+      progressColor = colorTween.transform(_animation.value / widget.maxValue)!;
     }
 
     return Directionality(
@@ -154,13 +153,13 @@ class _AnimatedProgressBar3State extends State<AnimatedProgressBar3>
                                   FutureBuilder<bool>(
                                     // Используем FutureBuilder для создания задержки
                                     future: Future.delayed(
-                                        Duration(milliseconds: 20),
+                                        const Duration(milliseconds: 80),
                                         () => widget.currentValue != 0),
                                     builder: (context, snapshot) {
                                       if (snapshot.hasData &&
                                           snapshot.data == true) {
-                                        return Text(
-                                            'datadatadatadatadatadatadatadatadatadatadatadatadatadatadata');
+                                        return const Text(
+                                            'datadatadatadatadatadatadatad');
                                       } else {
                                         return const SizedBox(); // Возврат пустого контейнера
                                       }

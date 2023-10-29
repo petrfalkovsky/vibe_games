@@ -5,14 +5,15 @@ class HorizontalExpansionTile extends StatefulWidget {
   final List<Widget> children;
   final bool initiallyExpanded;
 
-  HorizontalExpansionTile({
+  const HorizontalExpansionTile({
+    super.key,
     required this.title,
     this.children = const <Widget>[],
     this.initiallyExpanded = false,
   });
 
   @override
-  _HorizontalExpansionTileState createState() =>
+  State<HorizontalExpansionTile> createState() =>
       _HorizontalExpansionTileState();
 }
 
@@ -40,12 +41,12 @@ class _HorizontalExpansionTileState extends State<HorizontalExpansionTile> {
           onTap: _handleTap,
           trailing: RotationTransition(
             turns: AlwaysStoppedAnimation(_isExpanded ? 0.5 : 0),
-            child: Icon(Icons.expand_more),
+            child: const Icon(Icons.expand_more),
           ),
         ),
         _isExpanded
             ? Container(
-                padding: EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16.0),
                 child: Row(
                   children: widget.children,
                 ),

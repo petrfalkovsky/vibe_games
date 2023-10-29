@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:flutter/material.dart';
 
 const Duration _kExpand = Duration(milliseconds: 200);
@@ -395,7 +397,6 @@ class _ExpansionTile2State extends State<ExpansionTile2>
     return _buildIcon(context);
   }
 
-  @override
   Widget _buildChildren(BuildContext context, Widget? child) {
     final ExpansionTileThemeData expansionTileTheme =
         ExpansionTileTheme.of(context);

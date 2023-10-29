@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field
+
 import 'package:flutter/material.dart';
 import 'package:vibe_games/ui/screens/welcome/welcome_exports.dart';
 import 'package:vibe_games/ui/shared/constants/app_colors.dart';
@@ -36,8 +38,8 @@ class _MyExpansionPanelState extends State<MyExpansionPanel> {
                   angle: -11,
                   child: Expanded(
                     child: Row(
-                      children: [
-                        const Text('Скрытое содержимое/n/n/n/n/n/n панели'),
+                      children: const [
+                        Text('Скрытое содержимое/n/n/n/n/n/n панели'),
                       ],
                     ),
                   ),
