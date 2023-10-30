@@ -5,7 +5,7 @@ import 'package:vibe_games/ui/shared/all_shared.dart';
 import 'package:vibe_games/ui/shared/constants/app_colors.dart';
 import 'package:vibe_games/ui/shared/widgets/animated_progress_bar2.dart';
 
-import '../../../welcome_exports.dart';
+import '../../../hud_exports.dart';
 
 class LowerStatusBar extends StatelessWidget {
   const LowerStatusBar({
@@ -13,7 +13,7 @@ class LowerStatusBar extends StatelessWidget {
     required this.controller,
   });
 
-  final WelcomeController controller;
+  final HudController controller;
 
   @override
   Widget build(BuildContext context) {

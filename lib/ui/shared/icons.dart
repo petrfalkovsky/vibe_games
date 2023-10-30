@@ -81,7 +81,7 @@ class AppIcons {
   static const jogger_2 = '$_basePathImg/jogger_2.png';
   static const joggerColored = '$_basePathImg/jogger_colored.png';
   static const coin = '$_basePathImg/blue_coin.png';
-  static const welcomeScreenBg = '$_basePathImg/welcome_screen_bg.png';
+  static const welcomeScreenBg = '$_basePathImg/hud_screen_bg.png';
   static const splashScreen = '$_basePathImg/splash_screen_bg.png';
   static const disabledJogger = '$_basePathImg/mono_jogger.png';
   static const pair = '$_basePathImg/sneakers_pair.png';

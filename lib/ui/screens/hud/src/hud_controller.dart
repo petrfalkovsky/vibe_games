@@ -1,7 +1,7 @@
 import 'package:get/get.dart' hide Trans;
 import 'package:vfx_flutter_common/getx_helpers.dart';
 
-class WelcomeController extends StatexController {
+class HudController extends StatexController {
   // булки меняют видимость виджета звездочки при нажатии на верхнюю часть статус бара
   RxBool isVisibleStar = true.obs;
   RxInt currentState = 0.obs;
@@ -15,7 +15,7 @@ class WelcomeController extends StatexController {
 
   // сюда можно передавать методы, если нужно чтобы при открытии экрана срабатывали
   // ignore: empty_constructor_bodies
-  WelcomeController() {}
+  HudController() {}
 
   void togglePositionedVisibility() {
     isPositionedVisible.value = !isPositionedVisible.value;

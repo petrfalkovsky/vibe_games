@@ -63,7 +63,7 @@ class _Icons extends _AssetsHolder {
 class _Images extends _AssetsHolder {
   const _Images() : super('assets/images');
 
-  String get welcomeScreenBg => '$basePath/welcome_screen_bg.png';
+  String get welcomeScreenBg => '$basePath/hud_screen_bg.png';
 
   String get splashScreen => '$basePath/splash_screen_bg.png';
 }

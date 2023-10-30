@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
-import 'package:vibe_games/ui/screens/welcome/welcome_exports.dart';
+import 'package:vibe_games/ui/screens/hud/hud_exports.dart';
 import 'package:vibe_games/ui/shared/exports_shared.dart';
 
 class SideBarButton extends StatelessWidget {
@@ -14,7 +14,7 @@ class SideBarButton extends StatelessWidget {
 
   final SideBarController sideBarController;
   final SideBarSecondController sideBar2Controller;
-  final WelcomeController controller;
+  final HudController controller;
 
   @override
   Widget build(BuildContext context) {

@@ -2,19 +2,19 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' hide Trans;
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
-import 'package:vibe_games/ui/screens/welcome/welcome_exports.dart';
+import 'package:vibe_games/ui/screens/hud/hud_exports.dart';
 import 'package:vfx_flutter_common/getx_helpers.dart';
-import 'package:vibe_games/ui/screens/welcome/widgets/buttons/side_bar_battun.dart';
+import 'package:vibe_games/ui/screens/hud/widgets/buttons/side_bar_battun.dart';
 import 'package:vibe_games/ui/shared/exports_shared.dart';
 
-class WelcomeScreen extends StatexWidget<WelcomeController> {
-  WelcomeScreen({Key? key}) : super(() => WelcomeController(), key: key) {
+class HudScreen extends StatexWidget<HudController> {
+  HudScreen({Key? key}) : super(() => HudController(), key: key) {
     debugPrint('welcome_screen'.tr());
   }
 
   @override
   Widget buildWidget(BuildContext context) {
-    final controller = Get.find<WelcomeController>();
+    final controller = Get.find<HudController>();
     final sideBarController = Get.put(SideBarController());
     final sideBar2Controller = Get.put(SideBarSecondController());
 

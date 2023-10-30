@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
-import 'package:vibe_games/ui/screens/welcome/welcome_exports.dart';
+import 'package:vibe_games/ui/screens/hud/hud_exports.dart';
 import 'package:vibe_games/ui/shared/all_shared.dart';
 import 'package:vibe_games/ui/shared/constants/app_colors.dart';
 
@@ -22,7 +22,7 @@ class _UpperStatusBarState extends State<UpperStatusBar> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Visibility(
-                visible: Get.find<WelcomeController>().isVisibleStar.value,
+                visible: Get.find<HudController>().isVisibleStar.value,
                 child: Transform.translate(
                   offset: Offset(sdpPX(context, 24), 0),
                   child: Row(
@@ -77,7 +77,7 @@ class _UpperStatusBarState extends State<UpperStatusBar> {
                 ),
               ),
               GestureDetector(
-                onTap: Get.find<WelcomeController>().toggleAreaVisibility,
+                onTap: Get.find<HudController>().toggleAreaVisibility,
                 child: Container(
                   color: AppColors.accent[1],
                   child: Stack(

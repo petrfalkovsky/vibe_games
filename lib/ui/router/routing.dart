@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' hide Trans;
-import 'package:vibe_games/ui/screens/welcome/welcome_exports.dart';
+import 'package:vibe_games/ui/screens/hud/hud_exports.dart';
 import 'package:vibe_games/ui/screens/splash/splash.dart';
 import 'package:vibe_games/ui/screens/start/src/start_screen.dart';
 
@@ -22,7 +22,7 @@ final List<GetPage> routes = [
   ),
   GetPage(
     name: AppRoutes.authWelcome,
-    page: () => WelcomeScreen(),
+    page: () => HudScreen(),
     transition: Transition.fadeIn,
   ),
   GetPage(

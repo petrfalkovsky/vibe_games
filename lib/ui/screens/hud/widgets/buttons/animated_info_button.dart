@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
-import 'package:vibe_games/ui/screens/welcome/welcome_exports.dart';
+import 'package:vibe_games/ui/screens/hud/hud_exports.dart';
 import 'package:vibe_games/ui/shared/exports_shared.dart';
 
 class AnimatedInfoButton extends StatelessWidget {
@@ -10,7 +10,7 @@ class AnimatedInfoButton extends StatelessWidget {
     required this.controller,
   });
 
-  final WelcomeController controller;
+  final HudController controller;
 
   @override
   Widget build(BuildContext context) {

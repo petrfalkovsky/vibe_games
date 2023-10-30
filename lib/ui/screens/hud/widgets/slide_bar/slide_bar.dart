@@ -16,7 +16,7 @@ class SideBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width + 13;
 
-    // Инициализация состояния сайдбара
+    // инициализация состояния сайдбара
     _sideBarController.isSidebarOpened.value = initiallyOpened;
 
     return Obx(() {
