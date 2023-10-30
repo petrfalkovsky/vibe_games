@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/shared/ext.dart';
-import 'slide_bar_controller.dart';
 
-class SideBar2 extends StatelessWidget {
-  final SideBar2Controller _sideBar2Controller = Get.put(SideBar2Controller());
+import 'slide_bar_second_controller.dart';
+
+class SideBarSecond extends StatelessWidget {
+  final SideBarSecondController _sideBar2Controller =
+      Get.put(SideBarSecondController());
   final Widget? customContent;
   final bool initiallyOpened;
 
-  SideBar2({this.customContent, this.initiallyOpened = false, Key? key})
+  SideBarSecond({this.customContent, this.initiallyOpened = false, Key? key})
       : super(key: key);
 
   @override

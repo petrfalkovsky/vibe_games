@@ -1,6 +1,7 @@
+
 import 'package:get/get.dart';
 
-class SideBar2Controller extends GetxController {
+class SideBarSecondController extends GetxController {
   final RxBool isSidebarOpened = false.obs;
 
   void toggleSidebar({bool forceValue = false}) {

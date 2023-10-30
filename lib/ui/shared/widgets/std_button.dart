@@ -1,4 +1,4 @@
-// ignore_for_file: unused_import
+// ignore_for_file: unused_import, prefer_typing_uninitialized_variables, duplicate_ignore
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -205,9 +205,9 @@ class _CustomElevatedButton extends StatelessWidget {
     return Container(
       height: 52, // высота всего инпута
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(50)),
+        borderRadius: const BorderRadius.all(Radius.circular(50)),
         gradient: isActive
-            ? LinearGradient(
+            ? const LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
@@ -217,7 +217,7 @@ class _CustomElevatedButton extends StatelessWidget {
               )
             : null, // Добавьте градиент только для активной кнопки
         color: color, // цвет бордера
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Color(0xFF282A66),
           ),
