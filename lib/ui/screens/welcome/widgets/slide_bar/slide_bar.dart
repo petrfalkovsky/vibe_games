@@ -6,13 +6,18 @@ import 'slide_bar_controller.dart';
 
 class SideBar extends StatelessWidget {
   final SideBarController _sideBarController = Get.put(SideBarController());
-  final Widget? customContent; // Пользовательский виджет для содержимого
+  final Widget? customContent;
+  final bool initiallyOpened;
 
-  SideBar({this.customContent, Key? key}) : super(key: key);
+  SideBar({this.customContent, this.initiallyOpened = false, Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width + 13;
+
+    // Инициализация состояния сайдбара
+    _sideBarController.isSidebarOpened.value = initiallyOpened;
 
     return Obx(() {
       final isSideBarOpened = _sideBarController.isSidebarOpened.value;

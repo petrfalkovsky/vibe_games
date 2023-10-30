@@ -14,6 +14,8 @@ import 'package:vibe_games/ui/screens/welcome/welcome_exports.dart';
 import 'package:vibe_games/ui/screens/welcome/widgets/buttons/gradient_button.dart';
 import 'package:vibe_games/ui/screens/welcome/widgets/slide_bar/slide_bar.dart';
 import 'package:vibe_games/ui/screens/welcome/widgets/slide_bar/slide_bar_controller.dart';
+import 'package:vibe_games/ui/screens/welcome/widgets/slide_bar2/slide_bar.dart';
+import 'package:vibe_games/ui/screens/welcome/widgets/slide_bar2/slide_bar_controller.dart';
 import 'package:vibe_games/ui/shared/all_shared.dart';
 import 'package:vibe_games/ui/shared/button_animator.dart';
 import 'package:vibe_games/ui/shared/constants/app_colors.dart';
@@ -34,6 +36,7 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
   Widget buildWidget(BuildContext context) {
     final controller = Get.find<WelcomeController>();
     final sideBarController = Get.put(SideBarController());
+    final sideBar2Controller = Get.put(SideBar2Controller());
 
     return Scaffold(
       body: Stack(
@@ -41,14 +44,15 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
           const _BackgroundImage(),
 
           /// кнопка для слайдбара
-          GestureDetector(
-            onTap: () {
-              sideBarController.toggleSidebar();
-              // Переключение видимости в зависимости от состояния
-              controller.togglePositionedVisibility();
-            },
-            child: Obx(
-              () => Visibility(
+          Obx(
+            () => GestureDetector(
+              onTap: () {
+                sideBarController.toggleSidebar(forceValue: false);
+
+                // переключение видимости кнопки сайдбара в зависимости от состояния
+                // controller.togglePositionedVisibility();
+              },
+              child: Visibility(
                 visible: controller.isPositionedVisible.value,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -143,8 +147,9 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
             ),
           ),
 
-          /// выдвинувшееся окно слайдбара
+          /// первое выдвинувшееся окно слайдбара
           SideBar(
+            initiallyOpened: true,
             customContent: Container(
               padding: EdgeInsets.all(sdpPX(context, 30)),
               decoration: BoxDecoration(
@@ -183,7 +188,7 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
                         width: sdpPX(context, 194),
                         onPressed: () {
                           sideBarController.toggleSidebar();
-                          controller.togglePositionedVisibility();
+                          // controller.togglePositionedVisibility();
                         },
                         text: 'Завершить',
                         fontSize: sdpPX(context, 24),
@@ -194,9 +199,91 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
                       GradientButton(
                         height: sdpPX(context, 83),
                         width: sdpPX(context, 194),
+                        onPressed: () async {
+                          sideBarController.toggleSidebar(forceValue: false);
+                          sideBar2Controller.toggleSidebar(forceValue: false);
+
+                          // controller.togglePositionedVisibility();
+                        },
+                        text: 'Свернуть',
+                        fontSize: sdpPX(context, 24),
+                        leftIcon: const SizedBox(),
+                        rightIcon: Padding(
+                          padding: EdgeInsets.only(
+                              left: sdpPX(context, 4), top: sdpPX(context, 2)),
+                          child: Icon(
+                            Icons.arrow_forward_ios,
+                            color: AppColors.accent,
+                            size: sdpPX(context, 28.5),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          /// второе выдвинувшееся окно слайдбара
+          SideBar2(
+            initiallyOpened: false,
+            customContent: Container(
+              padding: EdgeInsets.all(sdpPX(context, 60)),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(sdpPX(context, 20)),
+                    bottomLeft: Radius.circular(sdpPX(context, 20))),
+                gradient: LinearGradient(colors: [
+                  AppColors.background[5]?.withOpacity(0.3) ??
+                      Colors.transparent,
+                  AppColors.background[6] ?? Colors.transparent,
+                ], begin: Alignment.centerRight, end: Alignment.centerLeft),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    "Общественная помощь",
+                    style: TextStyle(
+                        color: AppColors.accent,
+                        fontSize: sdpPX(context, 28),
+                        fontFamily: AppStyles.ttNorms,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  sdpPX(context, 23).h,
+                  Text(
+                    "Проедь 1 полный круг на автобусном\nмаршруте",
+                    style: TextStyle(
+                      color: AppColors.accent,
+                      fontSize: sdpPX(context, 22),
+                    ),
+                  ),
+                  sdpPX(context, 21).h,
+                  Row(
+                    children: [
+                      GradientButton(
+                        height: sdpPX(context, 83),
+                        width: sdpPX(context, 194),
                         onPressed: () {
-                          sideBarController.toggleSidebar();
-                          controller.togglePositionedVisibility();
+                          sideBarController.toggleSidebar(forceValue: false);
+                          sideBar2Controller.toggleSidebar(forceValue: false);
+                          // controller.togglePositionedVisibility();
+                        },
+                        text: 'Завершить',
+                        fontSize: sdpPX(context, 24),
+                        leftIcon: const SizedBox(),
+                        rightIcon: const SizedBox(),
+                      ),
+                      sdpPX(context, 12).w,
+                      GradientButton(
+                        height: sdpPX(context, 83),
+                        width: sdpPX(context, 194),
+                        onPressed: () async {
+                          sideBarController.toggleSidebar(forceValue: true);
+                          sideBar2Controller.toggleSidebar(forceValue: false);
+
+                          // controller.togglePositionedVisibility();
                         },
                         text: 'Свернуть',
                         fontSize: sdpPX(context, 24),
