@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 
 String _defaultFormatValue(double value, int? fixed) {
   if (fixed != null) {
@@ -31,6 +32,7 @@ class AnimatedProgressBar3 extends StatefulWidget {
   final Widget? text;
   final Widget? frontContent;
   final BoxBorder? progressBarBorder;
+  final Widget? optionalField;
 
   AnimatedProgressBar3({
     Key? key,
@@ -57,6 +59,7 @@ class AnimatedProgressBar3 extends StatefulWidget {
     this.text,
     this.frontContent,
     this.progressBarBorder,
+    this.optionalField,
   })  : _borderRadius = borderRadius ?? BorderRadius.circular(8),
         super(key: key);
 
@@ -147,21 +150,21 @@ class _AnimatedProgressBar3State extends State<AnimatedProgressBar3>
                                     border: widget.progressBarBorder,
                                   ),
                             child: Padding(
-                              padding: const EdgeInsets.only(left: 100),
+                              padding:
+                                  EdgeInsets.only(left: sdpPX(context, 120)),
                               child: Row(
                                 children: [
                                   FutureBuilder<bool>(
-                                    // Используем FutureBuilder для создания задержки
                                     future: Future.delayed(
                                         const Duration(milliseconds: 80),
                                         () => widget.currentValue != 0),
                                     builder: (context, snapshot) {
                                       if (snapshot.hasData &&
                                           snapshot.data == true) {
-                                        return const Text(
-                                            'datadatadatadatadatadatadatad');
+                                        return widget.optionalField ??
+                                            const SizedBox();
                                       } else {
-                                        return const SizedBox(); // Возврат пустого контейнера
+                                        return const SizedBox();
                                       }
                                     },
                                   ),
@@ -173,8 +176,8 @@ class _AnimatedProgressBar3State extends State<AnimatedProgressBar3>
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Padding(
-                              padding: const EdgeInsets.only(
-                                left: 25,
+                              padding: EdgeInsets.only(
+                                left: sdpPX(context, 25),
                               ),
                               child: widget.icon,
                             ),

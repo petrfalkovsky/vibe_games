@@ -59,9 +59,6 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
             sideBar2Controller: sideBar2Controller,
           ),
 
-          /// кнопка с выдвигающимся инфо
-          AnimatedInfoButton(controller: controller),
-
           /// остальная часть экрана
           SafeArea(
             child: Padding(
@@ -87,11 +84,9 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
                           icon: AppIcons.svgWidget(AppIcons.pad, width: 34),
                         ),
                         sdpPX(context, 16).w,
-                        // кнопка будет открывать список справа, просто чтобы посмотреть длинну
-                        const SliderButton(
-                          icon: Icon(Icons.plus_one,
-                              color: Colors.white, size: 34),
-                        ),
+
+                        /// кнопка с выдвигающимся инфо
+                        AnimatedInfoButton(controller: controller),
                       ],
                     ),
                   ),
