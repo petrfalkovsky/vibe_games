@@ -30,16 +30,24 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
             controller: controller,
           ),
 
-          // контейнер для верхней части cтатус бара
+          // cтатус бар
           SideBar(
             initiallyOpened: true,
             customContent: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                const UpperStatusBar(),
+                // контейнер для верхней части cтатус бара
+                Padding(
+                  padding: EdgeInsets.only(right: sdpPX(context, 11)),
+                  child: const UpperStatusBar(),
+                ),
 
                 // контейнер для нижней части cтатус бара
-                LowerStatusBar(
-                  controller: controller,
+                Padding(
+                  padding: EdgeInsets.only(right: sdpPX(context, 22)),
+                  child: LowerStatusBar(
+                    controller: controller,
+                  ),
                 ),
               ],
             ),

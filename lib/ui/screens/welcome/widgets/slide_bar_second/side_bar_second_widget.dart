@@ -51,6 +51,10 @@ class SideBarSecondWidget extends StatelessWidget {
             Row(
               children: [
                 GradientButton(
+                  padding: EdgeInsets.symmetric(
+                      vertical: sdpPX(context, 15),
+                      horizontal: sdpPX(context, 20)),
+                  borderRadius: sdpPX(context, 12),
                   height: sdpPX(context, 83),
                   width: sdpPX(context, 194),
                   onPressed: () {
@@ -65,6 +69,10 @@ class SideBarSecondWidget extends StatelessWidget {
                 ),
                 sdpPX(context, 12).w,
                 GradientButton(
+                  padding: EdgeInsets.symmetric(
+                      vertical: sdpPX(context, 15),
+                      horizontal: sdpPX(context, 20)),
+                  borderRadius: sdpPX(context, 12),
                   height: sdpPX(context, 83),
                   width: sdpPX(context, 194),
                   onPressed: () async {

@@ -12,9 +12,9 @@ class GradientButton extends StatelessWidget {
   final double fontSize;
   final Widget leftIcon;
   final Widget rightIcon;
-
+  final EdgeInsets? padding;
   const GradientButton({
-    super.key,
+    Key? key,
     required this.text,
     required this.onPressed,
     this.width,
@@ -23,7 +23,8 @@ class GradientButton extends StatelessWidget {
     this.fontSize = 16.0,
     required this.leftIcon,
     required this.rightIcon,
-  });
+    this.padding,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +33,13 @@ class GradientButton extends StatelessWidget {
       height: height,
       decoration: BoxDecoration(
         gradient: LinearGradient(
-            begin: Alignment.bottomCenter,
-            end: Alignment.topCenter,
-            colors: [
-              AppColors.background[4] ?? Colors.transparent,
-              AppColors.background[3] ?? Colors.transparent
-            ]),
+          begin: Alignment.bottomCenter,
+          end: Alignment.topCenter,
+          colors: [
+            AppColors.background[4] ?? Colors.transparent,
+            AppColors.background[3] ?? Colors.transparent,
+          ],
+        ),
         borderRadius: BorderRadius.circular(borderRadius),
       ),
       child: ElevatedButton(
@@ -45,7 +47,10 @@ class GradientButton extends StatelessWidget {
         style: ButtonStyle(
           elevation: MaterialStateProperty.all(0),
           padding: MaterialStateProperty.all(
-              const EdgeInsets.symmetric(vertical: 15, horizontal: 20)),
+            padding ??
+                const EdgeInsets.symmetric(
+                    vertical: 15, horizontal: 20), // Используем padding
+          ),
           shape: MaterialStateProperty.all(RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(borderRadius))),
           backgroundColor: MaterialStateProperty.all(Colors.transparent),
@@ -65,18 +70,3 @@ class GradientButton extends StatelessWidget {
     );
   }
 }
-
-
-/// пример использования
-// GradientButton(
-//   height: sdpPX(context, 83),
-//   width: sdpPX(context, 194),
-//   onPressed: () {
-//     sideBarController.toggleSidebar();
-//     controller.togglePositionedVisibility();
-//   },
-//   text: 'Завершить',
-//   fontSize: sdpPX(context, 24),
-//   leftIcon: const SizedBox(),
-//   rightIcon: const SizedBox(),
-// ),
