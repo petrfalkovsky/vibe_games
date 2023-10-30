@@ -23,17 +23,43 @@ class HudScreen extends StatexWidget<HudController> {
         children: [
           const _BackgroundImage(),
 
-          /// кнопка для слайдбара
+          /// кнопка для сайдбара
           SideBarButton(
             sideBarController: sideBarController,
             sideBar2Controller: sideBar2Controller,
             controller: controller,
           ),
 
+          Positioned(
+            top: sdpPX(context, 166 + 16),
+            right: sdpPX(context, 32 + 23),
+            child: Column(
+              children: [
+                // кнопки обычные и со слайдером под картой
+                Row(
+                  children: [
+                    /// обычные кнопки
+                    SliderButton(
+                      icon: AppIcons.svgWidget(AppIcons.avatar, width: 26),
+                    ),
+                    sdpPX(context, 15).w,
+                    SliderButton(
+                      icon: AppIcons.svgWidget(AppIcons.radial, width: 34),
+                    ),
+                    sdpPX(context, 15).w,
+                    SliderButton(
+                      icon: AppIcons.svgWidget(AppIcons.pad, width: 34),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+
           /// уведомления новые
           Positioned(
-            top: sdpPX(context, 264 + 12),
-            right: sdpPX(context, 83),
+            top: sdpPX(context, 270 + 12),
+            right: sdpPX(context, 78),
             child: const NotificationWidget(),
           ),
 
@@ -45,13 +71,13 @@ class HudScreen extends StatexWidget<HudController> {
               children: [
                 // контейнер для верхней части cтатус бара
                 Padding(
-                  padding: EdgeInsets.only(right: sdpPX(context, 11)),
+                  padding: EdgeInsets.only(right: sdpPX(context, 19.4)),
                   child: const UpperStatusBar(),
                 ),
 
                 // контейнер для нижней части cтатус бара
                 Padding(
-                  padding: EdgeInsets.only(right: sdpPX(context, 22)),
+                  padding: EdgeInsets.only(right: sdpPX(context, 30)),
                   child: LowerStatusBar(
                     controller: controller,
                   ),
