@@ -11,6 +11,7 @@ import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/router/routing.dart';
 import 'package:vibe_games/ui/screens/welcome/src/welcome_controller.dart';
 import 'package:vibe_games/ui/screens/welcome/welcome_exports.dart';
+import 'package:vibe_games/ui/screens/welcome/widgets/buttons/gradient_button.dart';
 import 'package:vibe_games/ui/screens/welcome/widgets/slide_bar/slide_bar.dart';
 import 'package:vibe_games/ui/screens/welcome/widgets/slide_bar/slide_bar_controller.dart';
 import 'package:vibe_games/ui/shared/all_shared.dart';
@@ -143,39 +144,76 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
           ),
 
           /// выдвинувшееся окно слайдбара
-          Padding(
-            padding: const EdgeInsets.only(top: 200),
-            child: SideBar(
-              customContent: Container(
-                padding: EdgeInsets.all(sdpPX(context, 34)),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(sdpPX(context, 20)),
-                  gradient: LinearGradient(colors: [
-                    AppColors.background[5] ?? Colors.transparent,
-                    AppColors.background[6] ?? Colors.transparent,
-                  ], begin: Alignment.centerRight, end: Alignment.centerLeft),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    const Text(
-                      "Sidebar exampleexample",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30,
-                        fontWeight: FontWeight.w800,
+          SideBar(
+            customContent: Container(
+              padding: EdgeInsets.all(sdpPX(context, 30)),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(sdpPX(context, 20)),
+                    bottomLeft: Radius.circular(sdpPX(context, 20))),
+                gradient: LinearGradient(colors: [
+                  AppColors.background[5] ?? Colors.transparent,
+                  AppColors.background[6] ?? Colors.transparent,
+                ], begin: Alignment.centerRight, end: Alignment.centerLeft),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    "Общественная помощь",
+                    style: TextStyle(
+                        color: AppColors.accent,
+                        fontSize: sdpPX(context, 28),
+                        fontFamily: AppStyles.ttNorms,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  sdpPX(context, 23).h,
+                  Text(
+                    "Проедь 1 полный круг на автобусном\nмаршруте",
+                    style: TextStyle(
+                      color: AppColors.accent,
+                      fontSize: sdpPX(context, 22),
+                    ),
+                  ),
+                  sdpPX(context, 21).h,
+                  Row(
+                    children: [
+                      GradientButton(
+                        height: sdpPX(context, 83),
+                        width: sdpPX(context, 194),
+                        onPressed: () {
+                          sideBarController.toggleSidebar();
+                          controller.togglePositionedVisibility();
+                        },
+                        text: 'Завершить',
+                        fontSize: sdpPX(context, 24),
+                        leftIcon: const SizedBox(),
+                        rightIcon: const SizedBox(),
                       ),
-                    ),
-                    50.h,
-                    TextButton(
-                      onPressed: () {
-                        sideBarController.toggleSidebar();
-                        controller.togglePositionedVisibility();
-                      },
-                      child: const Text('кнопка'),
-                    ),
-                  ],
-                ),
+                      sdpPX(context, 12).w,
+                      GradientButton(
+                        height: sdpPX(context, 83),
+                        width: sdpPX(context, 194),
+                        onPressed: () {
+                          sideBarController.toggleSidebar();
+                          controller.togglePositionedVisibility();
+                        },
+                        text: 'Свернуть',
+                        fontSize: sdpPX(context, 24),
+                        leftIcon: const SizedBox(),
+                        rightIcon: Padding(
+                          padding: EdgeInsets.only(
+                              left: sdpPX(context, 4), top: sdpPX(context, 2)),
+                          child: Icon(
+                            Icons.arrow_forward_ios,
+                            color: AppColors.accent,
+                            size: sdpPX(context, 28.5),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ),
@@ -210,88 +248,8 @@ class WelcomeScreen extends StatexWidget<WelcomeController> {
               ),
             ),
           ),
-          // пока на него вся надежда
-          // const Positioned(
-          //   left: 100,
-          //   top: 100,
-          //   child: MyExpansionPanel(),
-          // ),
-          // HorizontalExpansionTile(
-          //   title: const Text('Expandable Content'),
-          //   children: const <Widget>[
-          //     Text('Child Widget 1'),
-          //     Text('Child Widget 2'),
-          //     // Добавьте дополнительные виджеты, как вам нужно.
-          //   ],
-          // ),
-          // Positioned(
-          //   top: 300,
-          //   left: 100,
-          //   child: Transform.rotate(
-          //     angle: 11,
-          //     child: SizedBox(
-          //       width: 100,
-          //       height: 200,
-          //       child: Expanded(
-          //         flex: 5,
-          //         child: Stack(
-          //           children: [
-          //             Positioned(
-          //               top: 0,
-          //               left: 0,
-          //               child: Transform.rotate(
-          //                 angle: -11,
-          //                 child: Padding(
-          //                   padding: const EdgeInsets.only(top: 16),
-          //                   child: SliderButton(
-          //                     icon: AppIcons.svgWidget(AppIcons.pad, width: 34),
-          //                   ),
-          //                 ),
-          //               ),
-          //             ),
-          //             ExpansionTile(
-          //               collapsedIconColor: Colors.transparent,
-          //               iconColor: Colors.transparent,
-          //               subtitle: null,
-          //               leading: null,
-          //               trailing: null,
-          //               title: const Text(''),
-          //               children: <Widget>[
-          //                 ListView(
-          //                   shrinkWrap: true,
-          //                   children: <Widget>[
-          //                     Transform.translate(
-          //                         offset: const Offset(-18, -20),
-          //                         child: Transform.rotate(
-          //                             angle: -11,
-          //                             child: ButtonAnimator(
-          //                               child: Container(
-          //                                 width: sdpPX(context, 95),
-          //                                 height: sdpPX(context, 88),
-          //                                 // искривление для всего контейнера (дети тоже искривляются)
-          //                                 transform: Matrix4.skewX(-0.2),
-          //                                 decoration: BoxDecoration(
-          //                                   border: Border.all(
-          //                                     color: AppColors.background,
-          //                                   ),
-          //                                   color: AppColors.background[1]
-          //                                       ?.withOpacity(0.25),
-          //                                   borderRadius: BorderRadius.circular(
-          //                                       sdpPX(context, 6)),
-          //                                 ),
-          //                               ),
-          //                             ))),
-          //                   ],
-          //                 ),
-          //               ],
-          //             ),
-          //           ],
-          //         ),
-          //       ),
-          //     ),
-          //   ),
-          // ),
 
+          /// остальная часть экрана
           SafeArea(
             child: Padding(
               padding: EdgeInsets.only(

@@ -192,53 +192,60 @@ class _CustomElevatedButton extends StatelessWidget {
   final Color? backgroundColor;
   final Color? textColor;
   final double? fontSize;
-  // ignore: prefer_typing_uninitialized_variables
   final fontWeight;
   final String? icon;
 
   @override
   Widget build(BuildContext context) {
-    // final theme = Theme.of(context);
-    // final colorsScheme = theme.appColorsScheme;
-    // final resolvedButtonColor = color ?? colorsScheme.colors.accent.accent1;
-    // final resolvedTextColor = textColor ?? colorsScheme.other.white;
     final buttonColor = backgroundColor ??
-        (isActive ? AppColors.accent[1] : AppColors.accent[3]);
+        (isActive ? AppColors.accent[1] : Colors.transparent);
     final resolvedtextColor =
         textColor ?? (isActive ? AppColors.accent : Colors.grey);
 
     return Container(
       height: 52, // высота всего инпута
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(50)),
-        // color: AppColors.accent, // фон
+        gradient: isActive
+            ? LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Colors.blue,
+                  Colors.green
+                ], // настройте цвета градиента
+              )
+            : null, // Добавьте градиент только для активной кнопки
+        color: color, // цвет бордера
         boxShadow: [
           BoxShadow(
             color: Color(0xFF282A66),
           ),
           BoxShadow(
-            color: Color(0xFF1DB9DD),
-            spreadRadius: -0.9,
-            blurRadius: 2.0,
+            color: Colors.black,
+            spreadRadius: -0.5,
+            blurRadius: 4.0,
           ),
         ],
       ),
       child: ElevatedButton(
-          onPressed: isActive
-              ? isLoading
-                  ? null
-                  : onPress
-              : null,
-          style: ButtonStyle(
-            padding: MaterialStateProperty.all(padding ??
-                const EdgeInsets.symmetric(vertical: 0, horizontal: 0)),
-            elevation: MaterialStateProperty.all(0),
-            shape: MaterialStateProperty.all(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-            ),
-            backgroundColor: MaterialStateProperty.all(buttonColor),
+        onPressed: isActive
+            ? isLoading
+                ? null
+                : onPress
+            : null,
+        style: ButtonStyle(
+          padding: MaterialStateProperty.all(padding ??
+              const EdgeInsets.symmetric(vertical: 0, horizontal: 0)),
+          elevation: MaterialStateProperty.all(0),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
           ),
-          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+          backgroundColor: MaterialStateProperty.all(buttonColor),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
             if (icon != null)
               Row(
                 children: [
@@ -269,7 +276,9 @@ class _CustomElevatedButton extends StatelessWidget {
                               ),
                     ),
                   ),
-          ])),
+          ],
+        ),
+      ),
     );
   }
 }

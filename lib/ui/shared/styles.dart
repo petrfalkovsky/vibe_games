@@ -26,6 +26,13 @@ class AppStyles {
     fontWeight: FontWeight.w600,
   );
 
+  static const headline2 = TextStyle(
+    fontSize: 22,
+    fontFamily: ttNorms,
+    fontWeight: FontWeight.w600,
+    height: 1.5,
+  );
+
   static const body = TextStyle(
     fontSize: 16,
     fontFamily: ttNorms,
