@@ -71,6 +71,8 @@ abstract class AppColors {
       5: Color(0xFF321857),
       // темный-фиолетовый градиент
       6: Color(0xFF07090C),
+      // фон плашки в уведомлении
+      7: Color(0xFFFFB629),
     },
   );
 }

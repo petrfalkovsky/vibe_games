@@ -16,6 +16,7 @@ class NotiTimer extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(
           color: AppColors.background.withOpacity(0.6),
+          width: sdpPX(context, 2),
         ),
         color: AppColors.background[1]?.withOpacity(0.25),
         borderRadius: BorderRadius.circular(sdpPX(context, 6)),

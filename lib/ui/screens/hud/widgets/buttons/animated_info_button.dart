@@ -40,7 +40,8 @@ class AnimatedInfoButton extends StatelessWidget {
             ),
           ),
           progressBarBorder: Border.all(
-            color: AppColors.background,
+            color: AppColors.background.withOpacity(0.6),
+            width: sdpPX(context, 2),
           ),
           borderRadius: BorderRadius.circular(sdpPX(context, 8)),
           backgroundColor: Colors.transparent,

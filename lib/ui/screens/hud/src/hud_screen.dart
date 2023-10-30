@@ -30,6 +30,13 @@ class HudScreen extends StatexWidget<HudController> {
             controller: controller,
           ),
 
+          /// уведомления новые
+          Positioned(
+            top: sdpPX(context, 264 + 12),
+            right: sdpPX(context, 83),
+            child: const NotificationWidget(),
+          ),
+
           // cтатус бар
           SideBar(
             initiallyOpened: true,

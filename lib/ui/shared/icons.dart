@@ -76,6 +76,8 @@ class AppIcons {
   static const arrowForward = '$_basePathIcons/arrow_forward.svg';
   static const map = '$_basePathIcons/map.svg';
   static const ellipse = '$_basePathIcons/ellipse.svg';
+  static const notiClick = '$_basePathIcons/noti_click.svg';
+  static const notiRing = '$_basePathIcons/noti_ring.svg';
 
   /// использовать пнг изображения
   /// Image.asset(AppIcons.monoJogger),
