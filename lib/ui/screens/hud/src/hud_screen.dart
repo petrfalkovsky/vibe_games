@@ -4,7 +4,7 @@ import 'package:get/get.dart' hide Trans;
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/screens/hud/hud_exports.dart';
 import 'package:vfx_flutter_common/getx_helpers.dart';
-import 'package:vibe_games/ui/screens/hud/widgets/buttons/side_bar_battun.dart';
+import 'package:vibe_games/ui/screens/hud/widgets/buttons/side_bar_button.dart';
 import 'package:vibe_games/ui/shared/exports_shared.dart';
 
 class HudScreen extends StatexWidget<HudController> {
@@ -138,12 +138,46 @@ class HudScreen extends StatexWidget<HudController> {
                     left: sdpPX(context, 47),
                     child: const NotiTimer(),
                   ),
-                  // кнопка микрофон
+
+                  /// кнопка микрофон
                   Positioned(
                     top: sdpPX(context, 360),
                     right: sdpPX(context, 310),
                     child: const MicrophoneButton(),
                   ),
+
+                  /// кнопка чата
+                  Positioned(
+                      top: sdpPX(context, -126),
+                      left: sdpPX(context, 28),
+                      child: SizedBox(
+                        width: sdpPX(context, 600),
+                        height: sdpPX(context, 600),
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              top: sdpPX(context, 130),
+                              child: Container(
+                                width: sdpPX(context, 310),
+                                height: sdpPX(context, 310),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: AppColors.accent[1] ??
+                                        Colors.transparent,
+                                    width: sdpPX(context, 2),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              top: sdpPX(context, 354),
+                              left: sdpPX(context, 210),
+                              child: const ChatButton(),
+                            ),
+                          ],
+                        ),
+                      )),
                 ],
               ),
             ),

@@ -78,6 +78,9 @@ class AppIcons {
   static const ellipse = '$_basePathIcons/ellipse.svg';
   static const notiClick = '$_basePathIcons/noti_click.svg';
   static const notiRing = '$_basePathIcons/noti_ring.svg';
+  static const chatClose = '$_basePathIcons/chat_close.svg';
+  static const chatOk = '$_basePathIcons/chat_ok.svg';
+  static const chat = '$_basePathIcons/chat.svg';
 
   /// использовать пнг изображения
   /// Image.asset(AppIcons.monoJogger),

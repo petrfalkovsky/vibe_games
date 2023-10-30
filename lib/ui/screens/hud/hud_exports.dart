@@ -16,3 +16,4 @@ export 'widgets/slide_bar_second/side_bar_second_widget.dart';
 export 'widgets/buttons/animated_info_button.dart';
 export 'widgets/notifications/noti_timer.dart';
 export 'widgets/notifications/notifications.dart';
+export 'widgets/buttons/chat_button.dart';
