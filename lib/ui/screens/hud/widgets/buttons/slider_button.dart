@@ -17,7 +17,7 @@ class SliderButton extends StatelessWidget {
         transform: Matrix4.skewX(-0.2),
         decoration: BoxDecoration(
           border: Border.all(
-            color: AppColors.background,
+            color: AppColors.background.withOpacity(0.6),
           ),
           color: AppColors.background[1]?.withOpacity(0.25),
           borderRadius: BorderRadius.circular(sdpPX(context, 6)),

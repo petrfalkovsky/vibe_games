@@ -41,6 +41,12 @@ class AppIcons {
   static const radial = '$_basePathIcons/radial.svg';
   static const crown = '$_basePathIcons/crown.svg';
   static const avatar = '$_basePathIcons/avatar.svg';
+  static const notiClose = '$_basePathIcons/noti_close.svg';
+  static const notiTimer = '$_basePathIcons/noti_timer.svg';
+  static const event = '$_basePathIcons/event.svg';
+  static const notiCase = '$_basePathIcons/noti_case.svg';
+  static const discount = '$_basePathIcons/discount.svg';
+  static const giftBox = '$_basePathIcons/gift_box.svg';
 
   /// старые
   static const add = '$_basePathIcons/add_icon.svg';

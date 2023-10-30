@@ -8,7 +8,7 @@ abstract class AppColors {
   static _AccentColors accent = const _AccentColors(
     0xFFFEFEFF,
     <int, Color>{
-      // кнопки, элементы таблоиов всяких
+      // кнопки, элементы таблоидов всяких
       1: Color(0xFF482575),
       // сердечки всякие
       2: Color(0xFFFF2E9F),
@@ -36,12 +36,16 @@ abstract class AppColors {
     <int, Color>{
       // primary
       1: Color(0xFFFFFFFF),
-      // secondary
-      2: Color(0xFFA0A0A1),
-      // не активный текст
+
+      2: Color(0xFF8436BA),
+      // неактивный текст
       3: Color(0xFF7F669E),
-      // secondaryTwo
-      4: Color(0xFFBDBCDE),
+      // алерт в уведомлениях (таймер) - 1
+      4: Color(0xFF8436BA),
+      // алерт в уведомлениях (таймер) - 2
+      5: Color(0xFFFFB32E),
+      // алерт в уведомлениях (таймер) - 3
+      6: Color(0xFFED4520),
     },
   );
   static _NotificationColors notification = const _NotificationColors(

@@ -53,7 +53,7 @@ class HudScreen extends StatexWidget<HudController> {
             ),
           ),
 
-          /// первое выдвинувшееся окно слайдбара
+          /// первое выдвинувшееся окно сайдбара
           SideBarSecondWidget(
             sideBarController: sideBarController,
             sideBar2Controller: sideBar2Controller,
@@ -66,31 +66,45 @@ class HudScreen extends StatexWidget<HudController> {
                   top: sdpPX(context, 20), right: sdpPX(context, 22)),
               child: Stack(
                 children: [
-                  // кнопка со слайдером под картой
+                  // кнопки обычные и со слайдером под картой
                   Positioned(
                     top: sdpPX(context, 332),
                     left: sdpPX(context, 47),
-                    child: Row(
+                    child: Column(
                       children: [
-                        SliderButton(
-                          icon: AppIcons.svgWidget(AppIcons.avatar, width: 26),
-                        ),
-                        sdpPX(context, 16).w,
-                        SliderButton(
-                          icon: AppIcons.svgWidget(AppIcons.radial, width: 34),
-                        ),
-                        sdpPX(context, 16).w,
-                        SliderButton(
-                          icon: AppIcons.svgWidget(AppIcons.pad, width: 34),
-                        ),
-                        sdpPX(context, 16).w,
+                        // кнопки обычные и со слайдером под картой
+                        Row(
+                          children: [
+                            /// обычные кнопки
+                            SliderButton(
+                              icon: AppIcons.svgWidget(AppIcons.avatar,
+                                  width: 26),
+                            ),
+                            sdpPX(context, 16).w,
+                            SliderButton(
+                              icon: AppIcons.svgWidget(AppIcons.radial,
+                                  width: 34),
+                            ),
+                            sdpPX(context, 16).w,
+                            SliderButton(
+                              icon: AppIcons.svgWidget(AppIcons.pad, width: 34),
+                            ),
+                            sdpPX(context, 16).w,
 
-                        /// кнопка с выдвигающимся инфо
-                        AnimatedInfoButton(controller: controller),
+                            /// кнопка с выдвигающимся инфо
+                            AnimatedInfoButton(controller: controller),
+                          ],
+                        ),
                       ],
                     ),
                   ),
 
+                  /// таймер уведомление
+                  Positioned(
+                    top: sdpPX(context, 420 + 12),
+                    left: sdpPX(context, 47),
+                    child: const NotiTimer(),
+                  ),
                   // кнопка микрофон
                   Positioned(
                     top: sdpPX(context, 360),
