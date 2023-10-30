@@ -41,6 +41,7 @@ class LowerStatusBar extends StatelessWidget {
                     SizedBox(
                       width: sdpPX(context, 280),
                       child: AnimatedProgressBar2(
+                        borderRadius: BorderRadius.circular(sdpPX(context, 3)),
                         icon: Transform.translate(
                           offset: Offset(sdpPX(context, -28), 0),
                           child: AppIcons.svgWidget(
@@ -84,6 +85,8 @@ class LowerStatusBar extends StatelessWidget {
                                 // ширина по дефолту
                                 : sdpPX(context, 113),
                             child: AnimatedProgressBar2(
+                              borderRadius:
+                                  BorderRadius.circular(sdpPX(context, 3)),
                               icon: Transform.translate(
                                 offset: Offset(sdpPX(context, -28), 0),
                                 child: AppIcons.svgWidget(
@@ -121,6 +124,8 @@ class LowerStatusBar extends StatelessWidget {
                             SizedBox(
                               width: sdpPX(context, 113),
                               child: AnimatedProgressBar2(
+                                borderRadius:
+                                    BorderRadius.circular(sdpPX(context, 3)),
                                 icon: Transform.translate(
                                   offset: Offset(sdpPX(context, -28), 0),
                                   child: AppIcons.svgWidget(
@@ -156,6 +161,8 @@ class LowerStatusBar extends StatelessWidget {
                             SizedBox(
                               width: sdpPX(context, 113),
                               child: AnimatedProgressBar2(
+                                borderRadius:
+                                    BorderRadius.circular(sdpPX(context, 3)),
                                 icon: Transform.translate(
                                   offset: Offset(sdpPX(context, -28), 0),
                                   child: AppIcons.svgWidget(

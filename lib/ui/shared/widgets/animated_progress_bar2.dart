@@ -145,6 +145,7 @@ class _AnimatedProgressBar2State extends State<AnimatedProgressBar2>
                   child: Stack(
                     children: [
                       Container(
+                        transform: Matrix4.skewX(-0.2),
                         decoration: BoxDecoration(
                           color: widget.progressGradient != null
                               ? null
@@ -154,15 +155,15 @@ class _AnimatedProgressBar2State extends State<AnimatedProgressBar2>
                           border: widget.border,
                         ),
                       ),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                            left: sdpPX(context, 25),
-                          ),
-                          child: widget.icon,
-                        ),
-                      ),
+                      // Align(
+                      //   alignment: Alignment.centerLeft,
+                      //   child: Padding(
+                      //     padding: EdgeInsets.only(
+                      //       left: sdpPX(context, 25),
+                      //     ),
+                      //     child: widget.icon,
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
