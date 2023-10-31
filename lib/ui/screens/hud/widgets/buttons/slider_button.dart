@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
-import 'package:vibe_games/ui/shared/button_animator.dart';
-import 'package:vibe_games/ui/shared/constants/app_colors.dart';
+import 'package:vibe_games/ui/shared/shared_exports.dart';
 
 class SliderButton extends StatelessWidget {
   final Widget? icon;

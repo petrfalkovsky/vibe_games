@@ -40,7 +40,7 @@ class AnimatedProgressBar3 extends StatefulWidget {
     this.maxValue = 100,
     this.width = 200,
     this.height = 20,
-    this.animatedDuration = const Duration(milliseconds: 300),
+    this.animatedDuration = const Duration(milliseconds: 100),
     this.direction = Axis.horizontal,
     this.verticalDirection = VerticalDirection.down,
     BorderRadiusGeometry? borderRadius,

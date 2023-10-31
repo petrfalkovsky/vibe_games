@@ -1,7 +1,7 @@
 // ignore_for_file: unnecessary_null_comparison
 
 import 'package:flutter/material.dart';
-import 'package:vibe_games/ui/shared/constants/app_colors.dart';
+import 'package:vibe_games/ui/shared/shared_exports.dart';
 
 class GradientButton extends StatelessWidget {
   final String text;
