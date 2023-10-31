@@ -3,10 +3,10 @@ import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/shared/shared_exports.dart';
 
 class Chat extends StatefulWidget {
-  Chat({Key? key});
+  const Chat({super.key});
 
   @override
-  _ChatState createState() => _ChatState();
+  State<Chat> createState() => _ChatState();
 }
 
 class _ChatState extends State<Chat> {
@@ -65,7 +65,7 @@ class _ChatState extends State<Chat> {
                         : AppColors.background[8],
                     borderRadius: BorderRadius.circular(sdpPX(context, 30)),
                   ),
-                  height: sdpPX(context, 350),
+                  height: sdpPX(context, 316),
                   child: ListView.builder(
                     controller: _scrollController,
                     itemCount: 20,

@@ -23,7 +23,7 @@ class HudScreen extends StatexWidget<HudController> {
           const _BackgroundImage(),
 
           /// чат
-          Chat(),
+          const Chat(),
 
           /// кнопка для сайдбара
           SideBarButton(
