@@ -23,7 +23,7 @@ class HudScreen extends StatexWidget<HudController> {
           const _BackgroundImage(),
 
           /// чат
-          CustomScrollbarWidget(),
+          Chat(),
 
           /// кнопка для сайдбара
           SideBarButton(
@@ -182,69 +182,6 @@ class _BackgroundImage extends StatelessWidget {
       fit: BoxFit.fill,
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
-    );
-  }
-}
-
-class CustomScrollbarWidget extends StatelessWidget {
-  final ScrollController _scrollController = ScrollController();
-
-  CustomScrollbarWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 600),
-      child: Column(
-        children: [
-          RawScrollbar(
-            controller: _scrollController,
-            thumbVisibility: true,
-            trackVisibility: true,
-            thickness: sdpPX(context, 16),
-            radius: Radius.circular(sdpPX(context, 30)),
-            trackRadius: Radius.circular(sdpPX(context, 30)),
-            trackColor: AppColors.background[8],
-            thumbColor: AppColors.background,
-            child: Padding(
-              padding: EdgeInsets.only(
-                  right: sdpPX(context, 32),
-                  top: sdpPX(context, 0),
-                  bottom: sdpPX(context, 0)),
-              child: Container(
-                decoration: BoxDecoration(
-                  // border: Border.all(
-                  //   color: AppColors.background.withOpacity(0.6),
-                  //   width: sdpPX(context, 2),
-                  // ),
-                  color: AppColors.background[8],
-                  borderRadius: BorderRadius.circular(sdpPX(context, 30)),
-                ),
-                height: sdpPX(context, 310),
-                child: ListView.builder(
-                  controller: _scrollController,
-                  itemCount: 20,
-                  itemBuilder: (context, index) {
-                    return ScrollConfiguration(
-                      behavior: ScrollConfiguration.of(context)
-                          .copyWith(scrollbars: false),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 400),
-                        child: ListTile(
-                          title: Text(
-                            'Элемент $index',
-                            style: TextStyle(color: AppColors.accent),
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
