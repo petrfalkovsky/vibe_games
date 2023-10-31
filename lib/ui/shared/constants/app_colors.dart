@@ -73,6 +73,8 @@ abstract class AppColors {
       6: Color(0xFF07090C),
       // фон плашки в уведомлении
       7: Color(0xFFFFB629),
+      // фон для окна чата
+      8: Color(0xFF000000),
     },
   );
 }

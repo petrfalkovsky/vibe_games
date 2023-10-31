@@ -22,6 +22,9 @@ class HudScreen extends StatexWidget<HudController> {
         children: [
           const _BackgroundImage(),
 
+          /// чат
+          const Chat(),
+
           /// кнопка для сайдбара
           SideBarButton(
             sideBarController: sideBarController,
@@ -95,7 +98,11 @@ class HudScreen extends StatexWidget<HudController> {
           SafeArea(
             child: Padding(
               padding: EdgeInsets.only(
-                  top: sdpPX(context, 20), right: sdpPX(context, 22)),
+                top: sdpPX(context, 20),
+                bottom: sdpPX(context, 32),
+                right: sdpPX(context, 22),
+                left: sdpPX(context, 38),
+              ),
               child: Stack(
                 children: [
                   // кнопки обычные и со слайдером под картой
@@ -105,22 +112,21 @@ class HudScreen extends StatexWidget<HudController> {
                     child: Column(
                       children: [
                         // кнопки обычные и со слайдером под картой
+                        // todo заменить на лист, тк список динамический
                         Row(
                           children: [
                             /// обычные кнопки
                             SliderButton(
-                              icon: AppIcons.svgWidget(AppIcons.avatar,
-                                  width: 26),
-                            ),
+                                icon: AppIcons.svgWidget(AppIcons.avatar,
+                                    width: 26)),
                             sdpPX(context, 16).w,
                             SliderButton(
-                              icon: AppIcons.svgWidget(AppIcons.radial,
-                                  width: 34),
-                            ),
+                                icon: AppIcons.svgWidget(AppIcons.radial,
+                                    width: 34)),
                             sdpPX(context, 16).w,
                             SliderButton(
-                              icon: AppIcons.svgWidget(AppIcons.pad, width: 34),
-                            ),
+                                icon: AppIcons.svgWidget(AppIcons.pad,
+                                    width: 34)),
                             sdpPX(context, 16).w,
 
                             /// кнопка с выдвигающимся инфо
@@ -151,6 +157,9 @@ class HudScreen extends StatexWidget<HudController> {
                     left: sdpPX(context, 28),
                     child: const ChatButtonWrapper(),
                   ),
+
+                  /// координаты, время, расстояние
+                  const Coordinates()
                 ],
               ),
             ),

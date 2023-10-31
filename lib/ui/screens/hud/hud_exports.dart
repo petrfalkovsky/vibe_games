@@ -18,3 +18,5 @@ export 'widgets/notifications/noti_timer.dart';
 export 'widgets/notifications/notifications.dart';
 export 'widgets/buttons/chat_button.dart';
 export 'widgets/buttons/side_bar_button.dart';
+export 'widgets/coordinates.dart';
+export 'widgets/chat.dart';
