@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
-import 'package:vibe_games/ui/shared/all_shared.dart';
-import 'package:vibe_games/ui/shared/button_animator.dart';
-import 'package:vibe_games/ui/shared/constants/app_colors.dart';
+import 'package:vibe_games/ui/shared/shared_exports.dart';
 
 class ChatButton extends StatefulWidget {
   const ChatButton({Key? key}) : super(key: key);
@@ -97,5 +95,42 @@ class _ChatButtonState extends State<ChatButton> {
         buttonState++;
       }
     });
+  }
+}
+
+class ChatButtonWrapper extends StatelessWidget {
+  const ChatButtonWrapper({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: sdpPX(context, 600),
+      height: sdpPX(context, 600),
+      child: Stack(
+        children: [
+          Positioned(
+            top: sdpPX(context, 130),
+            child: Container(
+              width: sdpPX(context, 310),
+              height: sdpPX(context, 310),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: AppColors.accent[1] ?? Colors.transparent,
+                  width: sdpPX(context, 2),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: sdpPX(context, 354),
+            left: sdpPX(context, 210),
+            child: const ChatButton(),
+          ),
+        ],
+      ),
+    );
   }
 }

@@ -4,8 +4,7 @@ import 'package:get/get.dart' hide Trans;
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/screens/hud/hud_exports.dart';
 import 'package:vfx_flutter_common/getx_helpers.dart';
-import 'package:vibe_games/ui/screens/hud/widgets/buttons/side_bar_button.dart';
-import 'package:vibe_games/ui/shared/exports_shared.dart';
+import 'package:vibe_games/ui/shared/shared_exports.dart';
 
 class HudScreen extends StatexWidget<HudController> {
   HudScreen({Key? key}) : super(() => HudController(), key: key) {
@@ -106,22 +105,21 @@ class HudScreen extends StatexWidget<HudController> {
                     child: Column(
                       children: [
                         // кнопки обычные и со слайдером под картой
+                        // todo заменить на лист, тк список динамический
                         Row(
                           children: [
                             /// обычные кнопки
                             SliderButton(
-                              icon: AppIcons.svgWidget(AppIcons.avatar,
-                                  width: 26),
-                            ),
+                                icon: AppIcons.svgWidget(AppIcons.avatar,
+                                    width: 26)),
                             sdpPX(context, 16).w,
                             SliderButton(
-                              icon: AppIcons.svgWidget(AppIcons.radial,
-                                  width: 34),
-                            ),
+                                icon: AppIcons.svgWidget(AppIcons.radial,
+                                    width: 34)),
                             sdpPX(context, 16).w,
                             SliderButton(
-                              icon: AppIcons.svgWidget(AppIcons.pad, width: 34),
-                            ),
+                                icon: AppIcons.svgWidget(AppIcons.pad,
+                                    width: 34)),
                             sdpPX(context, 16).w,
 
                             /// кнопка с выдвигающимся инфо
@@ -148,36 +146,10 @@ class HudScreen extends StatexWidget<HudController> {
 
                   /// кнопка чата
                   Positioned(
-                      top: sdpPX(context, -126),
-                      left: sdpPX(context, 28),
-                      child: SizedBox(
-                        width: sdpPX(context, 600),
-                        height: sdpPX(context, 600),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              top: sdpPX(context, 130),
-                              child: Container(
-                                width: sdpPX(context, 310),
-                                height: sdpPX(context, 310),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                    color: AppColors.accent[1] ??
-                                        Colors.transparent,
-                                    width: sdpPX(context, 2),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              top: sdpPX(context, 354),
-                              left: sdpPX(context, 210),
-                              child: const ChatButton(),
-                            ),
-                          ],
-                        ),
-                      )),
+                    top: sdpPX(context, -126),
+                    left: sdpPX(context, 28),
+                    child: const ChatButtonWrapper(),
+                  ),
                 ],
               ),
             ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
-import 'package:vibe_games/ui/shared/ext.dart';
-import 'slide_bar_controller.dart';
+import 'package:vibe_games/ui/screens/hud/hud_exports.dart';
+import 'package:vibe_games/ui/shared/shared_exports.dart';
 
 class SideBar extends StatelessWidget {
   final SideBarController _sideBarController = Get.put(SideBarController());
