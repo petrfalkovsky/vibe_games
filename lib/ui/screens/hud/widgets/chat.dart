@@ -3,10 +3,10 @@ import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/shared/shared_exports.dart';
 
 class Chat extends StatefulWidget {
-  Chat({Key? key});
+  const Chat({super.key});
 
   @override
-  _ChatState createState() => _ChatState();
+  State<Chat> createState() => _ChatState();
 }
 
 class _ChatState extends State<Chat> {
@@ -54,10 +54,7 @@ class _ChatState extends State<Chat> {
               trackColor: AppColors.background[8],
               thumbColor: AppColors.background,
               child: Padding(
-                padding: EdgeInsets.only(
-                    right: sdpPX(context, 32),
-                    top: sdpPX(context, 0),
-                    bottom: sdpPX(context, 0)),
+                padding: EdgeInsets.only(right: sdpPX(context, 32)),
                 child: Container(
                   decoration: BoxDecoration(
                     color: isChatTapped
@@ -65,12 +62,15 @@ class _ChatState extends State<Chat> {
                         : AppColors.background[8],
                     borderRadius: BorderRadius.circular(sdpPX(context, 30)),
                   ),
-                  height: sdpPX(context, 350),
+                  height: sdpPX(context, 316),
                   child: ListView.builder(
+                    // itemExtent: sdpPX(context, 64),
                     controller: _scrollController,
                     itemCount: 20,
                     itemBuilder: (context, index) {
                       int colorIndex = index % textColors.length;
+                      String itemText =
+                          'Получай за каждый отыгранный час билет участника и получи шанс выиграть крутые призы!';
 
                       return ScrollConfiguration(
                         behavior: ScrollConfiguration.of(context)
@@ -87,11 +87,9 @@ class _ChatState extends State<Chat> {
                               ),
                               children: <TextSpan>[
                                 TextSpan(
-                                  text:
-                                      'Получай за каждый отыгранный час билет участника и получи шанс выиграть крутые призы!',
+                                  text: itemText,
                                   style: TextStyle(
-                                    color: AppColors
-                                        .accent, // Style for the remaining text
+                                    color: AppColors.accent,
                                     fontSize: sdpPX(context, 25),
                                     fontWeight: FontWeight.w500,
                                     fontFamily: AppStyles.ttNorms,
