@@ -20,3 +20,4 @@ export 'widgets/buttons/chat_button.dart';
 export 'widgets/buttons/side_bar_button.dart';
 export 'widgets/coordinates.dart';
 export 'widgets/chat.dart';
+export 'widgets/call/call.dart';

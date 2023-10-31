@@ -79,6 +79,10 @@ abstract class AppColors {
       7: Color(0xFFFFB629),
       // фон для окна чата
       8: Color(0xFF000000),
+      // фон звонка
+      9: Color(0xFFFE4639),
+      // фон звонка
+      10: Color(0xFF65C466),
     },
   );
 }

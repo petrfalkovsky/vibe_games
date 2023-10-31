@@ -22,26 +22,6 @@ class HudScreen extends StatexWidget<HudController> {
         children: [
           const _BackgroundImage(),
 
-          /// звонок
-          Container(
-            // width: sdpPX(context, 124),
-            height: sdpPX(context, 124),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  AppColors.accent[7] ?? Colors.transparent,
-                  AppColors.accent[8] ?? Colors.transparent,
-                ],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-              ),
-              borderRadius: BorderRadius.circular(sdpPX(context, 100)),
-            ),
-            child: Row(
-              children: [],
-            ),
-          ),
-
           /// чат
           const Chat(),
 
@@ -179,7 +159,10 @@ class HudScreen extends StatexWidget<HudController> {
                   ),
 
                   /// координаты, время, расстояние
-                  const Coordinates()
+                  const Coordinates(),
+
+                  /// звонок
+                  const Call(),
                 ],
               ),
             ),
