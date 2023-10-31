@@ -47,6 +47,8 @@ class AppIcons {
   static const notiCase = '$_basePathIcons/noti_case.svg';
   static const discount = '$_basePathIcons/discount.svg';
   static const giftBox = '$_basePathIcons/gift_box.svg';
+  static const locate = '$_basePathIcons/locate.svg';
+  static const locateNinja = '$_basePathIcons/locate_ninja.svg';
 
   /// старые
   static const add = '$_basePathIcons/add_icon.svg';

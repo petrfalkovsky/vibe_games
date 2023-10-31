@@ -95,7 +95,11 @@ class HudScreen extends StatexWidget<HudController> {
           SafeArea(
             child: Padding(
               padding: EdgeInsets.only(
-                  top: sdpPX(context, 20), right: sdpPX(context, 22)),
+                top: sdpPX(context, 20),
+                bottom: sdpPX(context, 32),
+                right: sdpPX(context, 22),
+                left: sdpPX(context, 38),
+              ),
               child: Stack(
                 children: [
                   // кнопки обычные и со слайдером под картой
@@ -150,6 +154,9 @@ class HudScreen extends StatexWidget<HudController> {
                     left: sdpPX(context, 28),
                     child: const ChatButtonWrapper(),
                   ),
+
+                  /// координаты, время, расстояние
+                  const Coordinates()
                 ],
               ),
             ),
