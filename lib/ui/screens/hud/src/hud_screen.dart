@@ -22,6 +22,26 @@ class HudScreen extends StatexWidget<HudController> {
         children: [
           const _BackgroundImage(),
 
+          /// звонок
+          Container(
+            // width: sdpPX(context, 124),
+            height: sdpPX(context, 124),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  AppColors.accent[7] ?? Colors.transparent,
+                  AppColors.accent[8] ?? Colors.transparent,
+                ],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+              ),
+              borderRadius: BorderRadius.circular(sdpPX(context, 100)),
+            ),
+            child: Row(
+              children: [],
+            ),
+          ),
+
           /// чат
           const Chat(),
 
@@ -42,15 +62,15 @@ class HudScreen extends StatexWidget<HudController> {
                   children: [
                     /// обычные кнопки
                     SliderButton(
-                      icon: AppIcons.svgWidget(AppIcons.avatar, width: 26),
+                      icon: AppIcons.svgWidget(AppIcons.crown, width: 26),
                     ),
                     sdpPX(context, 15).w,
                     SliderButton(
-                      icon: AppIcons.svgWidget(AppIcons.radial, width: 34),
+                      icon: AppIcons.svgWidget(AppIcons.cart, width: 34),
                     ),
                     sdpPX(context, 15).w,
                     SliderButton(
-                      icon: AppIcons.svgWidget(AppIcons.pad, width: 34),
+                      icon: AppIcons.svgWidget(AppIcons.car, width: 34),
                     ),
                   ],
                 ),

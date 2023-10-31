@@ -56,7 +56,7 @@ class _SpeedometerState extends State<Speedometer> {
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 17),
-              child: AppIcons.svgWidget(AppIcons.ellipse),
+              child: AppIcons.svgWidget(AppIcons.callAnswer),
             ),
           ],
         ),
