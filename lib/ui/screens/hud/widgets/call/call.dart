@@ -128,8 +128,8 @@ class _CallState extends State<Call> {
       children: [
         // аватар
         // имя абонента
-        // кнопка ответить на звонок
         // кнопка положить трубку
+        // кнопка ответить на звонок
         Padding(
           padding: EdgeInsets.all(sdpPX(context, 12)),
           child: ClipOval(
@@ -186,7 +186,7 @@ class _CallState extends State<Call> {
                 children: [
                   AppIcons.svgWidget(
                     AppIcons.callSkip,
-                    width: sdpPX(context, 35.5),
+                    width: sdpPX(context, 44.5),
                   ),
                 ],
               ),

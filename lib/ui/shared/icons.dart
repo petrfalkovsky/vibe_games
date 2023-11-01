@@ -56,6 +56,15 @@ class AppIcons {
   static const chatClose = '$_basePathIcons/chat_close.svg';
   static const chatOk = '$_basePathIcons/chat_ok.svg';
   static const chat = '$_basePathIcons/chat.svg';
+  static const batary = '$_basePathIcons/batary.svg';
+  static const breakHeartProcent = '$_basePathIcons/break_heart_procent.svg';
+  static const check = '$_basePathIcons/check.svg';
+  static const lights = '$_basePathIcons/lights.svg';
+  static const key = '$_basePathIcons/key.svg';
+  static const attantionSign = '$_basePathIcons/attantion_sign.svg';
+  static const gasStation = '$_basePathIcons/gas_station.svg';
+  static const turnSignalLeft = '$_basePathIcons/turn_signal_left.svg';
+  static const turnSignalRight = '$_basePathIcons/turn_signal_right.svg';
 
   /// старых нет, удалил вроде все
 

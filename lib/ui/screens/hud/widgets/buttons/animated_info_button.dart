@@ -54,7 +54,7 @@ class AnimatedInfoButton extends StatelessWidget {
               : controller.closedState.value.toDouble(),
           frontContent: GestureDetector(
             onTap: () => controller.toggleIsOpen(),
-            child: SliderButton(
+            child: LeanButton(
               icon: AppIcons.svgWidget(AppIcons.parashute,
                   width: sdpPX(context, 44)),
             ),

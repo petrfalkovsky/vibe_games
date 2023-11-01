@@ -41,15 +41,15 @@ class HudScreen extends StatexWidget<HudController> {
                 Row(
                   children: [
                     /// обычные кнопки
-                    SliderButton(
+                    LeanButton(
                       icon: AppIcons.svgWidget(AppIcons.crown, width: 26),
                     ),
                     sdpPX(context, 15).w,
-                    SliderButton(
+                    LeanButton(
                       icon: AppIcons.svgWidget(AppIcons.cart, width: 34),
                     ),
                     sdpPX(context, 15).w,
-                    SliderButton(
+                    LeanButton(
                       icon: AppIcons.svgWidget(AppIcons.car, width: 34),
                     ),
                   ],
@@ -117,15 +117,15 @@ class HudScreen extends StatexWidget<HudController> {
                         Row(
                           children: [
                             /// обычные кнопки
-                            SliderButton(
+                            LeanButton(
                                 icon: AppIcons.svgWidget(AppIcons.avatar,
                                     width: 26)),
                             sdpPX(context, 16).w,
-                            SliderButton(
+                            LeanButton(
                                 icon: AppIcons.svgWidget(AppIcons.radial,
                                     width: 34)),
                             sdpPX(context, 16).w,
-                            SliderButton(
+                            LeanButton(
                                 icon: AppIcons.svgWidget(AppIcons.pad,
                                     width: 34)),
                             sdpPX(context, 16).w,

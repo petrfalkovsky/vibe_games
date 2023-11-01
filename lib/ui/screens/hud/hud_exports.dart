@@ -5,7 +5,7 @@ export 'widgets/buttons/microphone_button.dart';
 export 'widgets/status_bar/upper/upper.dart';
 export 'widgets/status_bar/upper/balance.dart';
 export 'widgets/status_bar/lower/lower.dart';
-export 'widgets/buttons/slider_button.dart';
+export 'widgets/buttons/lean_righ_button.dart';
 export 'widgets/horizonyal_expansion_tile.dart';
 export 'widgets/slide_bar/slide_bar_controller.dart';
 export 'widgets/slide_bar/slide_bar.dart';
