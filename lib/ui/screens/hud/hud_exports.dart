@@ -7,7 +7,6 @@ export 'widgets/status_bar/upper/balance.dart';
 export 'widgets/status_bar/lower/lower.dart';
 export 'widgets/buttons/lean_right_button.dart';
 export 'widgets/buttons/lean_left_button.dart';
-export 'widgets/horizonyal_expansion_tile.dart';
 export 'widgets/slide_bar/slide_bar_controller.dart';
 export 'widgets/slide_bar/slide_bar.dart';
 export 'widgets/side_bar_second/side_bar_second.dart';

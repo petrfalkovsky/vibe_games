@@ -3,14 +3,14 @@ import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/screens/hud/hud_exports.dart';
 import 'package:vibe_games/ui/shared/shared_exports.dart';
 
-class GradientButtonSwitcher extends StatefulWidget {
-  const GradientButtonSwitcher({super.key});
+class TurnSigns extends StatefulWidget {
+  const TurnSigns({super.key});
 
   @override
-  State<GradientButtonSwitcher> createState() => _GradientButtonSwitcherState();
+  State<TurnSigns> createState() => _TurnSignsState();
 }
 
-class _GradientButtonSwitcherState extends State<GradientButtonSwitcher> {
+class _TurnSignsState extends State<TurnSigns> {
   bool isButtonLeftVisible = true;
   bool isButtonRightVisible = true;
 
@@ -59,6 +59,8 @@ class _GradientButtonSwitcherState extends State<GradientButtonSwitcher> {
                           gradientDirection:
                               GradientDirectionLeftButton.horizontal,
                           gradientColor2: Colors.transparent,
+                          gradientColor1:
+                              AppColors.background[1]?.withOpacity(0.6),
                           icon: AppIcons.svgWidget(AppIcons.turnSignalLeft,
                               width: sdpPX(context, 42)),
                         ),
@@ -87,6 +89,8 @@ class _GradientButtonSwitcherState extends State<GradientButtonSwitcher> {
                           gradientDirection:
                               GradientDirectionRightButton.horizontal,
                           gradientColor2: Colors.transparent,
+                          gradientColor1:
+                              AppColors.background[1]?.withOpacity(0.6),
                           icon: AppIcons.svgWidget(AppIcons.turnSignalRight,
                               width: sdpPX(context, 42)),
                         ),

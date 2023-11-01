@@ -23,7 +23,7 @@ class HudScreen extends StatexWidget<HudController> {
           const _BackgroundImage(),
 
           // поворотники
-          const GradientButtonSwitcher(),
+          const TurnSigns(),
 
           /// чат
           const Chat(),
