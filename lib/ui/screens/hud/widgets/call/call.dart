@@ -4,8 +4,8 @@ import 'package:vibe_games/ui/shared/shared_exports.dart';
 
 class Call extends StatefulWidget {
   const Call({
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<Call> createState() => _CallState();
@@ -15,29 +15,55 @@ enum CallState { state1, state2, state3, state4 }
 
 class _CallState extends State<Call> {
   CallState currentState = CallState.state1;
+  bool isContentVisible = true;
+  double? containerWidth;
+  double? containerHeight;
 
   void switchToState2() {
     setState(() {
-      currentState = CallState.state2;
+      containerWidth = sdpPX(context, 466);
+      containerHeight = sdpPX(context, 124);
     });
+
+    {
+      setState(() {
+        isContentVisible = true;
+        currentState = CallState.state2;
+      });
+    }
   }
 
   void switchToState3() {
     setState(() {
-      currentState = CallState.state3;
+      containerWidth = sdpPX(context, 188);
+      containerHeight = sdpPX(context, 140);
     });
+
+    {
+      setState(() {
+        isContentVisible = true;
+        currentState = CallState.state3;
+      });
+    }
   }
 
   void switchToState4() {
     setState(() {
-      currentState = CallState.state4;
+      containerWidth = sdpPX(context, 466);
+      containerHeight = sdpPX(context, 124);
+    });
+
+    // задержка перед появлением контента
+    Future.delayed(const Duration(milliseconds: 300), () {
+      setState(() {
+        isContentVisible = true;
+        currentState = CallState.state4;
+      });
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    double containerWidth;
-    double containerHeight;
     Widget child;
 
     switch (currentState) {
@@ -47,48 +73,46 @@ class _CallState extends State<Call> {
         child = buildState1();
         break;
       case CallState.state2:
-        containerWidth = sdpPX(context, 466);
-        containerHeight = sdpPX(context, 124);
         child = buildState2();
         break;
       case CallState.state3:
-        containerWidth = sdpPX(context, 188);
-        containerHeight = sdpPX(context, 140);
         child = buildState3();
         break;
       case CallState.state4:
-        containerWidth = sdpPX(context, 466);
-        containerHeight = sdpPX(context, 124);
         child = buildState4();
         break;
     }
 
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
-      width: containerWidth,
-      height: containerHeight,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            AppColors.accent[7] ?? Colors.transparent,
-            AppColors.accent[8]?.withOpacity(0.9) ?? Colors.transparent,
-          ],
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
+    return GestureDetector(
+      onTap: () {
+        if (currentState == CallState.state1) {
+          switchToState2();
+        } else if (currentState == CallState.state2) {
+          switchToState3();
+        } else if (currentState == CallState.state4) {
+          switchToState4();
+        }
+      },
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        width: containerWidth,
+        height: containerHeight,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              AppColors.accent[7] ?? Colors.transparent,
+              AppColors.accent[8]?.withOpacity(0.9) ?? Colors.transparent,
+            ],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+          ),
+          borderRadius: BorderRadius.circular(sdpPX(context, 100)),
         ),
-        borderRadius: BorderRadius.circular(sdpPX(context, 100)),
-      ),
-      child: GestureDetector(
-        onTap: () {
-          if (currentState == CallState.state1) {
-            switchToState2();
-          } else if (currentState == CallState.state2) {
-            switchToState3();
-          } else if (currentState == CallState.state4) {
-            switchToState4();
-          }
-        },
-        child: child,
+        child: AnimatedOpacity(
+          opacity: isContentVisible ? 1.0 : 0.0,
+          duration: const Duration(milliseconds: 200),
+          child: child,
+        ),
       ),
     );
   }
@@ -98,8 +122,8 @@ class _CallState extends State<Call> {
       children: [
         // аватар
         // имя абонента
-        // кнопка "Ответить на звонок"
-        // кнопка "Положить трубку"
+        // кнопка ответить на звонок
+        // кнопка положить трубку
         Padding(
           padding: EdgeInsets.all(sdpPX(context, 12)),
           child: ClipOval(
@@ -154,7 +178,10 @@ class _CallState extends State<Call> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  AppIcons.svgWidget(AppIcons.callSkip, width: 35.5),
+                  AppIcons.svgWidget(
+                    AppIcons.callSkip,
+                    width: sdpPX(context, 35.5),
+                  ),
                 ],
               ),
             ),
@@ -173,7 +200,10 @@ class _CallState extends State<Call> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  AppIcons.svgWidget(AppIcons.callAnswer, width: 35.5),
+                  AppIcons.svgWidget(
+                    AppIcons.callAnswer,
+                    width: sdpPX(context, 35.5),
+                  ),
                 ],
               ),
             ),
@@ -188,7 +218,7 @@ class _CallState extends State<Call> {
       children: [
         // аватар
         // имя абонента
-        // кнопка "Положить трубку"
+        // кнопка положить трубку
         Padding(
           padding: EdgeInsets.all(sdpPX(context, 12)),
           child: ClipOval(
@@ -245,7 +275,10 @@ class _CallState extends State<Call> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  AppIcons.svgWidget(AppIcons.callSkip, width: 35.5),
+                  AppIcons.svgWidget(
+                    AppIcons.callSkip,
+                    width: sdpPX(context, 35.5),
+                  ),
                   Padding(
                     padding: EdgeInsets.only(top: sdpPX(context, 13)),
                     child: Text(
@@ -272,30 +305,61 @@ class _CallState extends State<Call> {
       onTap: () {
         switchToState4();
       },
-      child: Row(
+      child: Stack(
         children: [
-          // аватар
-          // имя абонента
-          Padding(
-            padding: EdgeInsets.all(sdpPX(context, 12)),
-            child: ClipOval(
-              child: Image.asset(
-                AppIcons.callAvatar,
-                width: sdpPX(context, 100),
-                height: sdpPX(context, 100),
-                fit: BoxFit.cover,
+          ColorFiltered(
+            colorFilter: ColorFilter.mode(
+              AppColors.background[1]?.withOpacity(0.5) ?? Colors.transparent,
+              BlendMode.srcATop,
+            ),
+            child: Center(
+              child: Row(
+                children: [
+                  // аватар
+                  // имя абонента
+                  Padding(
+                    padding: EdgeInsets.all(sdpPX(context, 12)),
+                    child: ClipOval(
+                      child: Image.asset(
+                        AppIcons.callAvatar,
+                        width: sdpPX(context, 100),
+                        height: sdpPX(context, 100),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
-          ButtonAnimator(
-            child: Padding(
-              padding: EdgeInsets.all(sdpPX(context, 12)),
-              child: Icon(
-                Icons.arrow_forward_ios,
-                color: AppColors.accent,
-                size: 28,
+          Row(
+            children: [
+              const Spacer(),
+              Padding(
+                padding: EdgeInsets.only(left: sdpPX(context, 8)),
+                child: Text(
+                  '01:34',
+                  style: TextStyle(
+                    color: AppColors.accent,
+                    fontSize: sdpPX(context, 20),
+                    fontWeight: FontWeight.w500,
+                    fontFamily: AppStyles.ttNorms,
+                  ),
+                ),
               ),
-            ),
+              const Spacer(),
+              ButtonAnimator(
+                child: Padding(
+                  padding: EdgeInsets.only(left: sdpPX(context, 8)),
+                  child: Icon(
+                    Icons.arrow_forward_ios,
+                    color: AppColors.accent,
+                    size: sdpPX(context, 28),
+                  ),
+                ),
+              ),
+              const Spacer(),
+            ],
           ),
         ],
       ),
@@ -311,7 +375,7 @@ class _CallState extends State<Call> {
         children: [
           // аватар
           // имя абонента
-          // кнопка "Положить трубку"
+          // кнопка положить трубку
           Padding(
             padding: EdgeInsets.all(sdpPX(context, 12)),
             child: ClipOval(
@@ -368,7 +432,10 @@ class _CallState extends State<Call> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    AppIcons.svgWidget(AppIcons.callSkip, width: 35.5),
+                    AppIcons.svgWidget(
+                      AppIcons.callSkip,
+                      width: sdpPX(context, 35.5),
+                    ),
                     Padding(
                       padding: EdgeInsets.only(top: sdpPX(context, 13)),
                       child: Text(
