@@ -110,6 +110,7 @@ class HudScreen extends StatexWidget<HudController> {
                     top: sdpPX(context, 332),
                     left: sdpPX(context, 47),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         // кнопки обычные и со слайдером под картой
                         // todo заменить на лист, тк список динамический
@@ -133,15 +134,14 @@ class HudScreen extends StatexWidget<HudController> {
                             AnimatedInfoButton(controller: controller),
                           ],
                         ),
+
+                        /// таймер уведомление
+                        const NotiTimer(),
+
+                        /// звонок
+                        const Call(),
                       ],
                     ),
-                  ),
-
-                  /// таймер уведомление
-                  Positioned(
-                    top: sdpPX(context, 420 + 12),
-                    left: sdpPX(context, 47),
-                    child: const NotiTimer(),
                   ),
 
                   /// кнопка микрофон
@@ -160,9 +160,6 @@ class HudScreen extends StatexWidget<HudController> {
 
                   /// координаты, время, расстояние
                   const Coordinates(),
-
-                  /// звонок
-                  const Call(),
                 ],
               ),
             ),

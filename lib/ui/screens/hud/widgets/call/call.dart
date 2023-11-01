@@ -93,25 +93,31 @@ class _CallState extends State<Call> {
           switchToState4();
         }
       },
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        width: containerWidth,
-        height: containerHeight,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              AppColors.accent[7] ?? Colors.transparent,
-              AppColors.accent[8]?.withOpacity(0.9) ?? Colors.transparent,
-            ],
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
+      child: Transform.translate(
+        offset: const Offset(-10, 0),
+        child: Padding(
+          padding: EdgeInsets.only(top: sdpPX(context, 12)),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            width: containerWidth,
+            height: containerHeight,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  AppColors.accent[7] ?? Colors.transparent,
+                  AppColors.accent[8]?.withOpacity(0.9) ?? Colors.transparent,
+                ],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+              ),
+              borderRadius: BorderRadius.circular(sdpPX(context, 100)),
+            ),
+            child: AnimatedOpacity(
+              opacity: isContentVisible ? 1.0 : 0.0,
+              duration: const Duration(milliseconds: 200),
+              child: child,
+            ),
           ),
-          borderRadius: BorderRadius.circular(sdpPX(context, 100)),
-        ),
-        child: AnimatedOpacity(
-          opacity: isContentVisible ? 1.0 : 0.0,
-          duration: const Duration(milliseconds: 200),
-          child: child,
         ),
       ),
     );
