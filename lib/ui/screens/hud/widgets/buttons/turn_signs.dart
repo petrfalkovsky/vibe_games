@@ -14,6 +14,7 @@ class _TurnSignsState extends State<TurnSigns> {
   bool isButtonLeftVisible = true;
   bool isButtonRightVisible = true;
   bool isGasIconVisible = true;
+  bool isHeartIconVisible = true;
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +90,7 @@ class _TurnSignsState extends State<TurnSigns> {
               ),
               const Spacer(),
               GestureDetector(
-                onTap: () => switchGasIcon(),
+                onTap: () => switchHeartIcon(),
                 child: LeanRightButton(
                   backgroundColor: AppColors.background[1]?.withOpacity(0.6),
                   width: sdpPX(context, 112),
@@ -101,13 +102,13 @@ class _TurnSignsState extends State<TurnSigns> {
                       AppIcons.svgWidget(
                         AppIcons.breakHeartProcent,
                         width: sdpPX(context, 35.5),
-                        color: isGasIconVisible
+                        color: isHeartIconVisible
                             ? AppColors.accent[9]
                             : AppColors.accent,
                       ),
                       sdpPX(context, 11).h,
                       Text(
-                        isGasIconVisible ? '25' : '94',
+                        isHeartIconVisible ? '25' : '94',
                         style: TextStyle(
                           color: AppColors.accent,
                           fontSize: sdpPX(context, 18),
@@ -119,6 +120,7 @@ class _TurnSignsState extends State<TurnSigns> {
                   ),
                 ),
               ),
+              sdpPX(context, 12).w,
               GestureDetector(
                 onTap: () => switchButtonRight(),
                 child: AnimatedSwitcher(
@@ -172,6 +174,12 @@ class _TurnSignsState extends State<TurnSigns> {
   void switchGasIcon() {
     setState(() {
       isGasIconVisible = !isGasIconVisible;
+    });
+  }
+
+  void switchHeartIcon() {
+    setState(() {
+      isHeartIconVisible = !isHeartIconVisible;
     });
   }
 }
