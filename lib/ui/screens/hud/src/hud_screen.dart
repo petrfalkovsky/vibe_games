@@ -22,6 +22,9 @@ class HudScreen extends StatexWidget<HudController> {
         children: [
           const _BackgroundImage(),
 
+          // поворотники
+          const GradientButtonSwitcher(),
+
           /// чат
           const Chat(),
 
@@ -41,16 +44,19 @@ class HudScreen extends StatexWidget<HudController> {
                 Row(
                   children: [
                     /// обычные кнопки
-                    LeanButton(
-                      icon: AppIcons.svgWidget(AppIcons.crown, width: 26),
+                    LeanRightButton(
+                      icon: AppIcons.svgWidget(AppIcons.crown,
+                          width: sdpPX(context, 38)),
                     ),
                     sdpPX(context, 15).w,
-                    LeanButton(
-                      icon: AppIcons.svgWidget(AppIcons.cart, width: 34),
+                    LeanRightButton(
+                      icon: AppIcons.svgWidget(AppIcons.cart,
+                          width: sdpPX(context, 34)),
                     ),
                     sdpPX(context, 15).w,
-                    LeanButton(
-                      icon: AppIcons.svgWidget(AppIcons.car, width: 34),
+                    LeanRightButton(
+                      icon: AppIcons.svgWidget(AppIcons.car,
+                          width: sdpPX(context, 42)),
                     ),
                   ],
                 ),
@@ -117,17 +123,17 @@ class HudScreen extends StatexWidget<HudController> {
                         Row(
                           children: [
                             /// обычные кнопки
-                            LeanButton(
+                            LeanRightButton(
                                 icon: AppIcons.svgWidget(AppIcons.avatar,
-                                    width: 26)),
+                                    width: sdpPX(context, 31))),
                             sdpPX(context, 16).w,
-                            LeanButton(
+                            LeanRightButton(
                                 icon: AppIcons.svgWidget(AppIcons.radial,
-                                    width: 34)),
+                                    width: sdpPX(context, 42))),
                             sdpPX(context, 16).w,
-                            LeanButton(
+                            LeanRightButton(
                                 icon: AppIcons.svgWidget(AppIcons.pad,
-                                    width: 34)),
+                                    width: sdpPX(context, 40))),
                             sdpPX(context, 16).w,
 
                             /// кнопка с выдвигающимся инфо
