@@ -13,18 +13,7 @@ class TurnSigns extends StatefulWidget {
 class _TurnSignsState extends State<TurnSigns> {
   bool isButtonLeftVisible = true;
   bool isButtonRightVisible = true;
-
-  void switchButtonLeft() {
-    setState(() {
-      isButtonLeftVisible = !isButtonLeftVisible;
-    });
-  }
-
-  void switchButtonRight() {
-    setState(() {
-      isButtonRightVisible = !isButtonRightVisible;
-    });
-  }
+  bool isGasIconVisible = true;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +55,70 @@ class _TurnSignsState extends State<TurnSigns> {
                         ),
                 ),
               ),
+              sdpPX(context, 12).w,
+              GestureDetector(
+                onTap: () => switchGasIcon(),
+                child: LeanLeftButton(
+                  backgroundColor: AppColors.background[1]?.withOpacity(0.6),
+                  width: sdpPX(context, 112),
+                  gradientDirection: GradientDirectionLeftButton.horizontal,
+                  hasBorder: false,
+                  icon: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      AppIcons.svgWidget(
+                        AppIcons.gasStation,
+                        width: sdpPX(context, 25),
+                        color: isGasIconVisible
+                            ? AppColors.accent[9]
+                            : AppColors.accent,
+                      ),
+                      sdpPX(context, 11).h,
+                      Text(
+                        isGasIconVisible ? '8' : '100',
+                        style: TextStyle(
+                          color: AppColors.accent,
+                          fontSize: sdpPX(context, 18),
+                          fontWeight: FontWeight.bold,
+                          fontFamily: AppStyles.ttNorms,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
               const Spacer(),
+              GestureDetector(
+                onTap: () => switchGasIcon(),
+                child: LeanRightButton(
+                  backgroundColor: AppColors.background[1]?.withOpacity(0.6),
+                  width: sdpPX(context, 112),
+                  gradientDirection: GradientDirectionRightButton.horizontal,
+                  hasBorder: false,
+                  icon: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      AppIcons.svgWidget(
+                        AppIcons.breakHeartProcent,
+                        width: sdpPX(context, 35.5),
+                        color: isGasIconVisible
+                            ? AppColors.accent[9]
+                            : AppColors.accent,
+                      ),
+                      sdpPX(context, 11).h,
+                      Text(
+                        isGasIconVisible ? '25' : '94',
+                        style: TextStyle(
+                          color: AppColors.accent,
+                          fontSize: sdpPX(context, 18),
+                          fontWeight: FontWeight.bold,
+                          fontFamily: AppStyles.ttNorms,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
               GestureDetector(
                 onTap: () => switchButtonRight(),
                 child: AnimatedSwitcher(
@@ -101,5 +153,25 @@ class _TurnSignsState extends State<TurnSigns> {
         ],
       ),
     );
+  }
+
+  /// переключаеют поворотники
+  void switchButtonLeft() {
+    setState(() {
+      isButtonLeftVisible = !isButtonLeftVisible;
+    });
+  }
+
+  void switchButtonRight() {
+    setState(() {
+      isButtonRightVisible = !isButtonRightVisible;
+    });
+  }
+
+  /// переключает топливо
+  void switchGasIcon() {
+    setState(() {
+      isGasIconVisible = !isGasIconVisible;
+    });
   }
 }
