@@ -66,7 +66,8 @@ class _SpeedometerState extends State<Speedometer> {
                 ),
 
                 /// Цифровые метки
-                // const DigitLabels(radius: 120, maxValue: 200),
+                // const CircularDigitContainer(radius: 120, maxValue: 200),
+                CircleContainer(),
 
                 /// цифры км/ч
                 Center(
@@ -180,36 +181,43 @@ class BackgroundProgressBar extends CustomPainter {
   }
 }
 
-class DigitLabels extends StatelessWidget {
-  final double radius;
-  final double maxValue;
-
-  const DigitLabels({super.key, required this.radius, required this.maxValue});
+class CircleContainer extends StatelessWidget {
+  const CircleContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> labels = [];
-    for (int index = 0; index < 10; index++) {
-      double value = (index + 1) * 20.0;
-      double angle = pi / 6 * index;
-      double centerX = radius * cos(angle);
-      double centerY = radius * sin(angle);
-
-      labels.add(
+    List<Widget> children = [];
+    double radius = 120;
+    // double step = 20;
+    double centerX = radius + 10;
+    double centerY = radius + 10;
+    for (int i = 200; i >= 0; i -= 20) {
+      double angle = -1 * pi * ((200 - i) / 200);
+      double x = centerX + radius * cos(angle);
+      double y = centerY + radius * sin(angle);
+      children.add(
         Positioned(
-          left: centerX - 12, // центрирование
-          top: centerY - 12,
+          left: x,
+          top: y,
           child: Text(
-            '${value.toInt()}',
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
+            '$i',
+            style: TextStyle(
+              color: AppColors.text[1]?.withOpacity(0.3),
+              fontSize: sdpPX(context, 17),
+              fontWeight: FontWeight.normal,
+              fontFamily: AppStyles.ttNorms,
             ),
           ),
         ),
       );
     }
-    return Positioned.fill(child: Stack(children: labels));
+
+    return SizedBox(
+      width: radius * 2 + 50,
+      height: radius * 2 + 60,
+      child: Stack(
+        children: children,
+      ),
+    );
   }
 }
