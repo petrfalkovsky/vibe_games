@@ -168,10 +168,10 @@ class _SpeedometerState extends State<Speedometer> {
                           children: [
                             AppIcons.svgWidget(AppIcons.lights,
                                 width: sdpPX(context, 24)),
-                            sdpPX(context, 23).w,
+                            sdpPX(context, 22).w,
                             AppIcons.svgWidget(AppIcons.check,
                                 width: sdpPX(context, 22)),
-                            sdpPX(context, 23).w,
+                            sdpPX(context, 25).w,
                             AppIcons.svgWidget(AppIcons.key,
                                 width: sdpPX(context, 19)),
                           ],
