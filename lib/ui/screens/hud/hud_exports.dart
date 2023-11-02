@@ -23,3 +23,5 @@ export 'widgets/chat.dart';
 export 'widgets/call/call.dart';
 export 'widgets/buttons/turn_signs.dart';
 export 'widgets/speedometer/speedometer.dart';
+export 'widgets/speedometer/speed_digits_table.dart';
+export 'widgets/speedometer/speed_progress_bar.dart';

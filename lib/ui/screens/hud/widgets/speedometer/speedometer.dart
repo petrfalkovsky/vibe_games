@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
+import 'package:vibe_games/ui/screens/hud/hud_exports.dart';
 import 'dart:math';
 
 import 'package:vibe_games/ui/shared/shared_exports.dart';
@@ -65,10 +66,6 @@ class _SpeedometerState extends State<Speedometer> {
                   ),
                 ),
 
-                /// Цифровые метки
-                // const CircularDigitContainer(radius: 120, maxValue: 200),
-                CircleContainer(),
-
                 /// цифры км/ч
                 Center(
                   child: Padding(
@@ -98,125 +95,13 @@ class _SpeedometerState extends State<Speedometer> {
                     ),
                   ),
                 ),
+
+                /// Цифровые метки
+                const SpeedDigitsTable(),
               ],
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class ProgressBar extends CustomPainter {
-  final double speed;
-  final Color color;
-
-  ProgressBar(this.speed, this.color);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()
-      ..color = color
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 4
-      ..strokeCap = StrokeCap.round;
-
-    // прогресс от 0 до 1
-    double progress = speed / 200;
-
-    /// 1.5(2) управлять завержением прогресса
-    double arcAngle = 1.31 * pi * progress;
-
-    canvas.drawArc(
-        Rect.fromCircle(
-            center: Offset(size.width / 2, size.height / 2),
-            radius: size.width / 2),
-
-        /// 1.65(2) управлять точкой старта прогресса
-        -pi / 1.52,
-        arcAngle,
-        false,
-        paint);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
-  }
-}
-
-class BackgroundProgressBar extends CustomPainter {
-  final Color color;
-
-  BackgroundProgressBar({required this.color});
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()
-      ..color = color
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 4
-      ..strokeCap = StrokeCap.round;
-
-    /// прогресс всегда максимальный
-    /// 0.905(2) управлять точкой финиша фона
-    double arcAngle = 1.31 * pi;
-    canvas.drawArc(
-      Rect.fromCircle(
-        center: Offset(size.width / 2, size.height / 2),
-        radius: size.width / 2,
-      ),
-
-      /// 0.905(2) управлять точкой старта фона
-      -pi / 0.865,
-      arcAngle,
-      false,
-      paint,
-    );
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
-  }
-}
-
-class CircleContainer extends StatelessWidget {
-  const CircleContainer({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    List<Widget> children = [];
-    double radius = 120;
-    // double step = 20;
-    double centerX = radius + 10;
-    double centerY = radius + 10;
-    for (int i = 200; i >= 0; i -= 20) {
-      double angle = -1 * pi * ((200 - i) / 200);
-      double x = centerX + radius * cos(angle);
-      double y = centerY + radius * sin(angle);
-      children.add(
-        Positioned(
-          left: x,
-          top: y,
-          child: Text(
-            '$i',
-            style: TextStyle(
-              color: AppColors.text[1]?.withOpacity(0.3),
-              fontSize: sdpPX(context, 17),
-              fontWeight: FontWeight.normal,
-              fontFamily: AppStyles.ttNorms,
-            ),
-          ),
-        ),
-      );
-    }
-
-    return SizedBox(
-      width: radius * 2 + 50,
-      height: radius * 2 + 60,
-      child: Stack(
-        children: children,
       ),
     );
   }
