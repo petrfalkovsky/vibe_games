@@ -47,7 +47,7 @@ class _SpeedometerState extends State<Speedometer> {
                       sdpPX(context, 300),
                     ),
                     painter: BackgroundProgressBar(
-                        color: AppColors.accent[1]!.withOpacity(1)),
+                        color: AppColors.accent.withOpacity(0.3)),
                   ),
                 ),
 
