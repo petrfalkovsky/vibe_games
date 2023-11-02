@@ -186,11 +186,13 @@ class _BackgroundImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image(
-      image: AssetImage(Assets.images.welcomeScreenBg),
-      fit: BoxFit.fill,
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
-    );
+    return Container();
+
+    // Image(
+    //   image: AssetImage(Assets.images.welcomeScreenBg),
+    //   fit: BoxFit.fill,
+    //   width: MediaQuery.of(context).size.width,
+    //   height: MediaQuery.of(context).size.height,
+    // );
   }
 }

@@ -51,7 +51,7 @@ class _ChatState extends State<Chat> {
               thickness: sdpPX(context, 16),
               radius: Radius.circular(sdpPX(context, 30)),
               trackRadius: Radius.circular(sdpPX(context, 30)),
-              trackColor: AppColors.background[8],
+              trackColor: AppColors.background[8]?.withOpacity(0.3),
               thumbColor: AppColors.background,
               child: Padding(
                 padding: EdgeInsets.only(right: sdpPX(context, 32)),
@@ -59,7 +59,7 @@ class _ChatState extends State<Chat> {
                   decoration: BoxDecoration(
                     color: isChatTapped
                         ? Colors.transparent
-                        : AppColors.background[8],
+                        : AppColors.background[8]?.withOpacity(0.3),
                     borderRadius: BorderRadius.circular(sdpPX(context, 30)),
                   ),
                   height: sdpPX(context, 316),
@@ -84,6 +84,13 @@ class _ChatState extends State<Chat> {
                                 fontSize: sdpPX(context, 25),
                                 fontWeight: FontWeight.w500,
                                 fontFamily: AppStyles.ttNorms,
+                                shadows: const [
+                                  Shadow(
+                                    blurRadius: 2.0,
+                                    color: Colors.black,
+                                    offset: Offset(-1.0, 0.5),
+                                  ),
+                                ],
                               ),
                               children: <TextSpan>[
                                 TextSpan(
@@ -93,6 +100,13 @@ class _ChatState extends State<Chat> {
                                     fontSize: sdpPX(context, 25),
                                     fontWeight: FontWeight.w500,
                                     fontFamily: AppStyles.ttNorms,
+                                    shadows: const [
+                                      Shadow(
+                                        blurRadius: 2.0,
+                                        color: Colors.black,
+                                        offset: Offset(-1.0, 0.5),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],
