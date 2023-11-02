@@ -42,6 +42,9 @@ class _SpeedometerState extends State<Speedometer> {
             offset: const Offset(0, 28),
             child: Stack(
               children: [
+                /// циферблат спидометра
+                SpeedDigitsTable(),
+
                 /// фон пргресс бара
                 Center(
                   child: CustomPaint(
@@ -97,10 +100,6 @@ class _SpeedometerState extends State<Speedometer> {
                     ),
                   ),
                 ),
-
-                /// Цифровые метки
-                // const SpeedDigitsTable(),
-                SpeedDigitsTable()
               ],
             ),
           ),

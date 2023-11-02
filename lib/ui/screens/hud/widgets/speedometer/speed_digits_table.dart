@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/shared/shared_exports.dart';
@@ -12,122 +10,138 @@ class SpeedDigitsTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-        height: sdpPX(context, 300),
-        width: sdpPX(context, 300),
-        // color: Colors.red.withOpacity(0.1),
-        child: Stack(children: [
-          Positioned(
-              bottom: sdpPX(context, 96),
-              left: sdpPX(context, 32),
-              child: Text('0',
-                  style: TextStyle(
-                    color: AppColors.text[1]?.withOpacity(0.3),
-                    fontSize: sdpPX(context, 17),
-                    fontWeight: FontWeight.normal,
-                    fontFamily: AppStyles.ttNorms,
-                  ))),
-          Positioned(
-              bottom: sdpPX(context, 144),
-              left: sdpPX(context, 21),
-              child: Text('20',
-                  style: TextStyle(
-                    color: AppColors.text[1]?.withOpacity(0.3),
-                    fontSize: sdpPX(context, 17),
-                    fontWeight: FontWeight.normal,
-                    fontFamily: AppStyles.ttNorms,
-                  ))),
-          Positioned(
-              bottom: sdpPX(context, 188),
-              left: sdpPX(context, 29),
-              child: Text('40',
-                  style: TextStyle(
-                    color: AppColors.text[1]?.withOpacity(0.3),
-                    fontSize: sdpPX(context, 17),
-                    fontWeight: FontWeight.normal,
-                    fontFamily: AppStyles.ttNorms,
-                  ))),
-          Positioned(
-              bottom: sdpPX(context, 228),
-              left: sdpPX(context, 53),
-              child: Text('60',
-                  style: TextStyle(
-                    color: AppColors.text[1]?.withOpacity(0.3),
-                    fontSize: sdpPX(context, 17),
-                    fontWeight: FontWeight.normal,
-                    fontFamily: AppStyles.ttNorms,
-                  ))),
-          Positioned(
-              bottom: sdpPX(context, 257.5),
-              left: sdpPX(context, 91),
-              child: Text('80',
-                  style: TextStyle(
-                    color: AppColors.text[1]?.withOpacity(0.3),
-                    fontSize: sdpPX(context, 17),
-                    fontWeight: FontWeight.normal,
-                    fontFamily: AppStyles.ttNorms,
-                  ))),
-          Positioned(
-              bottom: sdpPX(context, 267.5),
-              left: sdpPX(context, 137),
-              child: Text('100',
-                  style: TextStyle(
-                    color: AppColors.text[1]?.withOpacity(0.3),
-                    fontSize: sdpPX(context, 17),
-                    fontWeight: FontWeight.normal,
-                    fontFamily: AppStyles.ttNorms,
-                  ))),
-          Positioned(
-              bottom: sdpPX(context, 257.5),
-              right: sdpPX(context, 89),
-              child: Text('120',
-                  style: TextStyle(
-                    color: AppColors.text[1]?.withOpacity(0.3),
-                    fontSize: sdpPX(context, 17),
-                    fontWeight: FontWeight.normal,
-                    fontFamily: AppStyles.ttNorms,
-                  ))),
-          Positioned(
-              bottom: sdpPX(context, 228),
-              right: sdpPX(context, 51),
-              child: Text('140',
-                  style: TextStyle(
-                    color: AppColors.text[1]?.withOpacity(0.3),
-                    fontSize: sdpPX(context, 17),
-                    fontWeight: FontWeight.normal,
-                    fontFamily: AppStyles.ttNorms,
-                  ))),
-          Positioned(
-              bottom: sdpPX(context, 188),
-              right: sdpPX(context, 28),
-              child: Text('160',
-                  style: TextStyle(
-                    color: AppColors.text[1]?.withOpacity(0.3),
-                    fontSize: sdpPX(context, 17),
-                    fontWeight: FontWeight.normal,
-                    fontFamily: AppStyles.ttNorms,
-                  ))),
-          Positioned(
-              bottom: sdpPX(context, 144),
-              right: sdpPX(context, 20),
-              child: Text('180',
-                  style: TextStyle(
-                    color: AppColors.text[1]?.withOpacity(0.3),
-                    fontSize: sdpPX(context, 17),
-                    fontWeight: FontWeight.normal,
-                    fontFamily: AppStyles.ttNorms,
-                  ))),
-          Positioned(
-              bottom: sdpPX(context, 96),
-              right: sdpPX(context, 25),
-              child: Text('200',
-                  style: TextStyle(
-                    color: AppColors.text[1]?.withOpacity(0.3),
-                    fontSize: sdpPX(context, 17),
-                    fontWeight: FontWeight.normal,
-                    fontFamily: AppStyles.ttNorms,
-                  ))),
-        ]),
+      child: ClipOval(
+        child: SizedBox(
+          height: sdpPX(context, 300),
+          width: sdpPX(context, 300),
+          child: Stack(children: [
+            Positioned.fill(
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                    colors: [
+                      Colors.transparent,
+                      AppColors.background[1] ?? Colors.transparent,
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+                bottom: sdpPX(context, 96),
+                left: sdpPX(context, 32),
+                child: Text('0',
+                    style: TextStyle(
+                      color: AppColors.text[1]?.withOpacity(0.3),
+                      fontSize: sdpPX(context, 17),
+                      fontWeight: FontWeight.normal,
+                      fontFamily: AppStyles.ttNorms,
+                    ))),
+            Positioned(
+                bottom: sdpPX(context, 144),
+                left: sdpPX(context, 21),
+                child: Text('20',
+                    style: TextStyle(
+                      color: AppColors.text[1]?.withOpacity(0.3),
+                      fontSize: sdpPX(context, 17),
+                      fontWeight: FontWeight.normal,
+                      fontFamily: AppStyles.ttNorms,
+                    ))),
+            Positioned(
+                bottom: sdpPX(context, 188),
+                left: sdpPX(context, 29),
+                child: Text('40',
+                    style: TextStyle(
+                      color: AppColors.text[1]?.withOpacity(0.3),
+                      fontSize: sdpPX(context, 17),
+                      fontWeight: FontWeight.normal,
+                      fontFamily: AppStyles.ttNorms,
+                    ))),
+            Positioned(
+                bottom: sdpPX(context, 228),
+                left: sdpPX(context, 53),
+                child: Text('60',
+                    style: TextStyle(
+                      color: AppColors.text[1]?.withOpacity(0.3),
+                      fontSize: sdpPX(context, 17),
+                      fontWeight: FontWeight.normal,
+                      fontFamily: AppStyles.ttNorms,
+                    ))),
+            Positioned(
+                bottom: sdpPX(context, 257.5),
+                left: sdpPX(context, 91),
+                child: Text('80',
+                    style: TextStyle(
+                      color: AppColors.text[1]?.withOpacity(0.3),
+                      fontSize: sdpPX(context, 17),
+                      fontWeight: FontWeight.normal,
+                      fontFamily: AppStyles.ttNorms,
+                    ))),
+            Positioned(
+                bottom: sdpPX(context, 267.5),
+                left: sdpPX(context, 137),
+                child: Text('100',
+                    style: TextStyle(
+                      color: AppColors.text[1]?.withOpacity(0.3),
+                      fontSize: sdpPX(context, 17),
+                      fontWeight: FontWeight.normal,
+                      fontFamily: AppStyles.ttNorms,
+                    ))),
+            Positioned(
+                bottom: sdpPX(context, 257.5),
+                right: sdpPX(context, 89),
+                child: Text('120',
+                    style: TextStyle(
+                      color: AppColors.text[1]?.withOpacity(0.3),
+                      fontSize: sdpPX(context, 17),
+                      fontWeight: FontWeight.normal,
+                      fontFamily: AppStyles.ttNorms,
+                    ))),
+            Positioned(
+                bottom: sdpPX(context, 228),
+                right: sdpPX(context, 51),
+                child: Text('140',
+                    style: TextStyle(
+                      color: AppColors.text[1]?.withOpacity(0.3),
+                      fontSize: sdpPX(context, 17),
+                      fontWeight: FontWeight.normal,
+                      fontFamily: AppStyles.ttNorms,
+                    ))),
+            Positioned(
+                bottom: sdpPX(context, 188),
+                right: sdpPX(context, 28),
+                child: Text('160',
+                    style: TextStyle(
+                      color: AppColors.text[1]?.withOpacity(0.3),
+                      fontSize: sdpPX(context, 17),
+                      fontWeight: FontWeight.normal,
+                      fontFamily: AppStyles.ttNorms,
+                    ))),
+            Positioned(
+                bottom: sdpPX(context, 144),
+                right: sdpPX(context, 20),
+                child: Text('180',
+                    style: TextStyle(
+                      color: AppColors.text[1]?.withOpacity(0.3),
+                      fontSize: sdpPX(context, 17),
+                      fontWeight: FontWeight.normal,
+                      fontFamily: AppStyles.ttNorms,
+                    ))),
+            Positioned(
+                bottom: sdpPX(context, 96),
+                right: sdpPX(context, 25),
+                child: Text('200',
+                    style: TextStyle(
+                      color: AppColors.text[1]?.withOpacity(0.3),
+                      fontSize: sdpPX(context, 17),
+                      fontWeight: FontWeight.normal,
+                      fontFamily: AppStyles.ttNorms,
+                    ))),
+          ]),
+        ),
       ),
     );
   }
