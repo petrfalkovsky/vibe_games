@@ -22,3 +22,4 @@ export 'widgets/coordinates.dart';
 export 'widgets/chat.dart';
 export 'widgets/call/call.dart';
 export 'widgets/buttons/turn_signs.dart';
+export 'widgets/speedometer/speedometer.dart';

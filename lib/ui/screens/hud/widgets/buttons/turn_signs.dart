@@ -19,8 +19,7 @@ class _TurnSignsState extends State<TurnSigns> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: sdpPX(context, 512), vertical: sdpPX(context, 68)),
+      padding: EdgeInsets.only(bottom: sdpPX(context, 68)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -92,7 +91,7 @@ class _TurnSignsState extends State<TurnSigns> {
                   ),
                 ),
               ),
-              const Spacer(),
+              sdpPX(context, 380).w,
               GestureDetector(
                 onTap: () => switchHeartIcon(),
                 child: LeanRightButton(

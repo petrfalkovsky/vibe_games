@@ -22,7 +22,10 @@ class HudScreen extends StatexWidget<HudController> {
         children: [
           const _BackgroundImage(),
 
-          // поворотники
+          /// спидометр
+          const Speedometer(),
+
+          /// поворотники
           const TurnSigns(),
 
           /// чат
