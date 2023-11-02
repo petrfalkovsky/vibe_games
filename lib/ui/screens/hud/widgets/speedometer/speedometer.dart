@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/screens/hud/hud_exports.dart';
@@ -97,7 +99,8 @@ class _SpeedometerState extends State<Speedometer> {
                 ),
 
                 /// Цифровые метки
-                const SpeedDigitsTable(),
+                // const SpeedDigitsTable(),
+                SpeedDigitsTable()
               ],
             ),
           ),
