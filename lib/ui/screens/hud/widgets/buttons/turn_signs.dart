@@ -38,6 +38,10 @@ class _TurnSignsState extends State<TurnSigns> {
                           gradientDirection:
                               GradientDirectionLeftButton.horizontal,
                           hasBorder: false,
+                          gradientColor2:
+                              AppColors.background[1]?.withOpacity(0.6),
+                          gradientColor1:
+                              AppColors.background[1]?.withOpacity(0.5),
                           icon: AppIcons.svgWidget(AppIcons.turnSignalLeft,
                               width: sdpPX(context, 42)),
                         )
@@ -48,9 +52,9 @@ class _TurnSignsState extends State<TurnSigns> {
                           useGradient: true,
                           gradientDirection:
                               GradientDirectionLeftButton.horizontal,
-                          gradientColor2: Colors.transparent,
-                          gradientColor1:
+                          gradientColor2:
                               AppColors.background[1]?.withOpacity(0.6),
+                          gradientColor1: AppColors.background.withOpacity(0.3),
                           icon: AppIcons.svgWidget(AppIcons.turnSignalLeft,
                               width: sdpPX(context, 42)),
                         ),
@@ -60,7 +64,7 @@ class _TurnSignsState extends State<TurnSigns> {
               GestureDetector(
                 onTap: () => switchGasIcon(),
                 child: LeanLeftButton(
-                  backgroundColor: AppColors.background[1]?.withOpacity(0.6),
+                  backgroundColor: AppColors.background[1]?.withOpacity(0.3),
                   width: sdpPX(context, 112),
                   gradientDirection: GradientDirectionLeftButton.horizontal,
                   hasBorder: false,
@@ -92,7 +96,7 @@ class _TurnSignsState extends State<TurnSigns> {
               GestureDetector(
                 onTap: () => switchHeartIcon(),
                 child: LeanRightButton(
-                  backgroundColor: AppColors.background[1]?.withOpacity(0.6),
+                  backgroundColor: AppColors.background[1]?.withOpacity(0.3),
                   width: sdpPX(context, 112),
                   gradientDirection: GradientDirectionRightButton.horizontal,
                   hasBorder: false,
@@ -132,6 +136,10 @@ class _TurnSignsState extends State<TurnSigns> {
                           gradientDirection:
                               GradientDirectionRightButton.horizontal,
                           hasBorder: false,
+                          gradientColor2:
+                              AppColors.background[1]?.withOpacity(0.5),
+                          gradientColor1:
+                              AppColors.background[1]?.withOpacity(0.6),
                           icon: AppIcons.svgWidget(AppIcons.turnSignalRight,
                               width: sdpPX(context, 42)),
                         )
@@ -142,7 +150,7 @@ class _TurnSignsState extends State<TurnSigns> {
                           useGradient: true,
                           gradientDirection:
                               GradientDirectionRightButton.horizontal,
-                          gradientColor2: Colors.transparent,
+                          gradientColor2: AppColors.background.withOpacity(0.3),
                           gradientColor1:
                               AppColors.background[1]?.withOpacity(0.6),
                           icon: AppIcons.svgWidget(AppIcons.turnSignalRight,
