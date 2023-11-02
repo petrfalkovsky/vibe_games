@@ -72,7 +72,7 @@ class Coordinates extends StatelessWidget {
                 ),
               ],
             ),
-            sdpPX(context, 67).w,
+            sdpPX(context, 57).w,
             Row(
               children: [
                 AppIcons.svgWidget(

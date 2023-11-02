@@ -39,7 +39,7 @@ class _SpeedometerState extends State<Speedometer> {
           ),
           Transform.translate(
             /// управлять вертикальный положением спидометра
-            offset: const Offset(0, 28),
+            offset: Offset(0, sdpPX(context, 10)),
             child: Stack(
               children: [
                 /// циферблат спидометра
@@ -53,7 +53,9 @@ class _SpeedometerState extends State<Speedometer> {
                       sdpPX(context, 300),
                     ),
                     painter: BackgroundProgressBar(
-                        color: AppColors.accent.withOpacity(0.3)),
+                      AppColors.accent.withOpacity(0.3),
+                      strokeWidth: sdpPX(context, 6),
+                    ),
                   ),
                 ),
 
@@ -66,7 +68,11 @@ class _SpeedometerState extends State<Speedometer> {
                         sdpPX(context, 300),
                         sdpPX(context, 300),
                       ),
-                      painter: ProgressBar(_speed, AppColors.accent),
+                      painter: ProgressBar(
+                        _speed,
+                        AppColors.accent,
+                        strokeWidth: sdpPX(context, 6),
+                      ),
                     ),
                   ),
                 ),
@@ -113,7 +119,7 @@ class _SpeedometerState extends State<Speedometer> {
                           Container(
                             decoration: BoxDecoration(
                                 color:
-                                    AppColors.background[1]?.withOpacity(0.05),
+                                    AppColors.background[1]?.withOpacity(0.4),
                                 borderRadius:
                                     BorderRadius.circular(sdpPX(context, 4))),
                             width: sdpPX(context, 112),
@@ -126,8 +132,8 @@ class _SpeedometerState extends State<Speedometer> {
                                   fontSize: sdpPX(context, 20),
                                   fontWeight: FontWeight.normal,
                                   fontFamily: AppStyles.ttNorms,
-                                  letterSpacing: 2.5,
-                                  height: 1.22),
+                                  letterSpacing: sdpPX(context, 2.8),
+                                  height: sdpPX(context, 1.42)),
                             ),
                           ),
                         ],
@@ -145,7 +151,7 @@ class _SpeedometerState extends State<Speedometer> {
                                 color: AppColors.background),
                             sdpPX(context, 24).w,
                             AppIcons.svgWidget(AppIcons.attantionSign,
-                                width: 24),
+                                width: sdpPX(context, 24)),
                             sdpPX(context, 24).w,
                             AppIcons.svgWidget(AppIcons.turnSignalRight,
                                 width: sdpPX(context, 16),

@@ -5,15 +5,16 @@ import 'package:flutter/material.dart';
 class ProgressBar extends CustomPainter {
   final double speed;
   final Color color;
+  final double strokeWidth;
 
-  ProgressBar(this.speed, this.color);
+  ProgressBar(this.speed, this.color, {required this.strokeWidth});
 
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
       ..color = color
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 4
+      ..strokeWidth = strokeWidth
       ..strokeCap = StrokeCap.round;
 
     // прогресс от 0 до 1
@@ -42,15 +43,16 @@ class ProgressBar extends CustomPainter {
 
 class BackgroundProgressBar extends CustomPainter {
   final Color color;
+  final double strokeWidth;
 
-  BackgroundProgressBar({required this.color});
+  BackgroundProgressBar(this.color, {required this.strokeWidth});
 
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
       ..color = color
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 4
+      ..strokeWidth = strokeWidth
       ..strokeCap = StrokeCap.round;
 
     /// прогресс всегда максимальный
