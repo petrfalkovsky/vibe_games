@@ -41,7 +41,7 @@ class _TurnSignsState extends State<TurnSigns> {
                               AppColors.background[1]?.withOpacity(0.6),
                           gradientColor1:
                               AppColors.background[1]?.withOpacity(0.5),
-                          icon: AppIcons.svgWidget(AppIcons.turnSignalLeft,
+                          icon: Image.asset(AppIcons.turnSignalLeftPNG,
                               width: sdpPX(context, 42)),
                         )
                       : LeanLeftButton(
@@ -54,7 +54,7 @@ class _TurnSignsState extends State<TurnSigns> {
                           gradientColor2:
                               AppColors.background[1]?.withOpacity(0.6),
                           gradientColor1: AppColors.background.withOpacity(0.3),
-                          icon: AppIcons.svgWidget(AppIcons.turnSignalLeft,
+                          icon: Image.asset(AppIcons.turnSignalLeftPNG,
                               width: sdpPX(context, 42)),
                         ),
                 ),
@@ -139,7 +139,7 @@ class _TurnSignsState extends State<TurnSigns> {
                               AppColors.background[1]?.withOpacity(0.5),
                           gradientColor1:
                               AppColors.background[1]?.withOpacity(0.6),
-                          icon: AppIcons.svgWidget(AppIcons.turnSignalRight,
+                          icon: Image.asset(AppIcons.turnSignalRightPNG,
                               width: sdpPX(context, 42)),
                         )
                       : LeanRightButton(
@@ -152,7 +152,7 @@ class _TurnSignsState extends State<TurnSigns> {
                           gradientColor2: AppColors.background.withOpacity(0.3),
                           gradientColor1:
                               AppColors.background[1]?.withOpacity(0.6),
-                          icon: AppIcons.svgWidget(AppIcons.turnSignalRight,
+                          icon: Image.asset(AppIcons.turnSignalRightPNG,
                               width: sdpPX(context, 42)),
                         ),
                 ),

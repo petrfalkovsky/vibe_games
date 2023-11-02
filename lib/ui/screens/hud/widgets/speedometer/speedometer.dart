@@ -65,6 +65,9 @@ class _SpeedometerState extends State<Speedometer> {
                   ),
                 ),
 
+                /// Цифровые метки
+                // const DigitLabels(radius: 120, maxValue: 200),
+
                 /// цифры км/ч
                 Center(
                   child: Padding(
@@ -174,5 +177,39 @@ class BackgroundProgressBar extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return false;
+  }
+}
+
+class DigitLabels extends StatelessWidget {
+  final double radius;
+  final double maxValue;
+
+  const DigitLabels({super.key, required this.radius, required this.maxValue});
+
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> labels = [];
+    for (int index = 0; index < 10; index++) {
+      double value = (index + 1) * 20.0;
+      double angle = pi / 6 * index;
+      double centerX = radius * cos(angle);
+      double centerY = radius * sin(angle);
+
+      labels.add(
+        Positioned(
+          left: centerX - 12, // центрирование
+          top: centerY - 12,
+          child: Text(
+            '${value.toInt()}',
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      );
+    }
+    return Positioned.fill(child: Stack(children: labels));
   }
 }

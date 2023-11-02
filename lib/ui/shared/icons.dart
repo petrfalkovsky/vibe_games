@@ -74,6 +74,8 @@ class AppIcons {
   static const backStatusBar = '$_basePathImg/back_status_bar.png';
   static const callAvatarHolder = '$_basePathImg/call_avatar_holder.png';
   static const callAvatar = '$_basePathImg/call_avatar.png';
+  static const turnSignalRightPNG = '$_basePathImg/turn_signal_right.png';
+  static const turnSignalLeftPNG = '$_basePathImg/turn_signal_left.png';
 
   // старые
   static const speedArrow = '$_basePathImg/speed_arrow.png';
