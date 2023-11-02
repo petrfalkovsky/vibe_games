@@ -94,7 +94,7 @@ class _CallState extends State<Call> {
         }
       },
       child: Transform.translate(
-        offset: const Offset(-10, 0),
+        offset: const Offset(-18, 0),
         child: Padding(
           padding: EdgeInsets.only(top: sdpPX(context, 12)),
           child: AnimatedContainer(
