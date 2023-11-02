@@ -100,6 +100,80 @@ class _SpeedometerState extends State<Speedometer> {
                     ),
                   ),
                 ),
+
+                /// центральная часть приборной панели (иконки, километраж)
+                Center(
+                  child: Column(
+                    children: [
+                      sdpPX(context, 162).h,
+
+                      /// километраж
+                      Stack(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                color:
+                                    AppColors.background[1]?.withOpacity(0.05),
+                                borderRadius:
+                                    BorderRadius.circular(sdpPX(context, 4))),
+                            width: sdpPX(context, 112),
+                            height: sdpPX(context, 26),
+                            child: Text(
+                              '000864',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: AppColors.text[1],
+                                  fontSize: sdpPX(context, 20),
+                                  fontWeight: FontWeight.normal,
+                                  fontFamily: AppStyles.ttNorms,
+                                  letterSpacing: 2.5,
+                                  height: 1.22),
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      /// иконки поворотники, чек, фары
+                      // поворотники, внимание
+                      Padding(
+                        padding: EdgeInsets.only(top: sdpPX(context, 10)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            AppIcons.svgWidget(AppIcons.turnSignalLeft,
+                                width: sdpPX(context, 16),
+                                color: AppColors.background),
+                            sdpPX(context, 24).w,
+                            AppIcons.svgWidget(AppIcons.attantionSign,
+                                width: 24),
+                            sdpPX(context, 24).w,
+                            AppIcons.svgWidget(AppIcons.turnSignalRight,
+                                width: sdpPX(context, 16),
+                                color: AppColors.background.withOpacity(0.3)),
+                          ],
+                        ),
+                      ),
+
+                      // фонари, чек, ключ
+                      Padding(
+                        padding: EdgeInsets.only(top: sdpPX(context, 7)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            AppIcons.svgWidget(AppIcons.lights,
+                                width: sdpPX(context, 24)),
+                            sdpPX(context, 23).w,
+                            AppIcons.svgWidget(AppIcons.check,
+                                width: sdpPX(context, 22)),
+                            sdpPX(context, 23).w,
+                            AppIcons.svgWidget(AppIcons.key,
+                                width: sdpPX(context, 19)),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
