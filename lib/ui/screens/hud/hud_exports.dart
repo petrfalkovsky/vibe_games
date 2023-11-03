@@ -29,6 +29,6 @@ export 'widgets/call/build_state_4.dart';
 export 'widgets/call/build_state_3.dart';
 export 'widgets/call/build_state_2.dart';
 export 'widgets/call/build_state_1.dart';
-export 'widgets/guns_block/guns_button_block.dart';
+export 'widgets/under_status_bar_block/guns_button_block.dart';
 export 'widgets/under_map_buttons_block/under_map_buttons_block.dart';
 export 'widgets/under_status_bar_block/under_status_bar_block.dart';

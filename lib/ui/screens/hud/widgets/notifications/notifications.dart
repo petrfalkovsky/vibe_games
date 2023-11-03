@@ -32,7 +32,7 @@ class NotificationWidget extends StatelessWidget {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
-              borderRadius: BorderRadius.circular(sdpPX(context, 6)),
+              borderRadius: BorderRadius.circular(sdpPX(context, 8)),
             ),
             child: Container(
               transform: Matrix4.skewX(0.2),
@@ -79,7 +79,7 @@ class NotificationWidget extends StatelessWidget {
               width: sdpPX(context, 44),
               decoration: BoxDecoration(
                 color: AppColors.background[7] ?? Colors.transparent,
-                borderRadius: BorderRadius.circular(sdpPX(context, 6)),
+                borderRadius: BorderRadius.circular(sdpPX(context, 8)),
               ),
             ),
           ),

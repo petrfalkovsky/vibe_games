@@ -58,7 +58,7 @@ class LeanRightButton extends StatelessWidget {
               ? Alignment.bottomCenter
               : Alignment.centerRight,
         ),
-        borderRadius: BorderRadius.circular(sdpPX(context, 6)),
+        borderRadius: BorderRadius.circular(sdpPX(context, 8)),
         border: hasBorder
             ? Border.all(
                 color: borderColorForGradient ??
@@ -76,7 +76,7 @@ class LeanRightButton extends StatelessWidget {
               )
             : null,
         color: backgroundColor ?? AppColors.background[1]?.withOpacity(0.25),
-        borderRadius: BorderRadius.circular(sdpPX(context, 6)),
+        borderRadius: BorderRadius.circular(sdpPX(context, 8)),
       );
     }
 
@@ -117,7 +117,7 @@ class LeanRightButton extends StatelessWidget {
                         )
                       : null,
                   borderRadius: BorderRadius.circular(
-                    sdpPX(context, 6),
+                    sdpPX(context, 8),
                   ),
                 ),
                 child: Padding(
