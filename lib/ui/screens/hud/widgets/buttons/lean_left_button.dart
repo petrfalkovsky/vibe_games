@@ -14,8 +14,7 @@ class LeanLeftButton extends StatelessWidget {
   final Color? backgroundColor;
   final Color? borderColor;
   final bool hasBorder;
-  final Color?
-      borderColorForGradient; // Новый параметр для цвета бордера при использовании градиента
+  final Color? borderColorForGradient;
   final bool useGradient;
   final Color? gradientColor1;
   final Color? gradientColor2;
@@ -28,7 +27,7 @@ class LeanLeftButton extends StatelessWidget {
     this.height = 92,
     this.borderColor,
     this.hasBorder = true,
-    this.borderColorForGradient, // Добавлен новый параметр
+    this.borderColorForGradient,
     this.useGradient = false,
     this.gradientColor1,
     this.gradientColor2,
@@ -56,8 +55,7 @@ class LeanLeftButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(sdpPX(context, 6)),
         border: hasBorder
             ? Border.all(
-                color: borderColorForGradient ??
-                    Colors.white, // Используйте цвет бордера для градиента
+                color: borderColorForGradient ?? Colors.white,
                 width: sdpPX(context, 2),
               )
             : null,

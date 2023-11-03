@@ -47,9 +47,7 @@ class GradientButton extends StatelessWidget {
         style: ButtonStyle(
           elevation: MaterialStateProperty.all(0),
           padding: MaterialStateProperty.all(
-            padding ??
-                const EdgeInsets.symmetric(
-                    vertical: 15, horizontal: 20), // Используем padding
+            padding ?? const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
           ),
           shape: MaterialStateProperty.all(RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(borderRadius))),
