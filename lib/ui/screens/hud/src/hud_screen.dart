@@ -62,6 +62,11 @@ class HudScreen extends StatexWidget<HudController> {
                         child: Row(
                           children: [
                             LeanRightButton(
+                              useGradient: true,
+                              gradientColor1:
+                                  AppColors.background[1]?.withOpacity(0.2),
+                              gradientColor2:
+                                  AppColors.background[1]?.withOpacity(0.45),
                               height: sdpPX(context, 92),
                               width: sdpPX(context, 99),
                               showBadge: true,
@@ -72,6 +77,11 @@ class HudScreen extends StatexWidget<HudController> {
                             ),
                             sdpPX(context, 15).w,
                             LeanRightButton(
+                              useGradient: true,
+                              gradientColor1:
+                                  AppColors.background[1]?.withOpacity(0.2),
+                              gradientColor2:
+                                  AppColors.background[1]?.withOpacity(0.45),
                               height: sdpPX(context, 92),
                               width: sdpPX(context, 99),
                               showBadge: true,
@@ -141,18 +151,33 @@ class HudScreen extends StatexWidget<HudController> {
                           children: [
                             /// обычные кнопки
                             LeanRightButton(
+                                useGradient: true,
+                                gradientColor1:
+                                    AppColors.background[1]?.withOpacity(0.2),
+                                gradientColor2:
+                                    AppColors.background[1]?.withOpacity(0.45),
                                 height: sdpPX(context, 92),
                                 width: sdpPX(context, 99),
                                 icon: AppIcons.svgWidget(AppIcons.avatar,
                                     width: sdpPX(context, 31))),
                             sdpPX(context, 16).w,
                             LeanRightButton(
+                                useGradient: true,
+                                gradientColor1:
+                                    AppColors.background[1]?.withOpacity(0.2),
+                                gradientColor2:
+                                    AppColors.background[1]?.withOpacity(0.45),
                                 height: sdpPX(context, 92),
                                 width: sdpPX(context, 99),
                                 icon: AppIcons.svgWidget(AppIcons.radial,
                                     width: sdpPX(context, 42))),
                             sdpPX(context, 16).w,
                             LeanRightButton(
+                                useGradient: true,
+                                gradientColor1:
+                                    AppColors.background[1]?.withOpacity(0.2),
+                                gradientColor2:
+                                    AppColors.background[1]?.withOpacity(0.45),
                                 height: sdpPX(context, 92),
                                 width: sdpPX(context, 99),
                                 icon: AppIcons.svgWidget(AppIcons.pad,

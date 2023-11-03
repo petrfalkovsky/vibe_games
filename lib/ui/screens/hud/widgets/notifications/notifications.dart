@@ -22,7 +22,16 @@ class NotificationWidget extends StatelessWidget {
                 color: AppColors.background.withOpacity(0.6),
                 width: sdpPX(context, 2),
               ),
-              color: AppColors.background[1]?.withOpacity(0.25),
+              gradient: LinearGradient(
+                colors: [
+                  AppColors.background[1]?.withOpacity(0.2) ??
+                      Colors.transparent,
+                  AppColors.background[1]?.withOpacity(0.45) ??
+                      Colors.transparent,
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
               borderRadius: BorderRadius.circular(sdpPX(context, 6)),
             ),
             child: Container(

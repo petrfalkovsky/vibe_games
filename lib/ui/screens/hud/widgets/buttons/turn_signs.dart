@@ -41,7 +41,7 @@ class _TurnSignsState extends State<TurnSigns> {
                           gradientColor2:
                               AppColors.background[1]?.withOpacity(0.6),
                           gradientColor1:
-                              AppColors.background[1]?.withOpacity(0.5),
+                              AppColors.background[1]?.withOpacity(0.4),
                           icon: Image.asset(AppIcons.turnSignalLeftPNG,
                               width: sdpPX(context, 42)),
                         )
@@ -141,7 +141,7 @@ class _TurnSignsState extends State<TurnSigns> {
                               GradientDirectionRightButton.horizontal,
                           hasBorder: false,
                           gradientColor2:
-                              AppColors.background[1]?.withOpacity(0.5),
+                              AppColors.background[1]?.withOpacity(0.4),
                           gradientColor1:
                               AppColors.background[1]?.withOpacity(0.6),
                           icon: Image.asset(AppIcons.turnSignalRightPNG,

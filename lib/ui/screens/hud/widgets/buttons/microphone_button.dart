@@ -21,11 +21,11 @@ class _MicrophoneButtonState extends State<MicrophoneButton> {
         shape: BoxShape.circle,
         gradient: LinearGradient(
           colors: [
-            AppColors.accent[1]?.withOpacity(0.6) ?? Colors.transparent,
-            AppColors.accent[1]?.withOpacity(0.3) ?? Colors.transparent,
+            AppColors.background[1]?.withOpacity(0.2) ?? Colors.transparent,
+            AppColors.background[1]?.withOpacity(0.45) ?? Colors.transparent,
           ],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
+          begin: Alignment.bottomCenter,
+          end: Alignment.topCenter,
         ),
         border: Border.all(
           color: AppColors.accent[5] ?? Colors.transparent,
@@ -53,8 +53,8 @@ class _MicrophoneButtonState extends State<MicrophoneButton> {
         shape: BoxShape.circle,
         gradient: LinearGradient(
           colors: [
-            const Color(0xFF482575).withOpacity(0.5),
-            const Color(0xFF482575).withOpacity(0.1)
+            AppColors.background[1]?.withOpacity(0.2) ?? Colors.transparent,
+            AppColors.background[1]?.withOpacity(0.05) ?? Colors.transparent,
           ],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,

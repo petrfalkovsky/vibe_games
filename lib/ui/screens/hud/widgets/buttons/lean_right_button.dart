@@ -61,7 +61,8 @@ class LeanRightButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(sdpPX(context, 6)),
         border: hasBorder
             ? Border.all(
-                color: borderColorForGradient ?? Colors.white,
+                color: borderColorForGradient ??
+                    AppColors.background.withOpacity(0.55),
                 width: sdpPX(context, 2),
               )
             : null,
