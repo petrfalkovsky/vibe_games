@@ -64,7 +64,7 @@ class _ChatState extends State<Chat> {
                   ),
                   height: sdpPX(context, 316),
                   child: ListView.builder(
-                    // itemExtent: sdpPX(context, 64),
+                    itemExtent: sdpPX(context, 30),
                     controller: _scrollController,
                     itemCount: 20,
                     itemBuilder: (context, index) {
@@ -76,6 +76,10 @@ class _ChatState extends State<Chat> {
                         behavior: ScrollConfiguration.of(context)
                             .copyWith(scrollbars: false),
                         child: ListTile(
+                          dense: true,
+                          minVerticalPadding: 0,
+                          visualDensity: VisualDensity(
+                              horizontal: 0, vertical: sdpPX(context, -2)),
                           title: RichText(
                             text: TextSpan(
                               text: '[Розыгрыш] ',
