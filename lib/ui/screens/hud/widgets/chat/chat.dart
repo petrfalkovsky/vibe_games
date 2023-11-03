@@ -26,6 +26,14 @@ class _ChatState extends State<Chat> {
   void toggleChatState() {
     setState(() {
       isChatTapped = !isChatTapped;
+      if (isChatTapped) {
+        // прокручиваю к концу списка
+        _scrollController.animateTo(
+          _scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      }
     });
   }
 
@@ -64,6 +72,9 @@ class _ChatState extends State<Chat> {
                   ),
                   height: sdpPX(context, 316),
                   child: ListView.builder(
+                    physics: isChatTapped
+                        ? const NeverScrollableScrollPhysics()
+                        : const AlwaysScrollableScrollPhysics(),
                     itemExtent: sdpPX(context, 30),
                     controller: _scrollController,
                     itemCount: 20,
