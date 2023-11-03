@@ -53,11 +53,15 @@ class HudScreen extends StatexWidget<HudController> {
                     ),
                     sdpPX(context, 15).w,
                     LeanRightButton(
+                      showBadge: true,
                       icon: AppIcons.svgWidget(AppIcons.cart,
                           width: sdpPX(context, 34)),
                     ),
                     sdpPX(context, 15).w,
                     LeanRightButton(
+                      showBadge: true,
+                      isGradientBadge: true,
+                      textBadge: 'x2',
                       icon: AppIcons.svgWidget(AppIcons.car,
                           width: sdpPX(context, 42)),
                     ),

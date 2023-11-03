@@ -63,7 +63,7 @@ abstract class AppColors {
     },
   );
   static _BackgroundColors background = const _BackgroundColors(
-    0xFFF9F9FA,
+    0xFFFFFFFF,
     <int, Color>{
       // светло-фиолетовый
       1: Color(0xFF482575),

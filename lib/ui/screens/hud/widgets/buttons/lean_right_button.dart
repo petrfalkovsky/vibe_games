@@ -19,6 +19,9 @@ class LeanRightButton extends StatelessWidget {
   final Color? gradientColor1;
   final Color? gradientColor2;
   final GradientDirectionRightButton gradientDirection;
+  final bool showBadge;
+  final bool isGradientBadge;
+  final String? textBadge;
 
   const LeanRightButton({
     Key? key,
@@ -33,6 +36,9 @@ class LeanRightButton extends StatelessWidget {
     this.gradientColor2,
     this.gradientDirection = GradientDirectionRightButton.vertical,
     this.backgroundColor,
+    this.showBadge = false,
+    this.isGradientBadge = false,
+    this.textBadge,
   }) : super(key: key);
 
   @override
@@ -73,20 +79,71 @@ class LeanRightButton extends StatelessWidget {
       );
     }
 
-    return ButtonAnimator(
-      child: Container(
-        width: sdpPX(context, width),
-        height: sdpPX(context, height),
-        transform: Matrix4.skewX(-0.2),
-        decoration: decoration,
-        child: Transform(
-          alignment: Alignment.center,
-          transform: Matrix4.skewX(0.2),
-          child: Center(
-            child: icon,
+    return Stack(
+      children: [
+        ButtonAnimator(
+          child: Container(
+            width: sdpPX(context, width),
+            height: sdpPX(context, height),
+            transform: Matrix4.skewX(-0.2),
+            decoration: decoration,
+            child: Transform(
+              alignment: Alignment.center,
+              transform: Matrix4.skewX(0.2),
+              child: Center(
+                child: icon,
+              ),
+            ),
           ),
         ),
-      ),
+
+        /// инфо-бейдж, новинка / x2
+        if (showBadge)
+          Positioned(
+            top: 0,
+            right: 0,
+            child: Container(
+              transform: Matrix4.skewX(-0.2),
+              decoration: BoxDecoration(
+                color: isGradientBadge ? null : AppColors.background,
+                gradient: isGradientBadge
+                    ? const LinearGradient(
+                        colors: [
+                          Color(0xFF0085FF),
+                          Color(0xFFA700FF),
+                        ],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                      )
+                    : null,
+                borderRadius: BorderRadius.circular(
+                  sdpPX(context, 6),
+                ),
+              ),
+              child: Padding(
+                padding: EdgeInsets.only(
+                  left: sdpPX(context, 4),
+                  right: sdpPX(context, 8),
+                  bottom: sdpPX(context, 4),
+                ),
+                child: Container(
+                  transform: Matrix4.skewX(0.2),
+                  child: Text(
+                    textBadge ?? 'new',
+                    style: TextStyle(
+                      color: isGradientBadge
+                          ? AppColors.accent
+                          : AppColors.accent[1],
+                      fontSize: sdpPX(context, 20),
+                      fontWeight: FontWeight.bold,
+                      fontFamily: AppStyles.ttNorms,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+      ],
     );
   }
 }
