@@ -32,7 +32,8 @@ class _TurnSignsState extends State<TurnSigns> {
                   duration: const Duration(milliseconds: 500),
                   child: isButtonLeftVisible
                       ? LeanLeftButton(
-                          width: sdpPX(context, 152),
+                          height: sdpPX(context, 92),
+                          width: sdpPX(context, 132),
                           useGradient: true,
                           gradientDirection:
                               GradientDirectionLeftButton.horizontal,
@@ -45,9 +46,10 @@ class _TurnSignsState extends State<TurnSigns> {
                               width: sdpPX(context, 42)),
                         )
                       : LeanLeftButton(
+                          height: sdpPX(context, 92),
                           borderColor: AppColors.accent,
                           hasBorder: true,
-                          width: sdpPX(context, 152),
+                          width: sdpPX(context, 132),
                           useGradient: true,
                           gradientDirection:
                               GradientDirectionLeftButton.horizontal,
@@ -63,8 +65,9 @@ class _TurnSignsState extends State<TurnSigns> {
               GestureDetector(
                 onTap: () => switchGasIcon(),
                 child: LeanLeftButton(
+                  height: sdpPX(context, 92),
+                  width: sdpPX(context, 92),
                   backgroundColor: AppColors.background[1]?.withOpacity(0.3),
-                  width: sdpPX(context, 112),
                   gradientDirection: GradientDirectionLeftButton.horizontal,
                   hasBorder: false,
                   icon: Column(
@@ -95,8 +98,9 @@ class _TurnSignsState extends State<TurnSigns> {
               GestureDetector(
                 onTap: () => switchHeartIcon(),
                 child: LeanRightButton(
+                  height: sdpPX(context, 92),
+                  width: sdpPX(context, 92),
                   backgroundColor: AppColors.background[1]?.withOpacity(0.3),
-                  width: sdpPX(context, 112),
                   gradientDirection: GradientDirectionRightButton.horizontal,
                   hasBorder: false,
                   icon: Column(
@@ -130,7 +134,8 @@ class _TurnSignsState extends State<TurnSigns> {
                   duration: const Duration(milliseconds: 500),
                   child: isButtonRightVisible
                       ? LeanRightButton(
-                          width: sdpPX(context, 152),
+                          height: sdpPX(context, 92),
+                          width: sdpPX(context, 132),
                           useGradient: true,
                           gradientDirection:
                               GradientDirectionRightButton.horizontal,
@@ -143,9 +148,10 @@ class _TurnSignsState extends State<TurnSigns> {
                               width: sdpPX(context, 42)),
                         )
                       : LeanRightButton(
+                          height: sdpPX(context, 92),
+                          width: sdpPX(context, 132),
                           borderColor: AppColors.accent,
                           hasBorder: true,
-                          width: sdpPX(context, 152),
                           useGradient: true,
                           gradientDirection:
                               GradientDirectionRightButton.horizontal,

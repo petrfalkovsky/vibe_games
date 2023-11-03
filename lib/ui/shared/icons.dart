@@ -76,6 +76,9 @@ class AppIcons {
   static const callAvatar = '$_basePathImg/call_avatar.png';
   static const turnSignalRightPNG = '$_basePathImg/turn_signal_right.png';
   static const turnSignalLeftPNG = '$_basePathImg/turn_signal_left.png';
+  static const fist = '$_basePathImg/fist.png';
+  static const gunNope = '$_basePathImg/gun_nope.png';
+  static const gun = '$_basePathImg/gun.png';
 
   // старые
   static const speedArrow = '$_basePathImg/speed_arrow.png';

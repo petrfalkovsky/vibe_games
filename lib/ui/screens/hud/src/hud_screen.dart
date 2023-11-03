@@ -57,27 +57,46 @@ class HudScreen extends StatexWidget<HudController> {
                   child: Row(
                     children: [
                       // кнопки  под статус баром
-                      LeanRightButton(
-                        showBadge: true,
-                        isGradientBadge: true,
-                        textBadge: 'x2',
-                        icon: AppIcons.svgWidget(AppIcons.crown,
-                            width: sdpPX(context, 38)),
-                      ),
-                      sdpPX(context, 15).w,
-                      LeanRightButton(
-                        showBadge: true,
-                        icon: AppIcons.svgWidget(AppIcons.cart,
-                            width: sdpPX(context, 34)),
-                      ),
-                      sdpPX(context, 15).w,
-                      LeanRightButton(
-                        icon: AppIcons.svgWidget(AppIcons.car,
-                            width: sdpPX(context, 42)),
+                      Transform.translate(
+                        offset: Offset(sdpPX(context, 3), 0),
+                        child: Row(
+                          children: [
+                            LeanRightButton(
+                              height: sdpPX(context, 92),
+                              width: sdpPX(context, 99),
+                              showBadge: true,
+                              isGradientBadge: true,
+                              textBadge: 'x2',
+                              icon: AppIcons.svgWidget(AppIcons.crown,
+                                  width: sdpPX(context, 38)),
+                            ),
+                            sdpPX(context, 15).w,
+                            LeanRightButton(
+                              height: sdpPX(context, 92),
+                              width: sdpPX(context, 99),
+                              showBadge: true,
+                              icon: AppIcons.svgWidget(AppIcons.cart,
+                                  width: sdpPX(context, 34)),
+                            ),
+                            sdpPX(context, 15).w,
+                            LeanRightButton(
+                              backgroundColor: AppColors.background[11],
+                              hasBorder: false,
+                              height: sdpPX(context, 92),
+                              width: sdpPX(context, 91),
+                              icon: Image.asset(
+                                AppIcons.gunNope,
+                                width: sdpPX(context, 42),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
 
                       // кнопка для сайдбара
                       SideBarButton(
+                        showBadge: true,
+                        height: sdpPX(context, 92),
                         sideBarController: sideBarController,
                         sideBar2Controller: sideBar2Controller,
                         controller: controller,
@@ -122,14 +141,20 @@ class HudScreen extends StatexWidget<HudController> {
                           children: [
                             /// обычные кнопки
                             LeanRightButton(
+                                height: sdpPX(context, 92),
+                                width: sdpPX(context, 99),
                                 icon: AppIcons.svgWidget(AppIcons.avatar,
                                     width: sdpPX(context, 31))),
                             sdpPX(context, 16).w,
                             LeanRightButton(
+                                height: sdpPX(context, 92),
+                                width: sdpPX(context, 99),
                                 icon: AppIcons.svgWidget(AppIcons.radial,
                                     width: sdpPX(context, 42))),
                             sdpPX(context, 16).w,
                             LeanRightButton(
+                                height: sdpPX(context, 92),
+                                width: sdpPX(context, 99),
                                 icon: AppIcons.svgWidget(AppIcons.pad,
                                     width: sdpPX(context, 40))),
                             sdpPX(context, 16).w,

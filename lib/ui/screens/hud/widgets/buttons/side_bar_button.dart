@@ -10,11 +10,16 @@ class SideBarButton extends StatelessWidget {
     required this.sideBarController,
     required this.sideBar2Controller,
     required this.controller,
+    required this.height,
+    this.showBadge = false,
   });
 
   final SideBarController sideBarController;
   final SideBarSecondController sideBar2Controller;
   final HudController controller;
+  final bool showBadge;
+
+  final double height;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +57,7 @@ class SideBarButton extends StatelessWidget {
                         ),
                         transform: Matrix4.skewX(-0.2),
                         width: sdpPX(context, 46),
-                        height: sdpPX(context, 88),
+                        height: height,
                         alignment: Alignment.centerLeft,
                         child: Container(
                           transform: Matrix4.skewX(0.2),
@@ -67,38 +72,40 @@ class SideBarButton extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Positioned(
-                      top: sdpPX(context, 4),
-                      left: sdpPX(context, 4),
-                      child: Transform.translate(
-                        offset: Offset(sdpPX(context, 12), sdpPX(context, -16)),
-                        child: Container(
-                            width: sdpPX(context, 26),
-                            height: sdpPX(context, 26),
-                            decoration: BoxDecoration(
-                              gradient: const LinearGradient(
-                                colors: [
-                                  Color(0xFFB11414),
-                                  Color(0xFFED3333),
-                                ],
-                                begin: Alignment.bottomCenter,
-                                end: Alignment.topCenter,
+                    if (showBadge)
+                      Positioned(
+                        top: sdpPX(context, 4),
+                        left: sdpPX(context, 4),
+                        child: Transform.translate(
+                          offset:
+                              Offset(sdpPX(context, 12), sdpPX(context, -16)),
+                          child: Container(
+                              width: sdpPX(context, 26),
+                              height: sdpPX(context, 26),
+                              decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  colors: [
+                                    Color(0xFFB11414),
+                                    Color(0xFFED3333),
+                                  ],
+                                  begin: Alignment.bottomCenter,
+                                  end: Alignment.topCenter,
+                                ),
+                                borderRadius:
+                                    BorderRadius.circular(sdpPX(context, 30)),
                               ),
-                              borderRadius:
-                                  BorderRadius.circular(sdpPX(context, 30)),
-                            ),
-                            child: Center(
-                                child: Text(
-                              '!',
-                              style: TextStyle(
-                                color: AppColors.accent,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'TTNorms',
-                                fontSize: sdpPX(context, 18),
-                              ),
-                            ))),
+                              child: Center(
+                                  child: Text(
+                                '!',
+                                style: TextStyle(
+                                  color: AppColors.accent,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'TTNorms',
+                                  fontSize: sdpPX(context, 18),
+                                ),
+                              ))),
+                        ),
                       ),
-                    ),
                   ],
                 ),
                 Container(
@@ -113,7 +120,7 @@ class SideBarButton extends StatelessWidget {
                     ),
                   ),
                   width: sdpPX(context, 12),
-                  height: sdpPX(context, 88),
+                  height: height,
                   alignment: Alignment.centerLeft,
                 ),
               ],

@@ -16,7 +16,7 @@ class AnimatedInfoButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => SizedBox(
-        height: sdpPX(context, 88),
+        height: sdpPX(context, 92),
         child: AnimatedProgressBar3(
           optionalField: Transform(
             transform: Matrix4.skewX(0.2),
@@ -47,7 +47,7 @@ class AnimatedInfoButton extends StatelessWidget {
           backgroundColor: Colors.transparent,
           progressColor:
               AppColors.background[1]?.withOpacity(0.2) ?? Colors.transparent,
-          height: sdpPX(context, 88),
+          height: sdpPX(context, 92),
           width: sdpPX(context, 480),
           currentValue: controller.isOpen.value
               ? controller.openedState.value.toDouble()
@@ -55,6 +55,8 @@ class AnimatedInfoButton extends StatelessWidget {
           frontContent: GestureDetector(
             onTap: () => controller.toggleIsOpen(),
             child: LeanRightButton(
+              height: sdpPX(context, 92),
+              width: sdpPX(context, 99),
               icon: AppIcons.svgWidget(AppIcons.parashute,
                   width: sdpPX(context, 42)),
             ),

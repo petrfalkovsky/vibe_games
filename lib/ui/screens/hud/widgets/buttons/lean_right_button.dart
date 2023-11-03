@@ -79,12 +79,12 @@ class LeanRightButton extends StatelessWidget {
       );
     }
 
-    return Stack(
-      children: [
-        ButtonAnimator(
-          child: Container(
-            width: sdpPX(context, width),
-            height: sdpPX(context, height),
+    return ButtonAnimator(
+      child: Stack(
+        children: [
+          Container(
+            width: width,
+            height: height,
             transform: Matrix4.skewX(-0.2),
             decoration: decoration,
             child: Transform(
@@ -95,55 +95,55 @@ class LeanRightButton extends StatelessWidget {
               ),
             ),
           ),
-        ),
 
-        /// инфо-бейдж, новинка / x2
-        if (showBadge)
-          Positioned(
-            top: 0,
-            right: 0,
-            child: Container(
-              transform: Matrix4.skewX(-0.2),
-              decoration: BoxDecoration(
-                color: isGradientBadge ? null : AppColors.background,
-                gradient: isGradientBadge
-                    ? const LinearGradient(
-                        colors: [
-                          Color(0xFF0085FF),
-                          Color(0xFFA700FF),
-                        ],
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                      )
-                    : null,
-                borderRadius: BorderRadius.circular(
-                  sdpPX(context, 6),
+          /// инфо-бейдж, новинка / x2
+          if (showBadge)
+            Positioned(
+              top: 0,
+              right: 0,
+              child: Container(
+                transform: Matrix4.skewX(-0.2),
+                decoration: BoxDecoration(
+                  color: isGradientBadge ? null : AppColors.background,
+                  gradient: isGradientBadge
+                      ? const LinearGradient(
+                          colors: [
+                            Color(0xFF0085FF),
+                            Color(0xFFA700FF),
+                          ],
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                        )
+                      : null,
+                  borderRadius: BorderRadius.circular(
+                    sdpPX(context, 6),
+                  ),
                 ),
-              ),
-              child: Padding(
-                padding: EdgeInsets.only(
-                  left: sdpPX(context, 4),
-                  right: sdpPX(context, 8),
-                  bottom: sdpPX(context, 4),
-                ),
-                child: Container(
-                  transform: Matrix4.skewX(0.2),
-                  child: Text(
-                    textBadge ?? 'new',
-                    style: TextStyle(
-                      color: isGradientBadge
-                          ? AppColors.accent
-                          : AppColors.accent[1],
-                      fontSize: sdpPX(context, 20),
-                      fontWeight: FontWeight.bold,
-                      fontFamily: AppStyles.ttNorms,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: sdpPX(context, 4),
+                    right: sdpPX(context, 8),
+                    bottom: sdpPX(context, 4),
+                  ),
+                  child: Container(
+                    transform: Matrix4.skewX(0.2),
+                    child: Text(
+                      textBadge ?? 'new',
+                      style: TextStyle(
+                        color: isGradientBadge
+                            ? AppColors.accent
+                            : AppColors.accent[1],
+                        fontSize: sdpPX(context, 20),
+                        fontWeight: FontWeight.bold,
+                        fontFamily: AppStyles.ttNorms,
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-      ],
+        ],
+      ),
     );
   }
 }

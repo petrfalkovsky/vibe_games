@@ -75,8 +75,8 @@ class LeanLeftButton extends StatelessWidget {
 
     return ButtonAnimator(
       child: Container(
-        width: sdpPX(context, width),
-        height: sdpPX(context, height),
+        width: width,
+        height: height,
         transform: Matrix4.skewX(0.2),
         decoration: decoration,
         child: Transform(

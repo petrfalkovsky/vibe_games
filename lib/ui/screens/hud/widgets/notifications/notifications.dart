@@ -11,7 +11,7 @@ class NotificationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding:
-          EdgeInsets.only(top: sdpPX(context, 12), right: sdpPX(context, 81)),
+          EdgeInsets.only(top: sdpPX(context, 12), right: sdpPX(context, 79)),
       child: Stack(
         children: [
           Container(
@@ -32,9 +32,9 @@ class NotificationWidget extends StatelessWidget {
                   sdpPX(context, 16).w,
                   AppIcons.svgWidget(
                     AppIcons.notiRing,
-                    width: sdpPX(context, 24),
+                    width: sdpPX(context, 20),
                   ),
-                  sdpPX(context, 12).w,
+                  sdpPX(context, 14).w,
                   RichText(
                     text: TextSpan(
                       text: 'Новое уведомление!',
@@ -57,8 +57,7 @@ class NotificationWidget extends StatelessWidget {
                       ],
                     ),
                   ),
-                  sdpPX(context, 32).w,
-                  sdpPX(context, 28).w,
+                  sdpPX(context, 33 + 33).w,
                 ],
               ),
             ),

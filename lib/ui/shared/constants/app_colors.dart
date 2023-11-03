@@ -85,6 +85,8 @@ abstract class AppColors {
       9: Color(0xFFFE4639),
       // фон звонка
       10: Color(0xFF65C466),
+      // фон кнопки оружия
+      11: Color(0xFF267B2F),
     },
   );
 }
