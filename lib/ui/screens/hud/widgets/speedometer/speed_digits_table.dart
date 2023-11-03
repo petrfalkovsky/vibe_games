@@ -22,6 +22,7 @@ class SpeedDigitsTable extends StatelessWidget {
                   gradient: LinearGradient(
                     begin: Alignment.bottomCenter,
                     end: Alignment.topCenter,
+                    stops: const [0.18, 2.5],
                     colors: [
                       Colors.transparent,
                       AppColors.background[1] ?? Colors.transparent,

@@ -55,7 +55,7 @@ dependencies:
       ref: "torexo"
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  # кастомная либа для глобальных переменных
+  # выдуманная кастомная либа для глобальных переменных
   my_app: ^1.0.0
   cached_network_image: ^3.2.3
   auto_size_text: ^3.0.0
