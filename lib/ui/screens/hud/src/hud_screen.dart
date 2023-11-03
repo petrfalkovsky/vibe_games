@@ -31,54 +31,7 @@ class HudScreen extends StatexWidget<HudController> {
           /// чат
           const Chat(),
 
-          /// кнопка для сайдбара
-          SideBarButton(
-            sideBarController: sideBarController,
-            sideBar2Controller: sideBar2Controller,
-            controller: controller,
-          ),
-
-          Positioned(
-            top: sdpPX(context, 166 + 16),
-            right: sdpPX(context, 32 + 23),
-            child: Column(
-              children: [
-                // кнопки обычные и со слайдером под картой
-                Row(
-                  children: [
-                    /// обычные кнопки
-                    LeanRightButton(
-                      icon: AppIcons.svgWidget(AppIcons.crown,
-                          width: sdpPX(context, 38)),
-                    ),
-                    sdpPX(context, 15).w,
-                    LeanRightButton(
-                      showBadge: true,
-                      icon: AppIcons.svgWidget(AppIcons.cart,
-                          width: sdpPX(context, 34)),
-                    ),
-                    sdpPX(context, 15).w,
-                    LeanRightButton(
-                      showBadge: true,
-                      isGradientBadge: true,
-                      textBadge: 'x2',
-                      icon: AppIcons.svgWidget(AppIcons.car,
-                          width: sdpPX(context, 42)),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-
-          /// уведомления новые
-          Positioned(
-            top: sdpPX(context, 270 + 12),
-            right: sdpPX(context, 78),
-            child: const NotificationWidget(),
-          ),
-
-          // cтатус бар
+          /// cтатус бар
           SideBar(
             initiallyOpened: true,
             customContent: Column(
@@ -97,6 +50,44 @@ class HudScreen extends StatexWidget<HudController> {
                     controller: controller,
                   ),
                 ),
+
+                // кнопки под статус баром и кнопка для сайдбара
+                Padding(
+                  padding: EdgeInsets.only(top: sdpPX(context, 14)),
+                  child: Row(
+                    children: [
+                      // кнопки  под статус баром
+                      LeanRightButton(
+                        showBadge: true,
+                        isGradientBadge: true,
+                        textBadge: 'x2',
+                        icon: AppIcons.svgWidget(AppIcons.crown,
+                            width: sdpPX(context, 38)),
+                      ),
+                      sdpPX(context, 15).w,
+                      LeanRightButton(
+                        showBadge: true,
+                        icon: AppIcons.svgWidget(AppIcons.cart,
+                            width: sdpPX(context, 34)),
+                      ),
+                      sdpPX(context, 15).w,
+                      LeanRightButton(
+                        icon: AppIcons.svgWidget(AppIcons.car,
+                            width: sdpPX(context, 42)),
+                      ),
+
+                      // кнопка для сайдбара
+                      SideBarButton(
+                        sideBarController: sideBarController,
+                        sideBar2Controller: sideBar2Controller,
+                        controller: controller,
+                      ),
+                    ],
+                  ),
+                ),
+
+                // уведомление новое
+                const NotificationWidget(),
               ],
             ),
           ),
@@ -157,21 +148,21 @@ class HudScreen extends StatexWidget<HudController> {
                     ),
                   ),
 
-                  /// кнопка микрофон
+                  // кнопка микрофон
                   Positioned(
                     top: sdpPX(context, 360),
                     right: sdpPX(context, 310),
                     child: const MicrophoneButton(),
                   ),
 
-                  /// кнопка чата
+                  // кнопка чата
                   Positioned(
                     top: sdpPX(context, -126),
                     left: sdpPX(context, 28),
                     child: const ChatButtonWrapper(),
                   ),
 
-                  /// координаты, время, расстояние
+                  // координаты, время, расстояние
                   const Coordinates(),
                 ],
               ),

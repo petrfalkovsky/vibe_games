@@ -30,7 +30,7 @@ class SideBarButton extends StatelessWidget {
         child: Visibility(
           visible: controller.isPositionedVisible.value,
           child: Padding(
-            padding: EdgeInsets.only(top: sdpPX(context, 166 + 16)),
+            padding: EdgeInsets.only(top: sdpPX(context, 0 + 0)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [

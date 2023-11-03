@@ -26,7 +26,7 @@ class LeanRightButton extends StatelessWidget {
   const LeanRightButton({
     Key? key,
     this.icon,
-    this.width = 95,
+    this.width = 99,
     this.height = 92,
     this.borderColor,
     this.hasBorder = true,
