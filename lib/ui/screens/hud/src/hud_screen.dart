@@ -52,67 +52,10 @@ class HudScreen extends StatexWidget<HudController> {
                 ),
 
                 // кнопки под статус баром и кнопка для сайдбара
-                Padding(
-                  padding: EdgeInsets.only(top: sdpPX(context, 14)),
-                  child: Row(
-                    children: [
-                      // кнопки  под статус баром
-                      Transform.translate(
-                        offset: Offset(sdpPX(context, 3), 0),
-                        child: Row(
-                          children: [
-                            LeanRightButton(
-                              useGradient: true,
-                              gradientColor1:
-                                  AppColors.background[1]?.withOpacity(0.2),
-                              gradientColor2:
-                                  AppColors.background[1]?.withOpacity(0.45),
-                              height: sdpPX(context, 92),
-                              width: sdpPX(context, 99),
-                              showBadge: true,
-                              isGradientBadge: true,
-                              textBadge: 'x2',
-                              icon: AppIcons.svgWidget(AppIcons.crown,
-                                  width: sdpPX(context, 38)),
-                            ),
-                            sdpPX(context, 15).w,
-                            LeanRightButton(
-                              useGradient: true,
-                              gradientColor1:
-                                  AppColors.background[1]?.withOpacity(0.2),
-                              gradientColor2:
-                                  AppColors.background[1]?.withOpacity(0.45),
-                              height: sdpPX(context, 92),
-                              width: sdpPX(context, 99),
-                              showBadge: true,
-                              icon: AppIcons.svgWidget(AppIcons.cart,
-                                  width: sdpPX(context, 34)),
-                            ),
-                            sdpPX(context, 15).w,
-                            LeanRightButton(
-                              backgroundColor: AppColors.background[11],
-                              hasBorder: false,
-                              height: sdpPX(context, 92),
-                              width: sdpPX(context, 91),
-                              icon: Image.asset(
-                                AppIcons.gunNope,
-                                width: sdpPX(context, 42),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      // кнопка для сайдбара
-                      SideBarButton(
-                        showBadge: true,
-                        height: sdpPX(context, 92),
-                        sideBarController: sideBarController,
-                        sideBar2Controller: sideBar2Controller,
-                        controller: controller,
-                      ),
-                    ],
-                  ),
+                UnderStatusBarBlock(
+                  sideBarController: sideBarController,
+                  sideBar2Controller: sideBar2Controller,
+                  controller: controller,
                 ),
 
                 // уведомление новое
@@ -138,7 +81,7 @@ class HudScreen extends StatexWidget<HudController> {
               ),
               child: Stack(
                 children: [
-                  // кнопки обычные и со слайдером под картой
+                  // кнопки обычные под картой
                   Positioned(
                     top: sdpPX(context, 332),
                     left: sdpPX(context, 47),
@@ -147,52 +90,12 @@ class HudScreen extends StatexWidget<HudController> {
                       children: [
                         // кнопки обычные и со слайдером под картой
                         // todo заменить на лист, тк список динамический
-                        Row(
-                          children: [
-                            /// обычные кнопки
-                            LeanRightButton(
-                                useGradient: true,
-                                gradientColor1:
-                                    AppColors.background[1]?.withOpacity(0.2),
-                                gradientColor2:
-                                    AppColors.background[1]?.withOpacity(0.45),
-                                height: sdpPX(context, 92),
-                                width: sdpPX(context, 99),
-                                icon: AppIcons.svgWidget(AppIcons.avatar,
-                                    width: sdpPX(context, 31))),
-                            sdpPX(context, 16).w,
-                            LeanRightButton(
-                                useGradient: true,
-                                gradientColor1:
-                                    AppColors.background[1]?.withOpacity(0.2),
-                                gradientColor2:
-                                    AppColors.background[1]?.withOpacity(0.45),
-                                height: sdpPX(context, 92),
-                                width: sdpPX(context, 99),
-                                icon: AppIcons.svgWidget(AppIcons.radial,
-                                    width: sdpPX(context, 42))),
-                            sdpPX(context, 16).w,
-                            LeanRightButton(
-                                useGradient: true,
-                                gradientColor1:
-                                    AppColors.background[1]?.withOpacity(0.2),
-                                gradientColor2:
-                                    AppColors.background[1]?.withOpacity(0.45),
-                                height: sdpPX(context, 92),
-                                width: sdpPX(context, 99),
-                                icon: AppIcons.svgWidget(AppIcons.pad,
-                                    width: sdpPX(context, 40))),
-                            sdpPX(context, 16).w,
+                        UnderMapButtonsBlock(controller: controller),
 
-                            /// кнопка с выдвигающимся инфо
-                            AnimatedInfoButton(controller: controller),
-                          ],
-                        ),
-
-                        /// таймер уведомление
+                        // таймер уведомление
                         const NotiTimer(),
 
-                        /// звонок
+                        // звонок
                         const Call(),
                       ],
                     ),
