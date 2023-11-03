@@ -27,7 +27,7 @@ class LowerStatusBar extends StatelessWidget {
             children: [
               /// контейнер
               AppIcons.svgWidget(AppIcons.statusBarFrame,
-                  width: sdpPX(context, 370)),
+                  height: sdpPX(context, 83)),
 
               /// розовый
               Positioned(
@@ -39,7 +39,7 @@ class LowerStatusBar extends StatelessWidget {
                         width: sdpPX(context, 26)),
                     sdpPX(context, 11).w,
                     SizedBox(
-                      width: sdpPX(context, 280),
+                      width: sdpPX(context, 248),
                       child: AnimatedProgressBar2(
                         borderRadius: BorderRadius.circular(sdpPX(context, 3)),
                         icon: Transform.translate(
@@ -81,9 +81,9 @@ class LowerStatusBar extends StatelessWidget {
                             width: controller.currentState.value == 0
                                 ?
                                 // ширина, если синий и серый виджеты скрыты
-                                sdpPX(context, 280)
+                                sdpPX(context, 248)
                                 // ширина по дефолту
-                                : sdpPX(context, 113),
+                                : sdpPX(context, 97),
                             child: AnimatedProgressBar2(
                               borderRadius:
                                   BorderRadius.circular(sdpPX(context, 3)),
@@ -122,7 +122,7 @@ class LowerStatusBar extends StatelessWidget {
                             ),
                             sdpPX(context, 11).w,
                             SizedBox(
-                              width: sdpPX(context, 113),
+                              width: sdpPX(context, 97),
                               child: AnimatedProgressBar2(
                                 borderRadius:
                                     BorderRadius.circular(sdpPX(context, 3)),
@@ -159,7 +159,7 @@ class LowerStatusBar extends StatelessWidget {
                                 height: sdpPX(context, 26)),
                             sdpPX(context, 12).w,
                             SizedBox(
-                              width: sdpPX(context, 113),
+                              width: sdpPX(context, 97),
                               child: AnimatedProgressBar2(
                                 borderRadius:
                                     BorderRadius.circular(sdpPX(context, 3)),
