@@ -35,10 +35,13 @@ class _CallState extends State<Call> {
     }
   }
 
+  // метод приводит к самому компактному виду
+  // todo добавить сюда изменение паддинга автара
   void switchToState3() {
     setState(() {
       containerWidth = sdpPX(context, 188);
       containerHeight = sdpPX(context, 140);
+      paddingLeftAvatar = sdpPX(context, 20);
     });
 
     {
@@ -49,8 +52,6 @@ class _CallState extends State<Call> {
     }
   }
 
-  // медот приводит к самому компактному виду
-  // todo добавить сюда изменение паддинга автара
   void switchToState4() {
     setState(() {
       containerWidth = sdpPX(context, 466);
@@ -140,7 +141,8 @@ class _CallState extends State<Call> {
       onTap: () {
         switchToState4();
       },
-      child: BuildState3(context: context),
+      child:
+          BuildState3(context: context, paddingLeft: paddingLeftAvatar ?? 12),
     );
   }
 
