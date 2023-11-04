@@ -27,7 +27,6 @@ class _ChatState extends State<Chat> {
     setState(() {
       isChatTapped = !isChatTapped;
       if (isChatTapped) {
-        // прокручиваю к концу списка
         _scrollController.animateTo(
           _scrollController.position.maxScrollExtent,
           duration: const Duration(milliseconds: 300),
@@ -71,47 +70,42 @@ class _ChatState extends State<Chat> {
                     borderRadius: BorderRadius.circular(sdpPX(context, 30)),
                   ),
                   height: sdpPX(context, 316),
-                  child: ListView.builder(
-                    physics: isChatTapped
-                        ? const NeverScrollableScrollPhysics()
-                        : const AlwaysScrollableScrollPhysics(),
-                    itemExtent: sdpPX(context, 30),
-                    controller: _scrollController,
-                    itemCount: 20,
-                    itemBuilder: (context, index) {
-                      int colorIndex = index % textColors.length;
-                      String itemText =
-                          'Получай за каждый отыгранный час билет участника и получи шанс выиграть крутые призы!';
+                  child: Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: sdpPX(context, 14)),
+                    child: ListView.builder(
+                      physics: isChatTapped
+                          ? const NeverScrollableScrollPhysics()
+                          : const AlwaysScrollableScrollPhysics(),
+                      controller: _scrollController,
+                      itemCount: 20,
+                      itemBuilder: (context, index) {
+                        int colorIndex = index % textColors.length;
+                        String itemText =
+                            '[Розыгрыш] Получай за каждый отыгранный час билет участника и получи шанс выиграть крутые призы!';
+                        // максимальная длина символов в строке
+                        const maxLength = 300;
+                        final textChunks = <String>[];
 
-                      return ScrollConfiguration(
-                        behavior: ScrollConfiguration.of(context)
-                            .copyWith(scrollbars: false),
-                        child: ListTile(
-                          dense: true,
-                          minVerticalPadding: 0,
-                          visualDensity: VisualDensity(
-                              horizontal: 0, vertical: sdpPX(context, -2)),
-                          title: RichText(
-                            text: TextSpan(
-                              text: '[Розыгрыш] ',
-                              style: TextStyle(
-                                color: textColors[colorIndex],
-                                fontSize: sdpPX(context, 25),
-                                fontWeight: FontWeight.w500,
-                                fontFamily: AppStyles.ttNorms,
-                                shadows: const [
-                                  Shadow(
-                                    blurRadius: 2.0,
-                                    color: Colors.black,
-                                    offset: Offset(-1.0, 0.5),
-                                  ),
-                                ],
-                              ),
-                              children: <TextSpan>[
-                                TextSpan(
-                                  text: itemText,
+                        for (int i = 0; i < itemText.length; i += maxLength) {
+                          textChunks.add(itemText.substring(
+                              i,
+                              i + maxLength < itemText.length
+                                  ? i + maxLength
+                                  : itemText.length));
+                        }
+
+                        return ScrollConfiguration(
+                          behavior: ScrollConfiguration.of(context)
+                              .copyWith(scrollbars: false),
+                          child: Column(
+                            children: textChunks.map((chunk) {
+                              return Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  chunk,
                                   style: TextStyle(
-                                    color: AppColors.accent,
+                                    color: textColors[colorIndex],
                                     fontSize: sdpPX(context, 25),
                                     fontWeight: FontWeight.w500,
                                     fontFamily: AppStyles.ttNorms,
@@ -124,12 +118,12 @@ class _ChatState extends State<Chat> {
                                     ],
                                   ),
                                 ),
-                              ],
-                            ),
+                              );
+                            }).toList(),
                           ),
-                        ),
-                      );
-                    },
+                        );
+                      },
+                    ),
                   ),
                 ),
               ),
