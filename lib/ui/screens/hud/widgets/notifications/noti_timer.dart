@@ -12,7 +12,7 @@ class NotiTimer extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: sdpPX(context, 12)),
       child: Transform.translate(
-        offset: const Offset(-5, 0),
+        offset: Offset(sdpPX(context, -20), 0),
         child: Container(
           height: sdpPX(context, 71),
           transform: Matrix4.skewX(-0.2),

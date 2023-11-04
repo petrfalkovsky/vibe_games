@@ -124,7 +124,7 @@ class _CallState extends State<Call> with SingleTickerProviderStateMixin {
         }
       },
       child: Transform.translate(
-        offset: const Offset(-18, 0),
+        offset: Offset(sdpPX(context, -34), 0),
         child: Padding(
           padding: EdgeInsets.only(top: sdpPX(context, 12)),
           child: AnimatedContainer(
