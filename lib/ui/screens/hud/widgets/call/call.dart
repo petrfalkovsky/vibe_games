@@ -19,6 +19,7 @@ class _CallState extends State<Call> {
   bool isContentVisible = true;
   double? containerWidth;
   double? containerHeight;
+  double? paddingLeftAvatar;
 
   void switchToState2() {
     setState(() {
@@ -48,6 +49,8 @@ class _CallState extends State<Call> {
     }
   }
 
+  // медот приводит к самому компактному виду
+  // todo добавить сюда изменение паддинга автара
   void switchToState4() {
     setState(() {
       containerWidth = sdpPX(context, 466);

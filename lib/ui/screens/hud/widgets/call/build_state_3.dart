@@ -11,16 +11,22 @@ class BuildState3 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        ColorFiltered(
-          colorFilter: ColorFilter.mode(
-            AppColors.background[1]?.withOpacity(0.5) ?? Colors.transparent,
-            BlendMode.srcATop,
-          ),
+        ShaderMask(
+          shaderCallback: (Rect bounds) {
+            return LinearGradient(
+              colors: [
+                AppColors.background[2]?.withOpacity(0.6) ?? Colors.transparent,
+                AppColors.background[2]?.withOpacity(0.3) ?? Colors.transparent,
+              ],
+              // stops: [0.0, 1.0],
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
+            ).createShader(bounds);
+          },
+          blendMode: BlendMode.srcATop,
           child: Center(
             child: Row(
               children: [
-                // аватар
-                // имя абонента
                 Padding(
                   padding: EdgeInsets.all(sdpPX(context, 12)),
                   child: ClipOval(
@@ -58,7 +64,7 @@ class BuildState3 extends StatelessWidget {
                 child: Icon(
                   Icons.arrow_forward_ios,
                   color: AppColors.accent,
-                  size: sdpPX(context, 28),
+                  size: sdpPX(context, 36),
                 ),
               ),
             ),
