@@ -6,9 +6,11 @@ class BuildState3 extends StatelessWidget {
   const BuildState3({
     super.key,
     required this.context,
+    required this.isContentVisible,
   });
 
   final BuildContext context;
+  final bool isContentVisible;
 
   @override
   Widget build(BuildContext context) {
@@ -44,34 +46,38 @@ class BuildState3 extends StatelessWidget {
             ),
           ),
         ),
-        Row(
-          children: [
-            const Spacer(),
-            Padding(
-              padding: EdgeInsets.only(left: sdpPX(context, 8)),
-              child: Text(
-                '01:34',
-                style: TextStyle(
-                  color: AppColors.accent,
-                  fontSize: sdpPX(context, 20),
-                  fontWeight: FontWeight.w500,
-                  fontFamily: AppStyles.ttNorms,
-                ),
-              ),
-            ),
-            const Spacer(),
-            ButtonAnimator(
-              child: Padding(
+        AnimatedOpacity(
+          opacity: isContentVisible ? 1.0 : 0.0,
+          duration: const Duration(milliseconds: 2000),
+          child: Row(
+            children: [
+              const Spacer(),
+              Padding(
                 padding: EdgeInsets.only(left: sdpPX(context, 8)),
-                child: Icon(
-                  Icons.arrow_forward_ios,
-                  color: AppColors.accent,
-                  size: sdpPX(context, 36),
+                child: Text(
+                  '01:34',
+                  style: TextStyle(
+                    color: AppColors.accent,
+                    fontSize: sdpPX(context, 20),
+                    fontWeight: FontWeight.w500,
+                    fontFamily: AppStyles.ttNorms,
+                  ),
                 ),
               ),
-            ),
-            const Spacer(),
-          ],
+              const Spacer(),
+              ButtonAnimator(
+                child: Padding(
+                  padding: EdgeInsets.only(left: sdpPX(context, 8)),
+                  child: Icon(
+                    Icons.arrow_forward_ios,
+                    color: AppColors.accent,
+                    size: sdpPX(context, 36),
+                  ),
+                ),
+              ),
+              const Spacer(),
+            ],
+          ),
         ),
       ],
     );

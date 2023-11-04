@@ -28,11 +28,10 @@ class _CallState extends State<Call> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
 
-    // Инициализация контроллера анимации
     _paddingAnimationController = AnimationController(
       vsync: this,
-      duration:
-          const Duration(milliseconds: 1000), // продолжительность анимации
+      // продолжительность анимации паддинга
+      duration: const Duration(milliseconds: 300),
     );
 
     _paddingAnimationMore = Tween<double>(
@@ -48,6 +47,7 @@ class _CallState extends State<Call> with SingleTickerProviderStateMixin {
 
   void switchToState2() {
     setState(() {
+      isContentVisible = false;
       containerWidth = sdpPX(context, 466);
       containerHeight = sdpPX(context, 124);
     });
@@ -68,14 +68,12 @@ class _CallState extends State<Call> with SingleTickerProviderStateMixin {
       containerHeight = sdpPX(context, 140);
     });
 
-    // Запустите анимацию изменения паддинга
+    // анимация паддинга
     _paddingAnimationController.forward();
 
-    Future.delayed(const Duration(milliseconds: 300), () {
-      setState(() {
-        isContentVisible = true;
-        currentState = CallState.state3;
-      });
+    setState(() {
+      isContentVisible = true;
+      currentState = CallState.state3;
     });
   }
 
@@ -86,7 +84,7 @@ class _CallState extends State<Call> with SingleTickerProviderStateMixin {
     });
 
     // задержка перед появлением контента
-    Future.delayed(const Duration(milliseconds: 300), () {
+    Future.delayed(const Duration(milliseconds: 220), () {
       setState(() {
         isContentVisible = true;
         currentState = CallState.state4;
@@ -171,10 +169,13 @@ class _CallState extends State<Call> with SingleTickerProviderStateMixin {
         switchToState4();
       },
       child: AnimatedPadding(
-          padding: EdgeInsets.all(sdpPX(context, _paddingAnimationMore.value)),
-          duration: const Duration(milliseconds: 1000),
+          padding: EdgeInsets.only(
+            left: sdpPX(context, _paddingAnimationMore.value),
+          ),
+          duration: const Duration(milliseconds: 300),
           child: BuildState3(
             context: context,
+            isContentVisible: isContentVisible,
           )),
     );
   }
@@ -185,12 +186,14 @@ class _CallState extends State<Call> with SingleTickerProviderStateMixin {
         switchToState3();
       },
       child: AnimatedPadding(
-        padding:
-            EdgeInsets.only(left: sdpPX(context, _paddingAnimationLess.value)),
-        duration: const Duration(milliseconds: 1000),
+        padding: EdgeInsets.only(
+          left: sdpPX(context, _paddingAnimationLess.value),
+        ),
+        duration: const Duration(milliseconds: 500),
         child: BuildState4(
           context: context,
           paddingAvatarLess: _paddingAnimationLess.value,
+          isContentVisible: isContentVisible,
         ),
       ),
     );

@@ -3,12 +3,16 @@ import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/shared/shared_exports.dart';
 
 class BuildState4 extends StatelessWidget {
-  const BuildState4(
-      {super.key, required this.context, required this.paddingAvatarLess});
+  const BuildState4({
+    super.key,
+    required this.context,
+    required this.paddingAvatarLess,
+    required this.isContentVisible,
+  });
 
   final BuildContext context;
-
   final double paddingAvatarLess;
+  final bool isContentVisible;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +22,7 @@ class BuildState4 extends StatelessWidget {
         // имя абонента
         // кнопка положить трубку
         Padding(
-          padding: EdgeInsets.only(left: sdpPX(context, 0)),
+          padding: EdgeInsets.only(right: sdpPX(context, paddingAvatarLess)),
           child: ClipOval(
             child: Image.asset(
               AppIcons.callAvatar,
@@ -28,40 +32,45 @@ class BuildState4 extends StatelessWidget {
             ),
           ),
         ),
-        Padding(
-          padding: EdgeInsets.all(sdpPX(context, 12)),
-          child: SizedBox(
-            width: sdpPX(context, 200),
-            child: Text.rich(
-              TextSpan(
-                text: 'Имяоченьдинное,хм интересно войдет или нет',
-                style: TextStyle(
-                  color: AppColors.accent,
-                  fontSize: sdpPX(context, 25),
-                  fontWeight: FontWeight.w500,
-                  fontFamily: AppStyles.ttNorms,
-                ),
-                children: <TextSpan>[
-                  TextSpan(
-                    text: 'ФамилияПодъехалатоже нормальная такая',
-                    style: TextStyle(
-                      color: AppColors.accent,
-                      fontSize: sdpPX(context, 25),
-                      fontWeight: FontWeight.w500,
-                      fontFamily: AppStyles.ttNorms,
-                    ),
+        AnimatedOpacity(
+          opacity: isContentVisible ? 1.0 : 0.0,
+          duration: const Duration(milliseconds: 5000),
+          child: Padding(
+            padding: EdgeInsets.all(sdpPX(context, 12)),
+            child: SizedBox(
+              width: sdpPX(context, 200),
+              child: Text.rich(
+                TextSpan(
+                  text: '!!!Имяоченьдинное,хм интересно войдет или нет',
+                  style: TextStyle(
+                    color: AppColors.accent,
+                    fontSize: sdpPX(context, 25),
+                    fontWeight: FontWeight.w500,
+                    fontFamily: AppStyles.ttNorms,
                   ),
-                ],
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: 'ФамилияПодъехалатоже нормальная такая',
+                      style: TextStyle(
+                        color: AppColors.accent,
+                        fontSize: sdpPX(context, 25),
+                        fontWeight: FontWeight.w500,
+                        fontFamily: AppStyles.ttNorms,
+                      ),
+                    ),
+                  ],
+                ),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
             ),
           ),
         ),
 
         /// положить трубку и счетчик времени
         Padding(
-          padding: EdgeInsets.all(sdpPX(context, 12)),
+          padding: EdgeInsets.only(
+              left: sdpPX(context, 12), right: sdpPX(context, 12)),
           child: ButtonAnimator(
             child: Container(
               width: sdpPX(context, 84),
