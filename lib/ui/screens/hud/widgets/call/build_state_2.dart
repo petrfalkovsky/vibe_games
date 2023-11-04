@@ -3,7 +3,10 @@ import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/shared/shared_exports.dart';
 
 class BuildState2 extends StatelessWidget {
-  const BuildState2({super.key, required this.context});
+  const BuildState2({
+    super.key,
+    required this.context,
+  });
 
   final BuildContext context;
 

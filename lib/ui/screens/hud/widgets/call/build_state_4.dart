@@ -3,9 +3,12 @@ import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/shared/shared_exports.dart';
 
 class BuildState4 extends StatelessWidget {
-  const BuildState4({super.key, required this.context});
+  const BuildState4(
+      {super.key, required this.context, required this.paddingAvatarLess});
 
   final BuildContext context;
+
+  final double paddingAvatarLess;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class BuildState4 extends StatelessWidget {
         // имя абонента
         // кнопка положить трубку
         Padding(
-          padding: EdgeInsets.all(sdpPX(context, 12)),
+          padding: EdgeInsets.only(left: sdpPX(context, 0)),
           child: ClipOval(
             child: Image.asset(
               AppIcons.callAvatar,

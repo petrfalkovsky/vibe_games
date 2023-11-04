@@ -14,12 +14,37 @@ class Call extends StatefulWidget {
 
 enum CallState { state1, state2, state3, state4 }
 
-class _CallState extends State<Call> {
+class _CallState extends State<Call> with SingleTickerProviderStateMixin {
   CallState currentState = CallState.state1;
   bool isContentVisible = true;
   double? containerWidth;
   double? containerHeight;
-  double? paddingLeftAvatar;
+  double? paddingAvatar;
+  late AnimationController _paddingAnimationController;
+  late Animation<double> _paddingAnimationMore;
+  late Animation<double> _paddingAnimationLess;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Инициализация контроллера анимации
+    _paddingAnimationController = AnimationController(
+      vsync: this,
+      duration:
+          const Duration(milliseconds: 1000), // продолжительность анимации
+    );
+
+    _paddingAnimationMore = Tween<double>(
+      begin: 12.0,
+      end: 20.0,
+    ).animate(_paddingAnimationController);
+
+    _paddingAnimationLess = Tween<double>(
+      begin: 12.0,
+      end: 12.0,
+    ).animate(_paddingAnimationController);
+  }
 
   void switchToState2() {
     setState(() {
@@ -41,15 +66,17 @@ class _CallState extends State<Call> {
     setState(() {
       containerWidth = sdpPX(context, 188);
       containerHeight = sdpPX(context, 140);
-      paddingLeftAvatar = sdpPX(context, 20);
     });
 
-    {
+    // Запустите анимацию изменения паддинга
+    _paddingAnimationController.forward();
+
+    Future.delayed(const Duration(milliseconds: 300), () {
       setState(() {
         isContentVisible = true;
         currentState = CallState.state3;
       });
-    }
+    });
   }
 
   void switchToState4() {
@@ -129,11 +156,13 @@ class _CallState extends State<Call> {
   }
 
   Widget buildState1() {
-    return BuildState1(context: context);
+    return BuildState1(context: context, paddingAvatar: paddingAvatar ?? 0);
   }
 
   Widget buildState2() {
-    return BuildState2(context: context);
+    return BuildState2(
+      context: context,
+    );
   }
 
   Widget buildState3() {
@@ -141,8 +170,12 @@ class _CallState extends State<Call> {
       onTap: () {
         switchToState4();
       },
-      child:
-          BuildState3(context: context, paddingLeft: paddingLeftAvatar ?? 12),
+      child: AnimatedPadding(
+          padding: EdgeInsets.all(sdpPX(context, _paddingAnimationMore.value)),
+          duration: const Duration(milliseconds: 1000),
+          child: BuildState3(
+            context: context,
+          )),
     );
   }
 
@@ -151,7 +184,15 @@ class _CallState extends State<Call> {
       onTap: () {
         switchToState3();
       },
-      child: BuildState4(context: context),
+      child: AnimatedPadding(
+        padding:
+            EdgeInsets.only(left: sdpPX(context, _paddingAnimationLess.value)),
+        duration: const Duration(milliseconds: 1000),
+        child: BuildState4(
+          context: context,
+          paddingAvatarLess: _paddingAnimationLess.value,
+        ),
+      ),
     );
   }
 }

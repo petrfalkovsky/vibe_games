@@ -6,9 +6,11 @@ class BuildState1 extends StatelessWidget {
   const BuildState1({
     super.key,
     required this.context,
+    required this.paddingAvatar,
   });
 
   final BuildContext context;
+  final double paddingAvatar;
 
   @override
   Widget build(BuildContext context) {

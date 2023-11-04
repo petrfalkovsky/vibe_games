@@ -3,11 +3,12 @@ import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/shared/shared_exports.dart';
 
 class BuildState3 extends StatelessWidget {
-  const BuildState3(
-      {super.key, required this.context, required this.paddingLeft});
+  const BuildState3({
+    super.key,
+    required this.context,
+  });
 
   final BuildContext context;
-  final double paddingLeft;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class BuildState3 extends StatelessWidget {
             child: Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.all(paddingLeft),
+                  padding: EdgeInsets.only(left: sdpPX(context, 0)),
                   child: ClipOval(
                     child: Image.asset(
                       AppIcons.callAvatar,
