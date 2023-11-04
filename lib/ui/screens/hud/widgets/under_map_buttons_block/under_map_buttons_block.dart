@@ -44,7 +44,9 @@ class UnderMapButtonsBlock extends StatelessWidget {
         sdpPX(context, 16).w,
 
         /// кнопка с выдвигающимся инфо
-        AnimatedInfoButton(controller: controller),
+        AnimatedInfoButton(
+          controller: controller,
+        ),
       ],
     );
   }

@@ -61,6 +61,7 @@ dependencies:
   auto_size_text: ^3.0.0
   odometer: ^3.0.0
   intl: ^0.17.0
+  flutter_gradients: ^1.0.0+3
  
  
 

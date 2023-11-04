@@ -65,6 +65,8 @@ class AppIcons {
   static const gasStation = '$_basePathIcons/gas_station.svg';
   static const turnSignalLeft = '$_basePathIcons/turn_signal_left.svg';
   static const turnSignalRight = '$_basePathIcons/turn_signal_right.svg';
+  static const infoBack = '$_basePathIcons/info_back.svg';
+  static const infoForward = '$_basePathIcons/info_forward.svg';
 
   /// старых нет, удалил вроде все
 

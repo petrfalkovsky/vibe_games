@@ -97,6 +97,8 @@ class HudScreen extends StatexWidget<HudController> {
 
                         // звонок
                         const Call(),
+
+                        const StaggerDemo(),
                       ],
                     ),
                   ),
