@@ -31,6 +31,8 @@ class BuildState1 extends StatelessWidget {
             ),
           ),
         ),
+
+        // имя абонента
         Padding(
           padding: EdgeInsets.all(sdpPX(context, 12)),
           child: SizedBox(
@@ -61,6 +63,8 @@ class BuildState1 extends StatelessWidget {
             ),
           ),
         ),
+
+        // кнопка положить трубку
         Padding(
           padding: EdgeInsets.all(sdpPX(context, 12)),
           child: ButtonAnimator(
@@ -83,6 +87,8 @@ class BuildState1 extends StatelessWidget {
             ),
           ),
         ),
+
+        // кнопка ответить на звонок
         Padding(
           padding: EdgeInsets.all(sdpPX(context, 12)),
           child: ButtonAnimator(

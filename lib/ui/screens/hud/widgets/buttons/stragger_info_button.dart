@@ -5,8 +5,8 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/shared/shared_exports.dart';
 
-class StraggeredAnimation extends StatelessWidget {
-  StraggeredAnimation({
+class StraggeredAnimatedContainerInfoButton extends StatelessWidget {
+  StraggeredAnimatedContainerInfoButton({
     super.key,
     required this.controller,
     required this.isCloseLeftArrow,
@@ -230,13 +230,13 @@ class _StaggerInfoButtonState extends State<StaggerInfoButton>
     super.initState();
 
     _controller = AnimationController(
-      value: 1,
+      value: 0,
       duration: const Duration(milliseconds: 1000),
       vsync: this,
     );
 
     // запускаем анимацию, чтобы закрыть открытое инфо окно (иначе, если  value: 0,
-    // в котроллере, то анимация срабатывает со второго таба)
+    // в котроллере, то анимация срабатывает со второго тапа)
     _playAnimation();
   }
 
@@ -283,7 +283,7 @@ class _StaggerInfoButtonState extends State<StaggerInfoButton>
                 ),
               ),
             ),
-            StraggeredAnimation(
+            StraggeredAnimatedContainerInfoButton(
               controller: _controller.view,
               isCloseLeftArrow: widget.isCloseLeftArrow,
               textOpen: widget.textOpen,
