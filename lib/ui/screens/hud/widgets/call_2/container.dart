@@ -13,6 +13,7 @@ class StaggeredAnimationCallWidget extends StatelessWidget {
     required this.textOpen,
     required this.widthInfo,
     required this.context,
+    required this.isThirdState,
   })  :
 
 // Каждая анимация, определенная здесь, преобразует свое значение в течение подмножества
@@ -38,7 +39,7 @@ class StaggeredAnimationCallWidget extends StatelessWidget {
         /// ширина первого шага от и до
         width = Tween<double>(
           begin: 188.0,
-          end: widthInfo,
+          end: isThirdState ? 540 : widthInfo,
         ).animate(
           CurvedAnimation(
             parent: controller,
@@ -113,6 +114,9 @@ class StaggeredAnimationCallWidget extends StatelessWidget {
   final Animation<EdgeInsets> padding;
   final Animation<double> textOpacity;
   final Animation<double> iconOpacity;
+
+  /// переменные третьего состония
+  final bool isThirdState;
 
   /// передаю в место использования виджета
   final bool isCloseLeftArrow;
@@ -322,6 +326,7 @@ class _StaggeredAnimatedContainerState extends State<StaggeredAnimatedContainer>
     with TickerProviderStateMixin {
   late AnimationController _controller;
   bool isForward = true;
+  bool isThirdState = true;
 
   // переменные для проверки закрытия по таймеру
   Timer? animationTimer;
@@ -389,6 +394,14 @@ class _StaggeredAnimatedContainerState extends State<StaggeredAnimatedContainer>
   }
 
   Future<void> _playAnimation() async {
+    if (isThirdState) {
+      // если это третье состояние, меняем isThirdState на false
+      isThirdState = false;
+
+      // setState для перерисовки виджета
+      setState(() {});
+    }
+
     try {
       if (_controller.isAnimating) {
         // eсли анимация выполняется, отменяю ее и таймер
@@ -403,7 +416,7 @@ class _StaggeredAnimatedContainerState extends State<StaggeredAnimatedContainer>
         isForward = true;
       }
     } on TickerCanceled {
-      // анимация была отменена, вероятно, потому, что от нас избавились.
+      // анимация была отменена
     }
   }
 
@@ -426,6 +439,7 @@ class _StaggeredAnimatedContainerState extends State<StaggeredAnimatedContainer>
                 textOpen: widget.textOpen,
                 widthInfo: widget.widthInfo,
                 context: context,
+                isThirdState: isThirdState,
               ),
             ],
           ),
