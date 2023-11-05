@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -39,7 +41,7 @@ class StaggeredAnimationCallWidget extends StatelessWidget {
         /// ширина первого шага от и до
         width = Tween<double>(
           begin: 188.0,
-          end: isThirdState ? 540 : widthInfo,
+          end: isThirdState ? 544 : widthInfo,
         ).animate(
           CurvedAnimation(
             parent: controller,
@@ -104,6 +106,19 @@ class StaggeredAnimationCallWidget extends StatelessWidget {
               curve: Curves.ease,
             ),
           ),
+        ),
+        thirdStateOpacity = Tween<double>(
+          begin: isThirdState ? 1.0 : 0,
+          end: 0.0,
+        ).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: const Interval(
+              0.500,
+              0.750,
+              curve: Curves.ease,
+            ),
+          ),
         );
 
   /// переменные для анимации в виджете анимации
@@ -114,6 +129,7 @@ class StaggeredAnimationCallWidget extends StatelessWidget {
   final Animation<EdgeInsets> padding;
   final Animation<double> textOpacity;
   final Animation<double> iconOpacity;
+  final Animation<double> thirdStateOpacity;
 
   /// переменные третьего состония
   final bool isThirdState;
@@ -167,11 +183,12 @@ class StaggeredAnimationCallWidget extends StatelessWidget {
                     ),
 
                     // текст внутри (имя, фамилия)
-                    Center(
+                    Align(
+                      alignment: Alignment.centerLeft,
                       child: Opacity(
                         opacity: textOpacity.value,
                         child: Padding(
-                          padding: EdgeInsets.only(left: sdpPX(context, 22)),
+                          padding: EdgeInsets.only(left: sdpPX(context, 126)),
                           child: Container(
                             child: textOpen,
                           ),
@@ -183,7 +200,9 @@ class StaggeredAnimationCallWidget extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerRight,
                       child: Opacity(
-                        opacity: textOpacity.value,
+                        opacity: isThirdState
+                            ? thirdStateOpacity.value
+                            : textOpacity.value,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
@@ -218,6 +237,68 @@ class StaggeredAnimationCallWidget extends StatelessWidget {
                                       ),
                                     )
                                   ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    // кнопка положить трубку
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Opacity(
+                        opacity: isThirdState
+                            ? textOpacity.value
+                            : thirdStateOpacity.value,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            /// положить трубку и счетчик времени
+                            ButtonAnimator(
+                              child: Container(
+                                width: sdpPX(context, 84),
+                                height: sdpPX(context, 84),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: AppColors.background[9] ??
+                                      Colors.transparent,
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    AppIcons.svgWidget(
+                                      AppIcons.callSkip,
+                                      width: sdpPX(context, 44.5),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+
+                            // кнопка ответить на звонок
+                            Padding(
+                              padding:
+                                  EdgeInsets.only(left: sdpPX(context, 12)),
+                              child: ButtonAnimator(
+                                child: Container(
+                                  width: sdpPX(context, 84),
+                                  height: sdpPX(context, 84),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: AppColors.background[10] ??
+                                        Colors.transparent,
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AppIcons.svgWidget(
+                                        AppIcons.callAnswer,
+                                        width: sdpPX(context, 35.5),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -326,7 +407,10 @@ class _StaggeredAnimatedContainerState extends State<StaggeredAnimatedContainer>
     with TickerProviderStateMixin {
   late AnimationController _controller;
   bool isForward = true;
+
+  // управление состоянием
   bool isThirdState = true;
+  bool firstClick = true;
 
   // переменные для проверки закрытия по таймеру
   Timer? animationTimer;
@@ -368,11 +452,12 @@ class _StaggeredAnimatedContainerState extends State<StaggeredAnimatedContainer>
   }
 
 // метод для начальной проверки и установки таймера
-// ignore: non_constant_identifier_names
-  Future<void> _InitialPlayAnimation() async {
+
+  Future<void> _initialPlayAnimation() async {
     animationTimer = Timer.periodic(const Duration(seconds: 3), (timer) {
       if (isForward && !isOpening) {
-        // если анимация открыта и не открывалась в текущем интервале, отключаем текущий таймер
+        // если анимация открыта и не открывалась в текущем интервале,
+        // отключаем текущий таймер
         timer.cancel();
         // запускаем новый таймер через 3 секунды для закрытия анимации
         Timer(const Duration(seconds: 1), () {
@@ -380,7 +465,7 @@ class _StaggeredAnimatedContainerState extends State<StaggeredAnimatedContainer>
             _controller.reverse().orCancel;
             isForward = true;
           } on TickerCanceled {
-            // анимация была отменена, вероятно, потому, что от нас избавились.
+            // анимация была отменена
           }
         });
         isOpening = true; // анимация была открыта в этом интервале
@@ -404,14 +489,20 @@ class _StaggeredAnimatedContainerState extends State<StaggeredAnimatedContainer>
 
     try {
       if (_controller.isAnimating) {
-        // eсли анимация выполняется, отменяю ее и таймер
         _controller.stop();
       } else if (isForward) {
-        // если анимация открывает, отключаю таймер и включаю обратную анимацию.
-        _controller.reverse().orCancel;
-        isForward = false;
+        if (firstClick) {
+          // задержка только после первого клика
+          firstClick = false;
+          Timer(const Duration(seconds: 3), () {
+            _controller.reverse().orCancel;
+            isForward = false;
+          });
+        } else {
+          _controller.reverse().orCancel;
+          isForward = false;
+        }
       } else {
-        // если анимация закрывает, включаю таймер и анимацию вперед.
         _controller.forward().orCancel;
         isForward = true;
       }
