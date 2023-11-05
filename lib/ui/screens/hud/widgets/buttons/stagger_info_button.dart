@@ -5,8 +5,8 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/shared/shared_exports.dart';
 
-class StraggeredAnimatedContainerInfoButton extends StatelessWidget {
-  StraggeredAnimatedContainerInfoButton({
+class StaggeredAnimatedContainerInfoButton extends StatelessWidget {
+  StaggeredAnimatedContainerInfoButton({
     super.key,
     required this.controller,
     required this.isCloseLeftArrow,
@@ -283,7 +283,7 @@ class _StaggerInfoButtonState extends State<StaggerInfoButton>
                 ),
               ),
             ),
-            StraggeredAnimatedContainerInfoButton(
+            StaggeredAnimatedContainerInfoButton(
               controller: _controller.view,
               isCloseLeftArrow: widget.isCloseLeftArrow,
               textOpen: widget.textOpen,

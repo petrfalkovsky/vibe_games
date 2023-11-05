@@ -99,7 +99,7 @@ class HudScreen extends StatexWidget<HudController> {
                         // const Call(),
 
                         // звонок 2
-                        StraggeredAnimatedContainer(
+                        StaggeredAnimatedContainer(
                           icon: ClipOval(
                             child: Image.asset(
                               AppIcons.callAvatar,

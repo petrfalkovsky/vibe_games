@@ -5,13 +5,14 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/shared/shared_exports.dart';
 
-class StraggeredAnimationCallWidget extends StatelessWidget {
-  StraggeredAnimationCallWidget({
+class StaggeredAnimationCallWidget extends StatelessWidget {
+  StaggeredAnimationCallWidget({
     super.key,
     required this.controller,
     required this.isCloseLeftArrow,
     required this.textOpen,
     required this.widthInfo,
+    required this.context,
   })  :
 
 // Каждая анимация, определенная здесь, преобразует свое значение в течение подмножества
@@ -63,8 +64,10 @@ class StraggeredAnimationCallWidget extends StatelessWidget {
 
         /// паддинги первого шага
         padding = EdgeInsetsTween(
-          begin: const EdgeInsets.only(left: 20, right: 12),
-          end: const EdgeInsets.only(left: 12, right: 20),
+          begin: EdgeInsets.only(
+              left: sdpPX(context, 20), right: sdpPX(context, 12)),
+          end: EdgeInsets.only(
+              left: sdpPX(context, 12), right: sdpPX(context, 20)),
         ).animate(
           CurvedAnimation(
             parent: controller,
@@ -115,6 +118,9 @@ class StraggeredAnimationCallWidget extends StatelessWidget {
   final bool isCloseLeftArrow;
   final Widget textOpen;
   final double widthInfo;
+
+  /// контекст, чтобы использовать в паддинге sdp
+  final BuildContext context;
 
 // Эта функция вызывается каждый раз, когда контроллер "помечает" новый кадр.
 // Когда он запустится, все значения анимации будут равны
@@ -293,13 +299,13 @@ class StraggeredAnimationCallWidget extends StatelessWidget {
   }
 }
 
-class StraggeredAnimatedContainer extends StatefulWidget {
+class StaggeredAnimatedContainer extends StatefulWidget {
   final Widget icon;
   final bool isCloseLeftArrow;
   final Widget textOpen;
   final double widthInfo;
 
-  const StraggeredAnimatedContainer({
+  const StaggeredAnimatedContainer({
     super.key,
     required this.icon,
     required this.isCloseLeftArrow,
@@ -308,12 +314,12 @@ class StraggeredAnimatedContainer extends StatefulWidget {
   });
 
   @override
-  State<StraggeredAnimatedContainer> createState() =>
-      _StraggeredAnimatedContainerState();
+  State<StaggeredAnimatedContainer> createState() =>
+      _StaggeredAnimatedContainerState();
 }
 
-class _StraggeredAnimatedContainerState
-    extends State<StraggeredAnimatedContainer> with TickerProviderStateMixin {
+class _StaggeredAnimatedContainerState extends State<StaggeredAnimatedContainer>
+    with TickerProviderStateMixin {
   late AnimationController _controller;
   bool isForward = true;
 
@@ -368,14 +374,15 @@ class _StraggeredAnimatedContainerState
       child: Padding(
         padding: EdgeInsets.only(top: sdpPX(context, 12)),
         child: Transform.translate(
-          offset: const Offset(-26, 0),
+          offset: Offset(sdpPX(context, -33), 0),
           child: Stack(
             children: [
-              StraggeredAnimationCallWidget(
+              StaggeredAnimationCallWidget(
                 controller: _controller.view,
                 isCloseLeftArrow: widget.isCloseLeftArrow,
                 textOpen: widget.textOpen,
                 widthInfo: widget.widthInfo,
+                context: context,
               ),
             ],
           ),
