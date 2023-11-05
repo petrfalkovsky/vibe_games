@@ -31,3 +31,4 @@ export 'widgets/call/build_state_1.dart';
 export 'widgets/under_status_bar_block/guns_button_block.dart';
 export 'widgets/under_map_buttons_block/under_map_buttons_block.dart';
 export 'widgets/under_status_bar_block/under_status_bar_block.dart';
+export 'widgets/buttons/stragger_info_button.dart';

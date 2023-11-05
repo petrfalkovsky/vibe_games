@@ -5,9 +5,14 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/shared/shared_exports.dart';
 
-class StaggerAnimation extends StatelessWidget {
-  StaggerAnimation({super.key, required this.controller})
-      :
+class StraggeredAnimation extends StatelessWidget {
+  StraggeredAnimation({
+    super.key,
+    required this.controller,
+    required this.isCloseLeftArrow,
+    required this.textOpen,
+    required this.widthInfo,
+  })  :
 
 // Каждая анимация, определенная здесь, преобразует свое значение в течение подмножества
 // длительности контроллера, определяемой интервалом анимации.
@@ -32,7 +37,7 @@ class StaggerAnimation extends StatelessWidget {
         /// ширина первого шага от и до
         width = Tween<double>(
           begin: 99.0,
-          end: 318.0,
+          end: widthInfo,
         ).animate(
           CurvedAnimation(
             parent: controller,
@@ -58,8 +63,8 @@ class StaggerAnimation extends StatelessWidget {
 
         /// паддинги первого шага
         padding = EdgeInsetsTween(
-          begin: const EdgeInsets.only(bottom: 16),
-          end: const EdgeInsets.only(bottom: 75),
+          begin: const EdgeInsets.only(bottom: 0),
+          end: const EdgeInsets.only(right: 0),
         ).animate(
           CurvedAnimation(
             parent: controller,
@@ -72,19 +77,19 @@ class StaggerAnimation extends StatelessWidget {
         ),
 
         /// бордер радиус первого шага
-        borderRadius = BorderRadiusTween(
-          begin: BorderRadius.circular(4),
-          end: BorderRadius.circular(8),
-        ).animate(
-          CurvedAnimation(
-            parent: controller,
-            curve: const Interval(
-              0.375,
-              0.500,
-              curve: Curves.ease,
-            ),
-          ),
-        ),
+        // borderRadius = BorderRadiusTween(
+        //   begin: BorderRadius.circular(4),
+        //   end: BorderRadius.circular(8),
+        // ).animate(
+        //   CurvedAnimation(
+        //     parent: controller,
+        //     curve: const Interval(
+        //       0.375,
+        //       0.500,
+        //       curve: Curves.ease,
+        //     ),
+        //   ),
+        // ),
 
         /// цвет на первом шаге от и до
         color = ColorTween(
@@ -119,9 +124,14 @@ class StaggerAnimation extends StatelessWidget {
   final Animation<double> width;
   final Animation<double> height;
   final Animation<EdgeInsets> padding;
-  final Animation<BorderRadius?> borderRadius;
+  // final Animation<BorderRadius?> borderRadius;
   final Animation<Color?> color;
   final Animation<double> textOpacity;
+
+  /// передаю в место использования виджета
+  final bool isCloseLeftArrow;
+  final Widget textOpen;
+  final double widthInfo;
 
 // Эта функция вызывается каждый раз, когда контроллер "помечает" новый кадр.
 // Когда он запустится, все значения анимации будут равны
@@ -139,10 +149,10 @@ class StaggerAnimation extends StatelessWidget {
           decoration: BoxDecoration(
             color: color.value,
             border: Border.all(
-              color: AppColors.accent.withOpacity(0.3),
-              width: 2,
+              color: AppColors.accent.withOpacity(0.6),
+              width: sdpPX(context, 2),
             ),
-            borderRadius: borderRadius.value,
+            borderRadius: BorderRadius.circular(sdpPX(context, 8)),
           ),
           child: Opacity(
             opacity: textOpacity.value,
@@ -153,31 +163,28 @@ class StaggerAnimation extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: sdpPX(context, 20)),
                   child: Container(
                     transform: Matrix4.skewX(0.2),
-                    child: RichText(
-                      text: TextSpan(
-                        text: 'До конца задания\nосталось ',
-                        style: TextStyle(
-                          color: AppColors.accent,
-                          fontSize: sdpPX(context, 20),
-                        ),
-                        children: <TextSpan>[
-                          TextSpan(
-                            text: '10:32',
-                            style: TextStyle(
-                                color: AppColors.accent,
-                                fontSize: sdpPX(context, 20),
-                                fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
-                    ),
+                    child: textOpen,
                   ),
                 ),
                 Container(
-                  transform: Matrix4.skewX(0.2),
-                  child: AppIcons.svgWidget(AppIcons.infoBack,
-                      width: 8, color: AppColors.accent.withOpacity(0.3)),
-                ),
+                    transform: Matrix4.skewX(0.2),
+                    child: isCloseLeftArrow
+                        ? Transform.translate(
+                            offset: const Offset(1, 0),
+                            child: AppIcons.svgWidget(
+                              AppIcons.infoBack,
+                              width: sdpPX(context, 12),
+                              color: AppColors.accent.withOpacity(0.7),
+                            ),
+                          )
+                        : Transform.translate(
+                            offset: const Offset(6, 0),
+                            child: AppIcons.svgWidget(
+                              AppIcons.infoForward,
+                              width: sdpPX(context, 12),
+                              color: AppColors.accent.withOpacity(0.7),
+                            ),
+                          )),
               ],
             ),
           ),
@@ -195,25 +202,42 @@ class StaggerAnimation extends StatelessWidget {
   }
 }
 
-class StaggerDemo extends StatefulWidget {
-  const StaggerDemo({super.key});
+class StaggerInfoButton extends StatefulWidget {
+  final Widget icon;
+  final bool isCloseLeftArrow;
+  final Widget textOpen;
+  final double widthInfo;
+
+  const StaggerInfoButton({
+    super.key,
+    required this.icon,
+    required this.isCloseLeftArrow,
+    required this.textOpen,
+    required this.widthInfo,
+  });
 
   @override
-  State<StaggerDemo> createState() => _StaggerDemoState();
+  State<StaggerInfoButton> createState() => _StaggerInfoButtonState();
 }
 
-class _StaggerDemoState extends State<StaggerDemo>
+class _StaggerInfoButtonState extends State<StaggerInfoButton>
     with TickerProviderStateMixin {
   late AnimationController _controller;
+  bool isForward = true;
 
   @override
   void initState() {
     super.initState();
 
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 2000),
+      value: 1,
+      duration: const Duration(milliseconds: 1000),
       vsync: this,
     );
+
+    // запускаем анимацию, чтобы закрыть открытое инфо окно (иначе, если  value: 0,
+    // в котроллере, то анимация срабатывает со второго таба)
+    _playAnimation();
   }
 
   @override
@@ -223,17 +247,23 @@ class _StaggerDemoState extends State<StaggerDemo>
   }
 
   Future<void> _playAnimation() async {
-    try {
-      await _controller.forward().orCancel;
-      await _controller.reverse().orCancel;
-    } on TickerCanceled {
-      // Анимация была отменена, вероятно, потому, что от нас избавились.
+    if (_controller.isAnimating) {
+      // eсли анимация выполняется, отменяю ее и таймер
+      _controller.stop();
+    } else if (isForward) {
+      // если анимация открывает, отключаю таймер и включаю обратную анимацию.
+      _controller.reverse().orCancel;
+      isForward = false;
+    } else {
+      // если анимация закрывает, включаю таймер и анимацию вперед.
+      _controller.forward().orCancel;
+      isForward = true;
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    timeDilation = 1.0; // 1.0 обычная скорость анимации
+    timeDilation = 0.5; // 1.0 обычная скорость анимации
     return ButtonAnimator(
       child: GestureDetector(
         onTap: () {
@@ -253,14 +283,16 @@ class _StaggerDemoState extends State<StaggerDemo>
                 ),
               ),
             ),
-            StaggerAnimation(controller: _controller.view),
+            StraggeredAnimation(
+              controller: _controller.view,
+              isCloseLeftArrow: widget.isCloseLeftArrow,
+              textOpen: widget.textOpen,
+              widthInfo: widget.widthInfo,
+            ),
             Positioned(
-              left: sdpPX(context, 27),
-              top: sdpPX(context, 37),
-              child: AppIcons.svgWidget(
-                AppIcons.parashute,
-                width: sdpPX(context, 42),
-              ),
+              left: sdpPX(context, 20),
+              top: sdpPX(context, 23),
+              child: widget.icon,
             ),
           ],
         ),

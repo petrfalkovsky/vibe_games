@@ -6,4 +6,3 @@ export 'widgets/animated_progress_bar.dart';
 export 'widgets/animated_progress_bar2.dart';
 export 'widgets/animated_progress_bar3.dart';
 export 'widgets/std_input.dart';
-export 'stagger_animation.dart';
