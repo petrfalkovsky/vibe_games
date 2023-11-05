@@ -323,6 +323,10 @@ class _StaggeredAnimatedContainerState extends State<StaggeredAnimatedContainer>
   late AnimationController _controller;
   bool isForward = true;
 
+  // переменные для проверки закрытия по таймеру
+  Timer? animationTimer;
+  bool isOpening = false;
+
   @override
   void initState() {
     super.initState();
@@ -337,12 +341,51 @@ class _StaggeredAnimatedContainerState extends State<StaggeredAnimatedContainer>
     // в котроллере, то анимация срабатывает со второго таба)
     // с value: 0, такого поведения нет
     // _playAnimation();
+    // _InitialPlayAnimation();
+
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        isForward = true; // Анимация закончена и виджет открыт
+      } else if (status == AnimationStatus.dismissed) {
+        isForward = false; // Анимация отменена и виджет закрыт
+      }
+    });
   }
 
+// при закрытии виджета отменяем таймер
   @override
   void dispose() {
+    if (animationTimer != null) {
+      animationTimer!.cancel();
+    }
     _controller.dispose();
     super.dispose();
+  }
+
+// метод для начальной проверки и установки таймера
+// ignore: non_constant_identifier_names
+  Future<void> _InitialPlayAnimation() async {
+    animationTimer = Timer.periodic(const Duration(seconds: 3), (timer) {
+      if (isForward && !isOpening) {
+        // если анимация открыта и не открывалась в текущем интервале, отключаем текущий таймер
+        timer.cancel();
+        // запускаем новый таймер через 3 секунды для закрытия анимации
+        Timer(const Duration(seconds: 1), () {
+          try {
+            _controller.reverse().orCancel;
+            isForward = true;
+          } on TickerCanceled {
+            // анимация была отменена, вероятно, потому, что от нас избавились.
+          }
+        });
+        isOpening = true; // анимация была открыта в этом интервале
+      }
+    });
+  }
+
+// Метод для обнуления флага isOpening
+  void _resetIsOpening() {
+    isOpening = false;
   }
 
   Future<void> _playAnimation() async {
