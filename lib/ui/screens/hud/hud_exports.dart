@@ -32,4 +32,4 @@ export 'widgets/under_status_bar_block/guns_button_block.dart';
 export 'widgets/under_map_buttons_block/under_map_buttons_block.dart';
 export 'widgets/under_status_bar_block/under_status_bar_block.dart';
 export 'widgets/buttons/stagger_info_button.dart';
-export 'widgets/call_2/container.dart';
+export 'widgets/call_staggered_animation/call_staggered_animation.dart';

@@ -95,11 +95,11 @@ class HudScreen extends StatexWidget<HudController> {
                         // таймер уведомление
                         const NotiTimer(),
 
-                        // звонок
+                        // звонок (анимация так себе, не ок)
                         // const Call(),
 
-                        // звонок 2
-                        StaggeredAnimatedContainer(
+                        // звонок 2 (тоже не идеальная, но сильно лучше)
+                        CallStaggeredAnimated(
                           icon: ClipOval(
                             child: Image.asset(
                               AppIcons.callAvatar,

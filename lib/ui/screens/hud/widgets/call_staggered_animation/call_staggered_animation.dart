@@ -7,8 +7,8 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/shared/shared_exports.dart';
 
-class StaggeredAnimationCallWidget extends StatelessWidget {
-  StaggeredAnimationCallWidget({
+class CallStaggeredAnimationWidget extends StatelessWidget {
+  CallStaggeredAnimationWidget({
     super.key,
     required this.controller,
     required this.isCloseLeftArrow,
@@ -384,13 +384,13 @@ class StaggeredAnimationCallWidget extends StatelessWidget {
   }
 }
 
-class StaggeredAnimatedContainer extends StatefulWidget {
+class CallStaggeredAnimated extends StatefulWidget {
   final Widget icon;
   final bool isCloseLeftArrow;
   final Widget textOpen;
   final double widthInfo;
 
-  const StaggeredAnimatedContainer({
+  const CallStaggeredAnimated({
     super.key,
     required this.icon,
     required this.isCloseLeftArrow,
@@ -399,11 +399,10 @@ class StaggeredAnimatedContainer extends StatefulWidget {
   });
 
   @override
-  State<StaggeredAnimatedContainer> createState() =>
-      _StaggeredAnimatedContainerState();
+  State<CallStaggeredAnimated> createState() => _CallStaggeredAnimatedState();
 }
 
-class _StaggeredAnimatedContainerState extends State<StaggeredAnimatedContainer>
+class _CallStaggeredAnimatedState extends State<CallStaggeredAnimated>
     with TickerProviderStateMixin {
   late AnimationController _controller;
   bool isForward = true;
@@ -524,7 +523,7 @@ class _StaggeredAnimatedContainerState extends State<StaggeredAnimatedContainer>
           offset: Offset(sdpPX(context, -33), 0),
           child: Stack(
             children: [
-              StaggeredAnimationCallWidget(
+              CallStaggeredAnimationWidget(
                 controller: _controller.view,
                 isCloseLeftArrow: widget.isCloseLeftArrow,
                 textOpen: widget.textOpen,
