@@ -4,6 +4,7 @@ import 'package:get/get.dart' hide Trans;
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/screens/hud/hud_exports.dart';
 import 'package:vfx_flutter_common/getx_helpers.dart';
+import 'package:vibe_games/ui/screens/hud/widgets/call_staggered_animation/draft.dart';
 import 'package:vibe_games/ui/shared/shared_exports.dart';
 
 class HudScreen extends StatexWidget<HudController> {
@@ -97,6 +98,8 @@ class HudScreen extends StatexWidget<HudController> {
 
                         // звонок (анимация так себе, не ок)
                         // const Call(),
+
+                        AnimatedContainerDemo(context: context),
 
                         // звонок 2 (тоже не идеальная, но сильно лучше)
                         CallStaggeredAnimated(
