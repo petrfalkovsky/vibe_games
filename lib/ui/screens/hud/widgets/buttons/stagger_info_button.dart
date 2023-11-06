@@ -29,7 +29,7 @@ class StaggeredAnimatedContainerInfoButton extends StatelessWidget {
             curve: const Interval(
               0.0,
               0.100,
-              curve: Curves.ease,
+              curve: Curves.easeOutCubic,
             ),
           ),
         ),
@@ -44,7 +44,7 @@ class StaggeredAnimatedContainerInfoButton extends StatelessWidget {
             curve: const Interval(
               0.125,
               0.250,
-              curve: Curves.ease,
+              curve: Curves.easeOutCubic,
             ),
           ),
         ),
@@ -56,7 +56,7 @@ class StaggeredAnimatedContainerInfoButton extends StatelessWidget {
             curve: const Interval(
               0.250,
               0.375,
-              curve: Curves.ease,
+              curve: Curves.easeOutCubic,
             ),
           ),
         ),
@@ -71,7 +71,7 @@ class StaggeredAnimatedContainerInfoButton extends StatelessWidget {
             curve: const Interval(
               0.250,
               0.375,
-              curve: Curves.ease,
+              curve: Curves.easeOutCubic,
             ),
           ),
         ),
@@ -86,7 +86,7 @@ class StaggeredAnimatedContainerInfoButton extends StatelessWidget {
         //     curve: const Interval(
         //       0.375,
         //       0.500,
-        //       curve: Curves.ease,
+        //       curve: Curves.easeOutCubic,
         //     ),
         //   ),
         // ),
@@ -101,7 +101,7 @@ class StaggeredAnimatedContainerInfoButton extends StatelessWidget {
             curve: const Interval(
               0.500,
               0.750,
-              curve: Curves.ease,
+              curve: Curves.easeOutCubic,
             ),
           ),
         ),
@@ -114,7 +114,7 @@ class StaggeredAnimatedContainerInfoButton extends StatelessWidget {
             curve: const Interval(
               0.500,
               0.750,
-              curve: Curves.ease,
+              curve: Curves.easeOutCubic,
             ),
           ),
         );
