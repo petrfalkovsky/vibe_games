@@ -15,8 +15,6 @@ class HudScreen extends StatexWidget<HudController> {
   @override
   Widget buildWidget(BuildContext context) {
     final controller = Get.find<HudController>();
-    final sideBarController = Get.put(SideBarController());
-    final sideBar2Controller = Get.put(SideBarSecondController());
 
     return Scaffold(
       body: Stack(
@@ -34,6 +32,10 @@ class HudScreen extends StatexWidget<HudController> {
 
           /// анимимрованный сайд бар
           SideBarAnimated(context: context),
+
+          // звонок (хорошо настроена анимация)
+          // todo вынимать объекты после опасити, чтобы не мешали тапать
+          CallAnimated(context: context),
 
           /// остальная часть экрана
           SafeArea(
@@ -59,10 +61,6 @@ class HudScreen extends StatexWidget<HudController> {
 
                         // таймер уведомление
                         const NotiTimer(),
-
-                        // звокно (настроена анимация)
-                        // todo вынимать объекты после опасити, чтобы не мешали тапать
-                        CallAnimated(context: context),
                       ],
                     ),
                   ),
