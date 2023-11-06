@@ -14,6 +14,7 @@ class _CallAnimatedState extends State<CallAnimated>
     with TickerProviderStateMixin {
   late AnimationController controller;
   late Animation<double> _width;
+  late Animation<double> _position;
   late Animation<double> _height;
   late Animation<double> _opacity;
   late Animation<double> _opacityText;
@@ -37,17 +38,17 @@ class _CallAnimatedState extends State<CallAnimated>
     ).animate(
       CurvedAnimation(
         parent: controller,
-        curve: const Interval(0.0, 0.33, curve: Curves.ease),
+        curve: const Interval(0.0, 0.150, curve: Curves.easeOutCubic),
       ),
     );
 
-    _height = Tween<double>(
-      begin: 124,
-      end: 124,
+    _position = Tween<double>(
+      begin: 0,
+      end: 0,
     ).animate(
       CurvedAnimation(
         parent: controller,
-        curve: const Interval(0.33, 0.66, curve: Curves.ease),
+        curve: const Interval(0.0, 0.150, curve: Curves.easeIn),
       ),
     );
 
@@ -57,7 +58,7 @@ class _CallAnimatedState extends State<CallAnimated>
     ).animate(
       CurvedAnimation(
         parent: controller,
-        curve: const Interval(0.66, 1.0, curve: Curves.ease),
+        curve: const Interval(0.0, 0.5, curve: Curves.easeOutCubic),
       ),
     );
 
@@ -67,7 +68,7 @@ class _CallAnimatedState extends State<CallAnimated>
     ).animate(
       CurvedAnimation(
         parent: controller,
-        curve: const Interval(0.0, 1.0, curve: Curves.ease),
+        curve: const Interval(0.0, 0.5, curve: Curves.easeOutCubic),
       ),
     );
 
@@ -77,7 +78,7 @@ class _CallAnimatedState extends State<CallAnimated>
     ).animate(
       CurvedAnimation(
         parent: controller,
-        curve: const Interval(0.0, 1.0, curve: Curves.ease),
+        curve: const Interval(0.0, 0.5, curve: Curves.easeOutCubic),
       ),
     );
 
@@ -87,7 +88,7 @@ class _CallAnimatedState extends State<CallAnimated>
     ).animate(
       CurvedAnimation(
         parent: controller,
-        curve: const Interval(0.0, 1.0, curve: Curves.ease),
+        curve: const Interval(0.0, 0.5, curve: Curves.easeOutCubic),
       ),
     );
 
@@ -97,7 +98,7 @@ class _CallAnimatedState extends State<CallAnimated>
     ).animate(
       CurvedAnimation(
         parent: controller,
-        curve: const Interval(0.0, 1.0, curve: Curves.ease),
+        curve: const Interval(0.0, 0.5, curve: Curves.easeOutCubic),
       ),
     );
 
@@ -117,7 +118,17 @@ class _CallAnimatedState extends State<CallAnimated>
     ).animate(
       CurvedAnimation(
         parent: controller,
-        curve: const Interval(0.250, 0.375, curve: Curves.ease),
+        curve: const Interval(0.250, 0.375, curve: Curves.easeOutCubic),
+      ),
+    );
+
+    _height = Tween<double>(
+      begin: 124,
+      end: 124,
+    ).animate(
+      CurvedAnimation(
+        parent: controller,
+        curve: const Interval(0.0, 0.99, curve: Curves.easeOutCubic),
       ),
     );
 
@@ -130,6 +141,7 @@ class _CallAnimatedState extends State<CallAnimated>
 
   void _changeContainerSize(
     double width,
+    double position,
     double height,
     double opacity,
     double opacityText,
@@ -148,7 +160,17 @@ class _CallAnimatedState extends State<CallAnimated>
       ).animate(
         CurvedAnimation(
           parent: controller,
-          curve: const Interval(0.0, 0.125, curve: Curves.ease),
+          curve: const Interval(0.0, 0.8, curve: Curves.easeOutCubic),
+        ),
+      );
+
+      _position = Tween<double>(
+        begin: _position.value,
+        end: position,
+      ).animate(
+        CurvedAnimation(
+          parent: controller,
+          curve: const Interval(0.0, 1.0, curve: Curves.easeOutCubic),
         ),
       );
 
@@ -158,7 +180,7 @@ class _CallAnimatedState extends State<CallAnimated>
       ).animate(
         CurvedAnimation(
           parent: controller,
-          curve: const Interval(0.125, 0.250, curve: Curves.ease),
+          curve: const Interval(0.125, 0.99, curve: Curves.easeOutCubic),
         ),
       );
 
@@ -168,7 +190,7 @@ class _CallAnimatedState extends State<CallAnimated>
       ).animate(
         CurvedAnimation(
           parent: controller,
-          curve: const Interval(0.66, 1.0, curve: Curves.ease),
+          curve: const Interval(0.0, 0.8, curve: Curves.easeOutCubic),
         ),
       );
 
@@ -178,7 +200,7 @@ class _CallAnimatedState extends State<CallAnimated>
       ).animate(
         CurvedAnimation(
           parent: controller,
-          curve: const Interval(0.0, 1.0, curve: Curves.ease),
+          curve: const Interval(0.0, 0.8, curve: Curves.easeOutCubic),
         ),
       );
 
@@ -188,7 +210,7 @@ class _CallAnimatedState extends State<CallAnimated>
       ).animate(
         CurvedAnimation(
           parent: controller,
-          curve: const Interval(0.0, 1.0, curve: Curves.ease),
+          curve: const Interval(0.0, 0.8, curve: Curves.easeOutCubic),
         ),
       );
 
@@ -198,7 +220,7 @@ class _CallAnimatedState extends State<CallAnimated>
       ).animate(
         CurvedAnimation(
           parent: controller,
-          curve: const Interval(0.0, 1.0, curve: Curves.ease),
+          curve: const Interval(0.0, 0.8, curve: Curves.easeOutCubic),
         ),
       );
 
@@ -208,7 +230,7 @@ class _CallAnimatedState extends State<CallAnimated>
       ).animate(
         CurvedAnimation(
           parent: controller,
-          curve: const Interval(0.0, 1.0, curve: Curves.ease),
+          curve: const Interval(0.0, 0.8, curve: Curves.easeOutCubic),
         ),
       );
 
@@ -223,7 +245,7 @@ class _CallAnimatedState extends State<CallAnimated>
           curve: const Interval(
             0.250,
             0.375,
-            curve: Curves.ease,
+            curve: Curves.easeOutCubic,
           ),
         ),
       );
@@ -234,325 +256,424 @@ class _CallAnimatedState extends State<CallAnimated>
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: sdpPX(context, 12)),
-      child: Transform.translate(
-        offset: Offset(sdpPX(context, -33), 0),
-        child: Container(
-          alignment: Alignment.centerLeft,
-          child: Opacity(
-            opacity: _opacity.value,
-            child: Container(
-              width: sdpPX(context, _width.value),
-              height: sdpPX(context, _height.value),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    AppColors.accent[7] ?? Colors.transparent,
-                    AppColors.accent[8]?.withOpacity(0.9) ?? Colors.transparent,
-                  ],
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
+    return Positioned(
+      top: sdpPX(context, 526),
+      left: sdpPX(context, _position.value + 85),
+      child: Padding(
+        padding: EdgeInsets.only(top: sdpPX(context, 12)),
+        child: Transform.translate(
+          offset: Offset(sdpPX(context, -33), 0),
+          child: Container(
+            alignment: Alignment.centerLeft,
+            child: Opacity(
+              opacity: _opacity.value,
+              child: Container(
+                width: sdpPX(context, _width.value),
+                height: sdpPX(context, _height.value),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      AppColors.accent[7] ?? Colors.transparent,
+                      AppColors.accent[8]?.withOpacity(0.9) ??
+                          Colors.transparent,
+                    ],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                  ),
+                  borderRadius: BorderRadius.circular(sdpPX(context, 100)),
                 ),
-                borderRadius: BorderRadius.circular(sdpPX(context, 100)),
-              ),
-              child: Stack(
-                children: [
-                  Padding(
-                    // здесь не нужно использовать sdp
-                    padding: _padding.value,
-                    child: Stack(
-                      children: [
-                        // текст внутри (имя, фамилия)
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Opacity(
-                            opacity: _opacityText.value,
-                            child: Padding(
-                              padding:
-                                  EdgeInsets.only(left: sdpPX(context, 126)),
-                              child: SizedBox(
-                                width: sdpPX(context, 180),
-                                child: Text.rich(
-                                  TextSpan(
-                                    text: 'Михал Палыч\n',
-                                    style: TextStyle(
-                                      color: AppColors.accent,
-                                      fontSize: sdpPX(context, 25),
-                                      fontWeight: FontWeight.w500,
-                                      fontFamily: AppStyles.ttNorms,
-                                    ),
-                                    children: <TextSpan>[
-                                      TextSpan(
-                                        text: 'Терентьев',
-                                        style: TextStyle(
-                                          color: AppColors.accent,
-                                          fontSize: sdpPX(context, 25),
-                                          fontWeight: FontWeight.w500,
-                                          fontFamily: AppStyles.ttNorms,
-                                        ),
+                child: Stack(
+                  children: [
+                    Padding(
+                      // здесь не нужно использовать sdp
+                      padding: _padding.value,
+                      child: Stack(
+                        children: [
+                          // текст внутри (имя, фамилия)
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Opacity(
+                              opacity: _opacityText.value,
+                              child: Padding(
+                                padding:
+                                    EdgeInsets.only(left: sdpPX(context, 126)),
+                                child: SizedBox(
+                                  width: sdpPX(context, 180),
+                                  child: Text.rich(
+                                    TextSpan(
+                                      text: 'Михал Палыч\n',
+                                      style: TextStyle(
+                                        color: AppColors.accent,
+                                        fontSize: sdpPX(context, 25),
+                                        fontWeight: FontWeight.w500,
+                                        fontFamily: AppStyles.ttNorms,
                                       ),
-                                    ],
-                                  ),
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-
-                        // кнопка положить трубку
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Opacity(
-                            opacity: _opacitySkipButton.value,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                /// положить трубку и счетчик времени
-                                ButtonAnimator(
-                                  child: Container(
-                                    width: sdpPX(context, 84),
-                                    height: sdpPX(context, 84),
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: AppColors.background[9] ??
-                                          Colors.transparent,
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        AppIcons.svgWidget(
-                                          AppIcons.callSkip,
-                                          width: sdpPX(context, 35.5),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                              top: sdpPX(context, 13)),
-                                          child: Text(
-                                            '01:34',
-                                            style: TextStyle(
-                                              color: AppColors.accent,
-                                              fontSize: sdpPX(context, 20),
-                                              fontWeight: FontWeight.w500,
-                                              fontFamily: AppStyles.ttNorms,
-                                            ),
+                                      children: <TextSpan>[
+                                        TextSpan(
+                                          text: 'Терентьев',
+                                          style: TextStyle(
+                                            color: AppColors.accent,
+                                            fontSize: sdpPX(context, 25),
+                                            fontWeight: FontWeight.w500,
+                                            fontFamily: AppStyles.ttNorms,
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  // блок ответить на звонок
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Opacity(
-                      opacity: _opacityAnswer.value,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          /// положить трубку
-                          ButtonAnimator(
-                            child: GestureDetector(
-                              // бросить трубку все исчезает
-                              // todo в сайдбар добавить
-                              onTap: () => _changeContainerSize(
-                                0,
-                                0,
-                                0,
-                                0,
-                                0,
-                                0,
-                                0,
-                                EdgeInsets.only(
-                                  left: sdpPX(widget.context, 12),
-                                  right: sdpPX(widget.context, 20),
-                                  top: sdpPX(widget.context, 12),
-                                  bottom: sdpPX(widget.context, 12),
-                                ),
-                              ),
-                              child: Container(
-                                width: sdpPX(context, 84),
-                                height: sdpPX(context, 84),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: AppColors.background[9] ??
-                                      Colors.transparent,
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    AppIcons.svgWidget(
-                                      AppIcons.callSkip,
-                                      width: sdpPX(context, 44.5),
-                                    ),
-                                  ],
                                 ),
                               ),
                             ),
                           ),
 
-                          // кнопка ответить на звонок
-                          ButtonAnimator(
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                left: sdpPX(context, 12),
-                                right: sdpPX(context, 20),
-                              ),
-                              child: ButtonAnimator(
-                                child: Container(
-                                  width: sdpPX(context, 84),
-                                  height: sdpPX(context, 84),
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: AppColors.background[10] ??
-                                        Colors.transparent,
-                                  ),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      GestureDetector(
-                                        // в третье состояние переводим (среднее)
-                                        onTap: () => _changeContainerSize(
+                          // кнопка положить трубку и таймер разговора
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: Opacity(
+                              opacity: _opacitySkipButton.value,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  /// положить трубку и счетчик времени
+                                  ButtonAnimator(
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        _changeContainerSize(
                                           440,
+                                          -500,
                                           124,
                                           1,
                                           1,
                                           1,
-                                          0,
-                                          0,
+                                          1,
+                                          1,
                                           EdgeInsets.only(
                                             left: sdpPX(widget.context, 12),
                                             right: sdpPX(widget.context, 20),
                                             top: sdpPX(widget.context, 12),
                                             bottom: sdpPX(widget.context, 12),
                                           ),
+                                        );
+                                      },
+                                      child: Container(
+                                        width: sdpPX(context, 84),
+                                        height: sdpPX(context, 84),
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: AppColors.background[9] ??
+                                              Colors.transparent,
                                         ),
-                                        child: AppIcons.svgWidget(
-                                          AppIcons.callAnswer,
-                                          width: sdpPX(context, 35.5),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            AppIcons.svgWidget(
+                                              AppIcons.callSkip,
+                                              width: sdpPX(context, 35.5),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(
+                                                  top: sdpPX(context, 13)),
+                                              child: Text(
+                                                '01:34',
+                                                style: TextStyle(
+                                                  color: AppColors.accent,
+                                                  fontSize: sdpPX(context, 20),
+                                                  fontWeight: FontWeight.w500,
+                                                  fontFamily: AppStyles.ttNorms,
+                                                ),
+                                              ),
+                                            )
+                                          ],
                                         ),
                                       ),
-                                    ],
+                                    ),
                                   ),
-                                ),
+                                ],
                               ),
                             ),
                           ),
                         ],
                       ),
                     ),
-                  ),
 
-                  // аватар
-                  ButtonAnimator(
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: sdpPX(context, 12)),
-                        child: ClipOval(
-                          child: GestureDetector(
-                            // переход во третье состояние (компактное)
-                            onTap: () => _changeContainerSize(
-                              188,
-                              140,
-                              1,
-                              0,
-                              0,
-                              1,
-                              0,
-                              const EdgeInsets.all(8),
-                            ),
-                            child: Image.asset(
-                              AppIcons.callAvatar,
-                              width: sdpPX(context, 100),
-                              height: sdpPX(context, 100),
-                              fit: BoxFit.cover,
+                    // аватар
+                    ButtonAnimator(
+                      child: GestureDetector(
+                        onTap: () => handleTap(),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                            padding: EdgeInsets.only(left: sdpPX(context, 12)),
+                            child: ClipOval(
+                              child: Image.asset(
+                                AppIcons.callAvatar,
+                                width: sdpPX(context, 100),
+                                height: sdpPX(context, 100),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ),
 
-                  // фон затемняющий миниатюру
-                  Opacity(
-                    opacity: _opacityIosIcon.value,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius:
-                            BorderRadius.circular(sdpPX(context, 100)),
-                        gradient: LinearGradient(
-                          colors: [
-                            AppColors.background[2]?.withOpacity(0.6) ??
-                                Colors.transparent,
-                            AppColors.background[2]?.withOpacity(0.3) ??
-                                Colors.transparent,
-                          ],
-                          begin: Alignment.bottomLeft,
-                          end: Alignment.topRight,
+                    // фон затемняющий миниатюру
+                    if (isCompactBackgroundVisible)
+                      GestureDetector(
+                        onTap: () => handleTap(),
+                        child: Opacity(
+                          opacity: _opacityIosIcon.value,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.circular(sdpPX(context, 100)),
+                              gradient: LinearGradient(
+                                colors: [
+                                  AppColors.background[2]?.withOpacity(0.6) ??
+                                      Colors.transparent,
+                                  AppColors.background[2]?.withOpacity(0.3) ??
+                                      Colors.transparent,
+                                ],
+                                begin: Alignment.bottomLeft,
+                                end: Alignment.topRight,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
 
-                  // иконка раскрыть
-                  Opacity(
-                    opacity: _opacityIosIcon.value,
-                    child: Padding(
-                      // не нужно исползовать sdp
-                      padding: _padding.value,
-                      child: Align(
+                    // иконка раскрыть
+                    if (isCompactBackgroundVisible)
+                      ButtonAnimator(
+                        child: GestureDetector(
+                          onTap: () => handleTap(),
+                          child: Opacity(
+                            opacity: _opacityIosIcon.value,
+                            child: Padding(
+                              // не нужно исползовать sdp
+                              padding: _padding.value,
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Icon(
+                                  Icons.arrow_forward_ios,
+                                  color: AppColors.accent,
+                                  size: sdpPX(context, 36),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                    // таймер разговора (компактное состояние)
+                    if (isCompactBackgroundVisible)
+                      Padding(
+                        // не нужно использовть sdp
+                        padding: _padding.value,
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Opacity(
+                            opacity: _opacityIosIcon.value,
+                            child: Padding(
+                              padding:
+                                  EdgeInsets.only(left: sdpPX(context, 26)),
+                              child: Text(
+                                '01:34',
+                                style: TextStyle(
+                                  color: AppColors.accent,
+                                  fontSize: sdpPX(context, 20),
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: AppStyles.ttNorms,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                    // блок ответить на звонок
+                    if (isElementVisible)
+                      Align(
                         alignment: Alignment.centerRight,
-                        child: Icon(
-                          Icons.arrow_forward_ios,
-                          color: AppColors.accent,
-                          size: sdpPX(context, 36),
-                        ),
-                      ),
-                    ),
-                  ),
+                        child: Opacity(
+                          opacity: _opacityAnswer.value,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              /// положить трубку
+                              if (isElementVisible)
+                                ButtonAnimator(
+                                  child: GestureDetector(
+                                    // бросить трубку все исчезает
+                                    // todo в сайдбар добавить
+                                    onTap: () => _changeContainerSize(
+                                      440,
+                                      -500,
+                                      124,
+                                      1,
+                                      1,
+                                      1,
+                                      1,
+                                      1,
+                                      EdgeInsets.only(
+                                        left: sdpPX(widget.context, 12),
+                                        right: sdpPX(widget.context, 20),
+                                        top: sdpPX(widget.context, 12),
+                                        bottom: sdpPX(widget.context, 12),
+                                      ),
+                                    ),
+                                    child: Container(
+                                      width: sdpPX(context, 84),
+                                      height: sdpPX(context, 84),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: AppColors.background[9] ??
+                                            Colors.transparent,
+                                      ),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          AppIcons.svgWidget(
+                                            AppIcons.callSkip,
+                                            width: sdpPX(context, 44.5),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
 
-                  // таймер разговора
-                  Padding(
-                    // ну нужно использовть sdp
-                    padding: _padding.value,
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Opacity(
-                        opacity: _opacityIosIcon.value,
-                        child: Padding(
-                          padding: EdgeInsets.only(left: sdpPX(context, 26)),
-                          child: Text(
-                            '01:34',
-                            style: TextStyle(
-                              color: AppColors.accent,
-                              fontSize: sdpPX(context, 20),
-                              fontWeight: FontWeight.w500,
-                              fontFamily: AppStyles.ttNorms,
-                            ),
+                              // кнопка ответить на звонок
+                              if (isElementVisible)
+                                ButtonAnimator(
+                                  child: GestureDetector(
+                                    onTap: () => handleTap(),
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                        left: sdpPX(context, 12),
+                                        right: sdpPX(context, 20),
+                                      ),
+                                      child: ButtonAnimator(
+                                        child: Container(
+                                          width: sdpPX(context, 84),
+                                          height: sdpPX(context, 84),
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: AppColors.background[10] ??
+                                                Colors.transparent,
+                                          ),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AppIcons.svgWidget(
+                                                AppIcons.callAnswer,
+                                                width: sdpPX(context, 35.5),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                            ],
                           ),
                         ),
                       ),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
         ),
       ),
     );
+  }
+
+  // счетчик кликов
+  int clickCount = 0;
+  // чтобы элемент не показывался
+  // в дереве и не мешал тыкать по кнопкам
+  bool isElementVisible = true;
+  bool isCompactBackgroundVisible = true;
+
+  void handleTap() {
+    if (clickCount == 0) {
+      // первый клик
+      // ко второму, среднему состоянию
+      _changeContainerSize(
+        440,
+        0,
+        124,
+        1,
+        1,
+        1,
+        0,
+        0,
+        EdgeInsets.only(
+          left: sdpPX(widget.context, 12),
+          right: sdpPX(widget.context, 20),
+          top: sdpPX(widget.context, 12),
+          bottom: sdpPX(widget.context, 12),
+        ),
+      );
+      clickCount = 1;
+      setState(() {
+        isCompactBackgroundVisible = false;
+      });
+    } else if (clickCount == 1) {
+      // второй клик
+      // переход в третье состояние (компактное)
+      _changeContainerSize(
+        188,
+        0,
+        140,
+        1,
+        0,
+        0,
+        1,
+        0,
+        const EdgeInsets.all(8),
+      );
+      clickCount = 2;
+
+      // при переходе в компактное состояние показываем
+      setState(() {
+        isCompactBackgroundVisible = true;
+      });
+    } else {
+      // третий клик и далее
+      // ко второму, среднему состоянию
+      _changeContainerSize(
+          440,
+          0,
+          124,
+          1,
+          1,
+          1,
+          0,
+          0,
+          EdgeInsets.only(
+            left: sdpPX(widget.context, 12),
+            right: sdpPX(widget.context, 20),
+            top: sdpPX(widget.context, 12),
+            bottom: sdpPX(widget.context, 12),
+          ));
+      clickCount = 1; // Вернуть счетчик на второе состояние
+      // при переходе ко второму, среднему состояние скрываем
+      setState(() {
+        isCompactBackgroundVisible = false;
+      });
+    }
+
+    setState(() {
+      isElementVisible = false;
+    });
   }
 
   @override

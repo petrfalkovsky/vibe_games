@@ -33,3 +33,4 @@ export 'widgets/under_map_buttons_block/under_map_buttons_block.dart';
 export 'widgets/under_status_bar_block/under_status_bar_block.dart';
 export 'widgets/buttons/stagger_info_button.dart';
 export 'widgets/call_animated/call_staggered_animation.dart';
+export 'widgets/side_bar_animated/side_bar_animated.dart';
