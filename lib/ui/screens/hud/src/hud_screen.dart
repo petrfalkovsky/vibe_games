@@ -32,44 +32,8 @@ class HudScreen extends StatexWidget<HudController> {
           /// чат
           const Chat(),
 
-          /// cтатус бар
-          SideBar(
-            initiallyOpened: true,
-            customContent: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                // контейнер для верхней части cтатус бара
-                Padding(
-                  padding: EdgeInsets.only(right: sdpPX(context, 19.4)),
-                  child: const UpperStatusBar(),
-                ),
-
-                // контейнер для нижней части cтатус бара
-                Padding(
-                  padding: EdgeInsets.only(right: sdpPX(context, 30)),
-                  child: LowerStatusBar(
-                    controller: controller,
-                  ),
-                ),
-
-                // кнопки под статус баром и кнопка для сайдбара
-                UnderStatusBarBlock(
-                  sideBarController: sideBarController,
-                  sideBar2Controller: sideBar2Controller,
-                  controller: controller,
-                ),
-
-                // уведомление новое
-                const NotificationWidget(),
-              ],
-            ),
-          ),
-
-          /// первое выдвинувшееся окно сайдбара
-          SideBarSecondWidget(
-            sideBarController: sideBarController,
-            sideBar2Controller: sideBar2Controller,
-          ),
+          /// анимимрованный сайд бар
+          SideBarAnimated(context: context),
 
           /// остальная часть экрана
           SafeArea(

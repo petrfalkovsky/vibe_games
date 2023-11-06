@@ -37,7 +37,7 @@ class _CallAnimatedState extends State<CallAnimated>
     ).animate(
       CurvedAnimation(
         parent: controller,
-        curve: const Interval(0.0, 0.150, curve: Curves.ease),
+        curve: const Interval(0.0, 0.150, curve: Curves.easeOutCubic),
       ),
     );
 
@@ -47,7 +47,7 @@ class _CallAnimatedState extends State<CallAnimated>
     ).animate(
       CurvedAnimation(
         parent: controller,
-        curve: const Interval(0.0, 0.5, curve: Curves.ease),
+        curve: const Interval(0.0, 0.5, curve: Curves.easeOutCubic),
       ),
     );
 
@@ -57,7 +57,7 @@ class _CallAnimatedState extends State<CallAnimated>
     ).animate(
       CurvedAnimation(
         parent: controller,
-        curve: const Interval(0.0, 0.5, curve: Curves.ease),
+        curve: const Interval(0.0, 0.5, curve: Curves.easeOutCubic),
       ),
     );
 
@@ -67,7 +67,7 @@ class _CallAnimatedState extends State<CallAnimated>
     ).animate(
       CurvedAnimation(
         parent: controller,
-        curve: const Interval(0.0, 0.5, curve: Curves.ease),
+        curve: const Interval(0.0, 0.5, curve: Curves.easeOutCubic),
       ),
     );
 
@@ -77,7 +77,7 @@ class _CallAnimatedState extends State<CallAnimated>
     ).animate(
       CurvedAnimation(
         parent: controller,
-        curve: const Interval(0.0, 0.5, curve: Curves.ease),
+        curve: const Interval(0.0, 0.5, curve: Curves.easeOutCubic),
       ),
     );
 
@@ -87,7 +87,7 @@ class _CallAnimatedState extends State<CallAnimated>
     ).animate(
       CurvedAnimation(
         parent: controller,
-        curve: const Interval(0.0, 0.5, curve: Curves.ease),
+        curve: const Interval(0.0, 0.5, curve: Curves.easeOutCubic),
       ),
     );
 
@@ -107,7 +107,7 @@ class _CallAnimatedState extends State<CallAnimated>
     ).animate(
       CurvedAnimation(
         parent: controller,
-        curve: const Interval(0.250, 0.375, curve: Curves.ease),
+        curve: const Interval(0.250, 0.375, curve: Curves.easeOutCubic),
       ),
     );
 
@@ -117,7 +117,7 @@ class _CallAnimatedState extends State<CallAnimated>
     ).animate(
       CurvedAnimation(
         parent: controller,
-        curve: const Interval(0.0, 0.99, curve: Curves.ease),
+        curve: const Interval(0.0, 0.99, curve: Curves.easeOutCubic),
       ),
     );
 
@@ -148,7 +148,7 @@ class _CallAnimatedState extends State<CallAnimated>
       ).animate(
         CurvedAnimation(
           parent: controller,
-          curve: const Interval(0.0, 0.8, curve: Curves.ease),
+          curve: const Interval(0.0, 0.8, curve: Curves.easeOutCubic),
         ),
       );
 
@@ -158,7 +158,7 @@ class _CallAnimatedState extends State<CallAnimated>
       ).animate(
         CurvedAnimation(
           parent: controller,
-          curve: const Interval(0.125, 0.99, curve: Curves.ease),
+          curve: const Interval(0.125, 0.99, curve: Curves.easeOutCubic),
         ),
       );
 
@@ -168,7 +168,7 @@ class _CallAnimatedState extends State<CallAnimated>
       ).animate(
         CurvedAnimation(
           parent: controller,
-          curve: const Interval(0.0, 0.8, curve: Curves.ease),
+          curve: const Interval(0.0, 0.8, curve: Curves.easeOutCubic),
         ),
       );
 
@@ -178,7 +178,7 @@ class _CallAnimatedState extends State<CallAnimated>
       ).animate(
         CurvedAnimation(
           parent: controller,
-          curve: const Interval(0.0, 0.8, curve: Curves.ease),
+          curve: const Interval(0.0, 0.8, curve: Curves.easeOutCubic),
         ),
       );
 
@@ -188,7 +188,7 @@ class _CallAnimatedState extends State<CallAnimated>
       ).animate(
         CurvedAnimation(
           parent: controller,
-          curve: const Interval(0.0, 0.8, curve: Curves.ease),
+          curve: const Interval(0.0, 0.8, curve: Curves.easeOutCubic),
         ),
       );
 
@@ -198,7 +198,7 @@ class _CallAnimatedState extends State<CallAnimated>
       ).animate(
         CurvedAnimation(
           parent: controller,
-          curve: const Interval(0.0, 0.8, curve: Curves.ease),
+          curve: const Interval(0.0, 0.8, curve: Curves.easeOutCubic),
         ),
       );
 
@@ -208,7 +208,7 @@ class _CallAnimatedState extends State<CallAnimated>
       ).animate(
         CurvedAnimation(
           parent: controller,
-          curve: const Interval(0.0, 0.8, curve: Curves.ease),
+          curve: const Interval(0.0, 0.8, curve: Curves.easeOutCubic),
         ),
       );
 
@@ -223,7 +223,7 @@ class _CallAnimatedState extends State<CallAnimated>
           curve: const Interval(
             0.250,
             0.375,
-            curve: Curves.ease,
+            curve: Curves.easeOutCubic,
           ),
         ),
       );
