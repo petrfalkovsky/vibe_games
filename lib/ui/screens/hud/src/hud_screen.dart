@@ -4,7 +4,7 @@ import 'package:get/get.dart' hide Trans;
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/screens/hud/hud_exports.dart';
 import 'package:vfx_flutter_common/getx_helpers.dart';
-import 'package:vibe_games/ui/screens/hud/widgets/call_staggered_animation/draft.dart';
+import 'package:vibe_games/ui/screens/hud/widgets/call_animated/call_animated.dart';
 import 'package:vibe_games/ui/shared/shared_exports.dart';
 
 class HudScreen extends StatexWidget<HudController> {
@@ -96,51 +96,9 @@ class HudScreen extends StatexWidget<HudController> {
                         // таймер уведомление
                         const NotiTimer(),
 
-                        // звонок (анимация так себе, не ок)
-                        // const Call(),
-
-                        AnimatedContainerDemo(context: context),
-
-                        // звонок 2 (тоже не идеальная, но сильно лучше)
-                        CallStaggeredAnimated(
-                          icon: ClipOval(
-                            child: Image.asset(
-                              AppIcons.callAvatar,
-                              width: sdpPX(context, 100),
-                              height: sdpPX(context, 100),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          isCloseLeftArrow: true,
-                          textOpen: SizedBox(
-                            width: sdpPX(context, 180),
-                            child: Text.rich(
-                              TextSpan(
-                                text: 'Михал Палыч\n',
-                                style: TextStyle(
-                                  color: AppColors.accent,
-                                  fontSize: sdpPX(context, 25),
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: AppStyles.ttNorms,
-                                ),
-                                children: <TextSpan>[
-                                  TextSpan(
-                                    text: 'Терентьев',
-                                    style: TextStyle(
-                                      color: AppColors.accent,
-                                      fontSize: sdpPX(context, 25),
-                                      fontWeight: FontWeight.w500,
-                                      fontFamily: AppStyles.ttNorms,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                          widthInfo: 440,
-                        ),
+                        // звокно (настроена анимация)
+                        // todo вынимать объекты после опасити, чтобы не мешали тапать
+                        CallAnimated(context: context),
                       ],
                     ),
                   ),
