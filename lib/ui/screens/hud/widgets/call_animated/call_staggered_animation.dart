@@ -538,3 +538,48 @@ class _CallStaggeredAnimatedState extends State<CallStaggeredAnimated>
     );
   }
 }
+
+
+
+/// применять вот так
+///  // звонок 2 (тоже не идеальная, но сильно лучше)
+                        // CallStaggeredAnimated(
+                        //   icon: ClipOval(
+                        //     child: Image.asset(
+                        //       AppIcons.callAvatar,
+                        //       width: sdpPX(context, 100),
+                        //       height: sdpPX(context, 100),
+                        //       fit: BoxFit.cover,
+                        //     ),
+                        //   ),
+                        //   isCloseLeftArrow: true,
+                        //   textOpen: SizedBox(
+                        //     width: sdpPX(context, 180),
+                        //     child: Text.rich(
+                        //       TextSpan(
+                        //         text: 'Михал Палыч\n',
+                        //         style: TextStyle(
+                        //           color: AppColors.accent,
+                        //           fontSize: sdpPX(context, 25),
+                        //           fontWeight: FontWeight.w500,
+                        //           fontFamily: AppStyles.ttNorms,
+                        //         ),
+                        //         children: <TextSpan>[
+                        //           TextSpan(
+                        //             text: 'Терентьев',
+                        //             style: TextStyle(
+                        //               color: AppColors.accent,
+                        //               fontSize: sdpPX(context, 25),
+                        //               fontWeight: FontWeight.w500,
+                        //               fontFamily: AppStyles.ttNorms,
+                        //             ),
+                        //           ),
+                        //         ],
+                        //       ),
+                        //       maxLines: 2,
+                        //       overflow: TextOverflow.ellipsis,
+                        //     ),
+                        //   ),
+                        //   widthInfo: 440,
+                        // ),
+                    
