@@ -18,8 +18,8 @@ dependencies:
   flutter_bloc: ^8.0.1
   auto_route: ^7.8.1
   flutter_dotenv: ^5.0.2
-  device_info_plus: ^3.2.3
-  package_info: ^2.0.2
+  device_info_plus: ^9.1.0
+  package_info_plus: ^4.2.0
   cupertino_icons: ^1.0.3
   easy_localization: ^3.0.3
   overlay_support: ^2.0.0
@@ -47,7 +47,6 @@ dependencies:
   speed_up_get: ^0.0.2
   mask_text_input_formatter: ^2.3.0
   number_inc_dec: ^0.8.0
-  mobile_scanner: ^2.0.0
   dotted_border: ^2.0.0+3
   vfx_flutter_common:
     git:
@@ -90,6 +89,7 @@ flutter:
     - assets/images/
     - assets/translations/
     - assets/fonts/
+
   
   fonts:
   - family: TTNorms

@@ -1,10 +1,11 @@
+// ignore_for_file: unused_local_variable
+
 import 'dart:developer';
 import 'dart:io';
-
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:package_info/package_info.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 
 abstract class IAppConfig {
   PackageInfo get packageInfo;
@@ -37,7 +38,20 @@ class AppConfig implements IAppConfig {
   static String? get devPassword => dotenv.env['DEV_USER_PASSWORD'];
 
   // ignore: non_constant_identifier_names
-  static String get OS => Platform.operatingSystem;
+  static String get OS {
+    if (kIsWeb) {
+      return 'Web';
+    } else {
+      final deviceInfo = DeviceInfoPlugin();
+      if (Platform.isAndroid) {
+        return 'Android';
+      } else if (Platform.isIOS) {
+        return 'iOS';
+      } else {
+        return 'Other';
+      }
+    }
+  }
 
   static String? _appVersion;
   // ignore: non_constant_identifier_names
@@ -76,14 +90,20 @@ class AppConfig implements IAppConfig {
     _packageName = packageInfo.packageName;
 
     final deviceInfo = DeviceInfoPlugin();
-    if (Platform.isAndroid) {
-      final di = await deviceInfo.androidInfo;
-      _isAndroid = true;
-      _deviceName = '${di.model} ${di.product}';
-    } else if (Platform.isIOS) {
-      final di = await deviceInfo.iosInfo;
-      _isIOS = true;
-      _deviceName = '${di.name} ${di.systemName} ${di.systemVersion}';
+    if (kIsWeb) {
+      _isAndroid = false;
+      _isIOS = false;
+      _deviceName = 'Web';
+    } else {
+      if (Platform.isAndroid) {
+        final di = await deviceInfo.androidInfo;
+        _isAndroid = true;
+        _deviceName = '${di.model} ${di.product}';
+      } else if (Platform.isIOS) {
+        final di = await deviceInfo.iosInfo;
+        _isIOS = true;
+        _deviceName = '${di.name} ${di.systemName} ${di.systemVersion}';
+      }
     }
 
     log('APP_ID: $packageName');
