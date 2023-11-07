@@ -33,59 +33,42 @@ class HudScreen extends StatexWidget<HudController> {
           /// анимимрованный сайд бар со статус баром внутри (правая часть худа с хилками и тп)
           SideBarAnimated(context: context),
 
-          // звонок (хорошо настроена анимация)
-          // todo вынимать объекты после опасити, чтобы не мешали тапать
+          // звонок
           CallAnimated(context: context),
 
-          /// остальная часть экрана
-          // todo а зачем мне сейфареа, если я все в стек кладу (подумать мб убрать)
-          SafeArea(
-            child: Padding(
-              padding: EdgeInsets.only(
-                top: sdpPX(context, 20),
-                bottom: sdpPX(context, 32),
-                right: sdpPX(context, 22),
-                left: sdpPX(context, 38),
-              ),
-              child: Stack(
-                children: [
-                  // кнопки обычные под картой
-                  Positioned(
-                    top: sdpPX(context, 332),
-                    left: sdpPX(context, 47),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // кнопки обычные и со слайдером под картой
-                        // todo заменить на лист, тк список динамический
-                        UnderMapButtonsBlock(controller: controller),
+          // кнопки обычные под картой
+          Positioned(
+            top: sdpPX(context, 332 + 20),
+            left: sdpPX(context, 47 + 22),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // кнопки обычные и со слайдером под картой
+                // todo заменить на лист, тк список кнопок динамический
+                UnderMapButtonsBlock(controller: controller),
 
-                        // таймер уведомление
-                        const NotiTimer(),
-                      ],
-                    ),
-                  ),
-
-                  // кнопка микрофон
-                  Positioned(
-                    top: sdpPX(context, 360),
-                    right: sdpPX(context, 310),
-                    child: const MicrophoneButton(),
-                  ),
-
-                  // кнопка чата
-                  Positioned(
-                    top: sdpPX(context, -126),
-                    left: sdpPX(context, 28),
-                    child: const ChatButtonWrapper(),
-                  ),
-
-                  // координаты, время, расстояние
-                  const Coordinates(),
-                ],
-              ),
+                // таймер уведомление
+                const NotiTimer(),
+              ],
             ),
           ),
+
+          // кнопка микрофон
+          Positioned(
+            top: sdpPX(context, 360),
+            right: sdpPX(context, 310),
+            child: const MicrophoneButton(),
+          ),
+
+          // кнопка чата
+          Positioned(
+            top: sdpPX(context, -126 + 20),
+            left: sdpPX(context, 34),
+            child: const ChatButtonWrapper(),
+          ),
+
+          // координаты, время, расстояние
+          const Coordinates(),
         ],
       ),
     );

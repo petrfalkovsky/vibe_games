@@ -92,7 +92,7 @@ class _GunsButtonBlockState extends State<GunsButtonBlock> {
           Positioned(
               bottom: sdpPX(context, 4),
               child: Transform.translate(
-                offset: Offset(sdpPX(context, -6), 0),
+                offset: Offset(sdpPX(context, -6), sdpPX(context, 0)),
                 child: Text(
                   '000-00',
                   style: TextStyle(

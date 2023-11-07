@@ -109,11 +109,12 @@ class _ChatState extends State<Chat> {
                                     fontSize: sdpPX(context, 25),
                                     fontWeight: FontWeight.w500,
                                     fontFamily: AppStyles.ttNorms,
-                                    shadows: const [
+                                    shadows: [
                                       Shadow(
                                         blurRadius: 2.0,
                                         color: Colors.black,
-                                        offset: Offset(-1.0, 0.5),
+                                        offset: Offset(sdpPX(context, -1),
+                                            sdpPX(context, 0.5)),
                                       ),
                                     ],
                                   ),

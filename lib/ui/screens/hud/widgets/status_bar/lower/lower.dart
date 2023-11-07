@@ -21,7 +21,7 @@ class LowerStatusBar extends StatelessWidget {
       () => GestureDetector(
         onTap: controller.toggleVisibleHealthSheeld,
         child: Transform.translate(
-          offset: const Offset(0, -1),
+          offset: Offset(sdpPX(context, 0), sdpPX(context, -1)),
           child: SizedBox(
               child: Stack(
             children: [
@@ -43,7 +43,8 @@ class LowerStatusBar extends StatelessWidget {
                       child: AnimatedProgressBar2(
                         borderRadius: BorderRadius.circular(sdpPX(context, 3)),
                         icon: Transform.translate(
-                          offset: Offset(sdpPX(context, -28), 0),
+                          offset:
+                              Offset(sdpPX(context, -28), sdpPX(context, 0)),
                           child: AppIcons.svgWidget(
                             AppIcons.leftPartProgressBar,
                             height: sdpPX(context, 9),
@@ -88,7 +89,8 @@ class LowerStatusBar extends StatelessWidget {
                               borderRadius:
                                   BorderRadius.circular(sdpPX(context, 3)),
                               icon: Transform.translate(
-                                offset: Offset(sdpPX(context, -28), 0),
+                                offset: Offset(
+                                    sdpPX(context, -28), sdpPX(context, 0)),
                                 child: AppIcons.svgWidget(
                                   AppIcons.leftPartProgressBar,
                                   height: sdpPX(context, 9),
@@ -127,7 +129,8 @@ class LowerStatusBar extends StatelessWidget {
                                 borderRadius:
                                     BorderRadius.circular(sdpPX(context, 3)),
                                 icon: Transform.translate(
-                                  offset: Offset(sdpPX(context, -28), 0),
+                                  offset: Offset(
+                                      sdpPX(context, -28), sdpPX(context, 0)),
                                   child: AppIcons.svgWidget(
                                     AppIcons.leftPartProgressBar,
                                     height: sdpPX(context, 9),
@@ -164,7 +167,8 @@ class LowerStatusBar extends StatelessWidget {
                                 borderRadius:
                                     BorderRadius.circular(sdpPX(context, 3)),
                                 icon: Transform.translate(
-                                  offset: Offset(sdpPX(context, -28), 0),
+                                  offset: Offset(
+                                      sdpPX(context, -28), sdpPX(context, 0)),
                                   child: AppIcons.svgWidget(
                                     AppIcons.leftPartProgressBar,
                                     height: sdpPX(context, 9),

@@ -17,22 +17,29 @@ class UnderMapButtonsBlock extends StatelessWidget {
       children: [
         /// обычные кнопки
         LeanRightButton(
-            useGradient: true,
-            gradientColor1: AppColors.background[1]?.withOpacity(0.2),
-            gradientColor2: AppColors.background[1]?.withOpacity(0.45),
-            height: sdpPX(context, 92),
-            width: sdpPX(context, 99),
-            icon:
-                AppIcons.svgWidget(AppIcons.avatar, width: sdpPX(context, 31))),
+          useGradient: true,
+          gradientColor1: AppColors.background[1]?.withOpacity(0.2),
+          gradientColor2: AppColors.background[1]?.withOpacity(0.45),
+          height: sdpPX(context, 92),
+          width: sdpPX(context, 99),
+          icon: AppIcons.svgWidget(
+            AppIcons.avatar,
+            width: sdpPX(context, 31),
+          ),
+        ),
         sdpPX(context, 16).w,
         LeanRightButton(
-            useGradient: true,
-            gradientColor1: AppColors.background[1]?.withOpacity(0.2),
-            gradientColor2: AppColors.background[1]?.withOpacity(0.45),
-            height: sdpPX(context, 92),
-            width: sdpPX(context, 99),
-            icon:
-                AppIcons.svgWidget(AppIcons.radial, width: sdpPX(context, 42))),
+          useGradient: true,
+          gradientColor1: AppColors.background[1]?.withOpacity(0.2),
+          gradientColor2: AppColors.background[1]?.withOpacity(0.45),
+          height: sdpPX(context, 92),
+          width: sdpPX(context, 99),
+          icon: AppIcons.svgWidget(
+            AppIcons.radial,
+            width: sdpPX(context, 42),
+          ),
+        ),
+
         sdpPX(context, 16).w,
 
         /// кнопка с выдвигающимся инфо
@@ -94,11 +101,6 @@ class UnderMapButtonsBlock extends StatelessWidget {
           // использовать без sdpPX(context, 25) потому ранее реализовано в виджете
           widthInfo: 220,
         ),
-
-        // старый вариант, вдруг понадобится, оставляем
-        // AnimatedInfoButton(
-        //   controller: controller,
-        // ),
       ],
     );
   }

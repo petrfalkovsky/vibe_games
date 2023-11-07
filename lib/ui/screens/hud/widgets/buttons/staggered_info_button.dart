@@ -76,21 +76,6 @@ class StaggeredAnimatedContainerInfoButton extends StatelessWidget {
           ),
         ),
 
-        /// бордер радиус первого шага
-        // borderRadius = BorderRadiusTween(
-        //   begin: BorderRadius.circular(4),
-        //   end: BorderRadius.circular(8),
-        // ).animate(
-        //   CurvedAnimation(
-        //     parent: controller,
-        //     curve: const Interval(
-        //       0.375,
-        //       0.500,
-        //       curve: Curves.easeOutCubic,
-        //     ),
-        //   ),
-        // ),
-
         /// цвет на первом шаге от и до
         color = ColorTween(
           begin: AppColors.background[1]?.withOpacity(0.3),
@@ -124,7 +109,6 @@ class StaggeredAnimatedContainerInfoButton extends StatelessWidget {
   final Animation<double> width;
   final Animation<double> height;
   final Animation<EdgeInsets> padding;
-  // final Animation<BorderRadius?> borderRadius;
   final Animation<Color?> color;
   final Animation<double> textOpacity;
 
@@ -167,39 +151,38 @@ class StaggeredAnimatedContainerInfoButton extends StatelessWidget {
                   ),
                 ),
                 Container(
-                    transform: Matrix4.skewX(0.2),
-                    child: isCloseLeftArrow
-                        ? Transform.translate(
-                            offset:
-                                Offset(sdpPX(context, 1), sdpPX(context, 0)),
+                  transform: Matrix4.skewX(0.2),
+                  child: isCloseLeftArrow
+                      ? Transform.translate(
+                          offset: Offset(sdpPX(context, 1), sdpPX(context, 0)),
 
-                            child: Image.asset(
-                              AppIcons.infoBackPNG,
-                              width: sdpPX(context, 12),
-                              color: AppColors.accent.withOpacity(0.7),
-                            ),
-                            // todo: запросить другую свгшку, с этой что-то не так
-                            // child: AppIcons.svgWidget(
-                            //   AppIcons.infoBack,
-                            //   width: sdpPX(context, 12),
-                            //   color: AppColors.accent.withOpacity(0.7),
-                            // ),
-                          )
-                        : Transform.translate(
-                            offset:
-                                Offset(sdpPX(context, 8), sdpPX(context, 0)),
-                            child: Image.asset(
-                              AppIcons.infoForwardPNG,
-                              width: sdpPX(context, 12),
-                              color: AppColors.accent.withOpacity(0.7),
-                            ),
-                            // todo: запросить другую свгшку, с этой что-то не так
-                            // child: AppIcons.svgWidget(
-                            //   AppIcons.infoForward,
-                            //   width: sdpPX(context, 12),
-                            //   color: AppColors.accent.withOpacity(0.7),
-                            // ),
-                          )),
+                          child: Image.asset(
+                            AppIcons.infoBackPNG,
+                            width: sdpPX(context, 12),
+                            color: AppColors.accent.withOpacity(0.7),
+                          ),
+                          // todo: запросить другую свгшку, с этой что-то не так
+                          // child: AppIcons.svgWidget(
+                          //   AppIcons.infoBack,
+                          //   width: sdpPX(context, 12),
+                          //   color: AppColors.accent.withOpacity(0.7),
+                          // ),
+                        )
+                      : Transform.translate(
+                          offset: Offset(sdpPX(context, 8), sdpPX(context, 0)),
+                          child: Image.asset(
+                            AppIcons.infoForwardPNG,
+                            width: sdpPX(context, 12),
+                            color: AppColors.accent.withOpacity(0.7),
+                          ),
+                          // todo: запросить другую свгшку, с этой что-то не так
+                          // child: AppIcons.svgWidget(
+                          //   AppIcons.infoForward,
+                          //   width: sdpPX(context, 12),
+                          //   color: AppColors.accent.withOpacity(0.7),
+                          // ),
+                        ),
+                ),
               ],
             ),
           ),

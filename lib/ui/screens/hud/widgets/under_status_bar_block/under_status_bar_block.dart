@@ -19,7 +19,7 @@ class UnderStatusBarBlock extends StatelessWidget {
         children: [
           // кнопки  под статус баром
           Transform.translate(
-            offset: Offset(sdpPX(context, 3), 0),
+            offset: Offset(sdpPX(context, 3), sdpPX(context, 0)),
             child: Row(
               children: [
                 LeanRightButton(

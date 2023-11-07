@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/screens/hud/hud_exports.dart';
@@ -23,7 +21,7 @@ class _SpeedometerState extends State<Speedometer> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-          /// todo позунок для демонстарции прогресса скорости можно удалитьб
+          /// todo ползунок для демонстарции прогресса скорости можно удалитьб
           SizedBox(
             width: sdpPX(context, 400),
             child: Slider(
@@ -39,7 +37,7 @@ class _SpeedometerState extends State<Speedometer> {
           ),
           Transform.translate(
             /// управлять вертикальный положением спидометра
-            offset: Offset(0, sdpPX(context, 10)),
+            offset: Offset(sdpPX(context, 0), sdpPX(context, 10)),
             child: Stack(
               children: [
                 /// циферблат спидометра
@@ -56,10 +54,11 @@ class _SpeedometerState extends State<Speedometer> {
                               gradient: LinearGradient(
                                 begin: Alignment.bottomCenter,
                                 end: Alignment.topCenter,
-                                stops: const [0.18, 2.5],
+                                stops: const [0.08, 1.5],
                                 colors: [
                                   Colors.transparent,
-                                  AppColors.background[1] ?? Colors.transparent,
+                                  AppColors.background[1] ??
+                                      const Color(0xFF482575),
                                 ],
                               ),
                             ),

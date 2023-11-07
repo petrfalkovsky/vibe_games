@@ -24,11 +24,11 @@ class _UpperStatusBarState extends State<UpperStatusBar> {
               Visibility(
                 visible: Get.find<HudController>().isVisibleStar.value,
                 child: Transform.translate(
-                  offset: Offset(sdpPX(context, 24), 0),
+                  offset: Offset(sdpPX(context, 24), sdpPX(context, 0)),
                   child: Row(
                     children: [
                       Transform.translate(
-                        offset: const Offset(8, 0),
+                        offset: Offset(sdpPX(context, 10), sdpPX(context, 0)),
                         child: AppIcons.svgWidget(AppIcons.leftPartOfStatusbar,
                             height: sdpPX(context, 58),
                             color: AppColors.background[2]),
@@ -70,7 +70,7 @@ class _UpperStatusBarState extends State<UpperStatusBar> {
                 ),
               ),
               Transform.translate(
-                offset: const Offset(1, 0),
+                offset: Offset(sdpPX(context, 1), sdpPX(context, 0)),
                 child: AppIcons.svgWidget(
                   AppIcons.leftPartOfStatusbar,
                   height: sdpPX(context, 58),
@@ -106,7 +106,7 @@ class _UpperStatusBarState extends State<UpperStatusBar> {
                 ),
               ),
               Transform.translate(
-                offset: const Offset(-1, 0),
+                offset: Offset(sdpPX(context, -1), sdpPX(context, 0)),
                 child: AppIcons.svgWidget(
                   AppIcons.rightPartOfStatusbar,
                   height: sdpPX(context, 58),
