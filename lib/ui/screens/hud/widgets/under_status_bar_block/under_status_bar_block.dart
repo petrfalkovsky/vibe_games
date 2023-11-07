@@ -6,13 +6,9 @@ import 'package:vibe_games/ui/shared/shared_exports.dart';
 class UnderStatusBarBlock extends StatelessWidget {
   const UnderStatusBarBlock({
     super.key,
-    required this.sideBarController,
-    required this.sideBar2Controller,
     required this.controller,
   });
 
-  final SideBarController sideBarController;
-  final SideBarSecondController sideBar2Controller;
   final HudController controller;
 
   @override
@@ -53,15 +49,6 @@ class UnderStatusBarBlock extends StatelessWidget {
                 const GunsButtonBlock(),
               ],
             ),
-          ),
-
-          // кнопка для сайдбара
-          SideBarButton(
-            showBadge: true,
-            height: sdpPX(context, 92),
-            sideBarController: sideBarController,
-            sideBar2Controller: sideBar2Controller,
-            controller: controller,
           ),
         ],
       ),

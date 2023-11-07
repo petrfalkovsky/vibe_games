@@ -30,7 +30,7 @@ class HudScreen extends StatexWidget<HudController> {
           /// чат
           const Chat(),
 
-          /// анимимрованный сайд бар
+          /// анимимрованный сайд бар со статус баром внутри (правая часть худа с хилками и тп)
           SideBarAnimated(context: context),
 
           // звонок (хорошо настроена анимация)
@@ -38,6 +38,7 @@ class HudScreen extends StatexWidget<HudController> {
           CallAnimated(context: context),
 
           /// остальная часть экрана
+          // todo а зачем мне сейфареа, если я все в стек кладу (подумать мб убрать)
           SafeArea(
             child: Padding(
               padding: EdgeInsets.only(

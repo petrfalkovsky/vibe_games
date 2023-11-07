@@ -81,6 +81,8 @@ class AppIcons {
   static const fist = '$_basePathImg/fist.png';
   static const gunNope = '$_basePathImg/gun_nope.png';
   static const gun = '$_basePathImg/gun.png';
+  static const infoForwardPNG = '$_basePathImg/info_forward.png';
+  static const infoBackPNG = '$_basePathImg/info_back.png';
 
   // старые
   static const speedArrow = '$_basePathImg/speed_arrow.png';

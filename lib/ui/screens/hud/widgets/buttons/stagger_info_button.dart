@@ -170,20 +170,35 @@ class StaggeredAnimatedContainerInfoButton extends StatelessWidget {
                     transform: Matrix4.skewX(0.2),
                     child: isCloseLeftArrow
                         ? Transform.translate(
-                            offset: const Offset(1, 0),
-                            child: AppIcons.svgWidget(
-                              AppIcons.infoBack,
+                            offset:
+                                Offset(sdpPX(context, 1), sdpPX(context, 0)),
+
+                            child: Image.asset(
+                              AppIcons.infoBackPNG,
                               width: sdpPX(context, 12),
                               color: AppColors.accent.withOpacity(0.7),
                             ),
+                            // todo: запросить другую свгшку, с этой что-то не так
+                            // child: AppIcons.svgWidget(
+                            //   AppIcons.infoBack,
+                            //   width: sdpPX(context, 12),
+                            //   color: AppColors.accent.withOpacity(0.7),
+                            // ),
                           )
                         : Transform.translate(
-                            offset: const Offset(6, 0),
-                            child: AppIcons.svgWidget(
-                              AppIcons.infoForward,
+                            offset:
+                                Offset(sdpPX(context, 8), sdpPX(context, 0)),
+                            child: Image.asset(
+                              AppIcons.infoForwardPNG,
                               width: sdpPX(context, 12),
                               color: AppColors.accent.withOpacity(0.7),
                             ),
+                            // todo: запросить другую свгшку, с этой что-то не так
+                            // child: AppIcons.svgWidget(
+                            //   AppIcons.infoForward,
+                            //   width: sdpPX(context, 12),
+                            //   color: AppColors.accent.withOpacity(0.7),
+                            // ),
                           )),
               ],
             ),

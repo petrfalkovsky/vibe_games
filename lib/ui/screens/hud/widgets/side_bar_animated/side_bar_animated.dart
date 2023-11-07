@@ -94,8 +94,6 @@ class _SideBarAnimatedState extends State<SideBarAnimated>
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<HudController>();
-    final sideBarController = Get.put(SideBarController());
-    final sideBar2Controller = Get.put(SideBarSecondController());
 
     return Stack(children: [
       /// статус бар
@@ -317,11 +315,7 @@ class _SideBarAnimatedState extends State<SideBarAnimated>
                     borderRadius: sdpPX(context, 12),
                     height: sdpPX(context, 83),
                     width: sdpPX(context, 194),
-                    onPressed: () {
-                      sideBarController.toggleSidebar(forceValue: false);
-                      sideBar2Controller.toggleSidebar(forceValue: false);
-                      // controller.togglePositionedVisibility();
-                    },
+                    onPressed: () {},
                     text: 'Завершить',
                     fontSize: sdpPX(context, 24),
                     leftIcon: const SizedBox(),
