@@ -3,14 +3,14 @@ import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/screens/hud/hud_exports.dart';
 import 'package:vibe_games/ui/shared/shared_exports.dart';
 
-class TurnSigns extends StatefulWidget {
-  const TurnSigns({super.key});
+class TurnSignsButton extends StatefulWidget {
+  const TurnSignsButton({super.key});
 
   @override
-  State<TurnSigns> createState() => _TurnSignsState();
+  State<TurnSignsButton> createState() => _TurnSignsButtonState();
 }
 
-class _TurnSignsState extends State<TurnSigns> {
+class _TurnSignsButtonState extends State<TurnSignsButton> {
   bool isButtonLeftVisible = true;
   bool isButtonRightVisible = true;
   bool isGasIconVisible = true;

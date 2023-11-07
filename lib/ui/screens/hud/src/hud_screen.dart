@@ -25,7 +25,7 @@ class HudScreen extends StatexWidget<HudController> {
           const Speedometer(),
 
           /// поворотники
-          const TurnSigns(),
+          const TurnSignsButton(),
 
           /// чат
           const Chat(),

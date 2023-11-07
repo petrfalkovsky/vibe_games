@@ -104,13 +104,13 @@ class _SideBarAnimatedState extends State<SideBarAnimated>
             // контейнер для верхней части cтатус бара
             Padding(
               padding: EdgeInsets.only(right: sdpPX(context, 19.4)),
-              child: const UpperStatusBar(),
+              child: const StatusBarUpper(),
             ),
 
             // контейнер для нижней части cтатус бара
             Padding(
               padding: EdgeInsets.only(right: sdpPX(context, 30)),
-              child: LowerStatusBar(
+              child: StatusBarLower(
                 controller: controller,
               ),
             ),

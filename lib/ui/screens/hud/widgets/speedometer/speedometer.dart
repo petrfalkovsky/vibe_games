@@ -333,7 +333,7 @@ class _SpeedometerState extends State<Speedometer> {
                                   fontWeight: FontWeight.normal,
                                   fontFamily: AppStyles.ttNorms,
                                   letterSpacing: sdpPX(context, 2.8),
-                                  height: sdpPX(context, 1.42)),
+                                  height: sdpPX(context, 3.25)),
                             ),
                           ),
                         ],

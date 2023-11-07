@@ -5,14 +5,14 @@ import 'package:vibe_games/ui/screens/hud/hud_exports.dart';
 import 'package:vibe_games/ui/shared/all_shared.dart';
 import 'package:vibe_games/ui/shared/constants/app_colors.dart';
 
-class UpperStatusBar extends StatefulWidget {
-  const UpperStatusBar({super.key});
+class StatusBarUpper extends StatefulWidget {
+  const StatusBarUpper({super.key});
 
   @override
-  State<UpperStatusBar> createState() => _UpperStatusBarState();
+  State<StatusBarUpper> createState() => _StatusBarUpperState();
 }
 
-class _UpperStatusBarState extends State<UpperStatusBar> {
+class _StatusBarUpperState extends State<StatusBarUpper> {
   @override
   Widget build(BuildContext context) {
     return Obx(

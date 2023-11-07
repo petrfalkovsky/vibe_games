@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
+import 'package:vibe_games/ui/screens/hud/hud_exports.dart';
 import 'package:vibe_games/ui/shared/all_shared.dart';
 import 'package:vibe_games/ui/shared/constants/app_colors.dart';
 import 'package:vibe_games/ui/shared/widgets/animated_progress_bar2.dart';
 
-import '../../../hud_exports.dart';
-
-class LowerStatusBar extends StatelessWidget {
-  const LowerStatusBar({
+class StatusBarLower extends StatelessWidget {
+  const StatusBarLower({
     super.key,
     required this.controller,
   });
