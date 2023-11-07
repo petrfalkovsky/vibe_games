@@ -11,21 +11,21 @@ class SplashScreen extends StatexWidget<SplashScreenController> {
 
   @override
   Widget buildWidget(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       // backgroundColor: AppColors.background[2],
       body: Stack(
         children: [
-          const Positioned.fill(
+          Positioned.fill(
             child: _BackgroundImage(),
           ),
           SafeArea(
             child: Center(
               child: Padding(
-                padding: const EdgeInsets.all(24.0),
+                padding: EdgeInsets.all(24.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: const [],
+                  children: [],
                 ),
               ),
             ),

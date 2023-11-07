@@ -22,8 +22,8 @@ class Start extends StatexWidget<StartController> {
           preferredSize: Size.fromHeight(227),
           child: AppBarWidget(),
         ),
-        child: Stack(
-          children: const [
+        child: const Stack(
+          children: [
             Text('data'),
           ],
         ),
@@ -64,10 +64,10 @@ class AppBarWidget extends StatelessWidget {
           elevation: 0,
           toolbarHeight: 100,
           automaticallyImplyLeading: false,
-          flexibleSpace: Column(
+          flexibleSpace: const Column(
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.end,
-            children: const [],
+            children: [],
           ),
         ),
       ],
