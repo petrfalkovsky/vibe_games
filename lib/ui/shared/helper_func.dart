@@ -1,4 +1,4 @@
-import 'package:easy_localization/easy_localization.dart';
+import 'package:intl/intl.dart';
 
 String dateToDDMMYYYY(DateTime date) {
   final d = DateFormat('dd-MM-yyyy').format(date);

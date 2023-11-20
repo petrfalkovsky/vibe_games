@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
 import 'package:vibe_games/ui/shared/shared_exports.dart';
 

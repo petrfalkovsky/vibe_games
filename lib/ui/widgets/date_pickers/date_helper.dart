@@ -1,7 +1,7 @@
 // DateUtils.getDaysInMonth(2022, 3);
 // MaterialLocalizations.of(context);
 
-import 'package:easy_localization/easy_localization.dart';
+import 'package:intl/intl.dart';
 
 abstract class DateHelper {
   const DateHelper._();

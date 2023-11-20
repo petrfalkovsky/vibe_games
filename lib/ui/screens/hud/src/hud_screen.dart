@@ -1,15 +1,15 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' hide Trans;
 import 'package:vibe_games/core/global_instans.dart/app_globals.dart';
-import 'package:vibe_games/ui/screens/hud/hud_exports.dart';
+
 import 'package:vfx_flutter_common/getx_helpers.dart';
+import 'package:vibe_games/ui/screens/hud/hud_exports.dart';
 import 'package:vibe_games/ui/screens/hud/widgets/call_animated/call_animated.dart';
 import 'package:vibe_games/ui/shared/shared_exports.dart';
 
 class HudScreen extends StatexWidget<HudController> {
   HudScreen({Key? key}) : super(() => HudController(), key: key) {
-    debugPrint('welcome_screen'.tr());
+    debugPrint('welcome_screen');
   }
 
   @override
